@@ -481,3 +481,23 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
   *{transition:none !important; animation:none !important}
   .dest-card:hover,.event:hover{transform:none}
 }
+
+/* ---------- video de cada región ---------- */
+.region-video{margin:0; display:grid; gap:.45rem}
+.rv-play{
+  position:relative; display:block; width:100%; aspect-ratio:16/9; padding:0; border:0;
+  border-radius:10px; overflow:hidden; cursor:pointer; background:#1d150f;
+}
+.rv-play img{width:100%; height:100%; object-fit:cover; display:block; opacity:.88; transition:opacity .2s, transform .3s}
+.rv-play:hover img{opacity:1; transform:scale(1.02)}
+.rv-icon{
+  position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%);
+  width:56px; height:56px; border-radius:50%;
+  background:rgba(20,12,8,.62); border:2px solid #fdf1e2;
+  display:grid; place-items:center;
+}
+.rv-icon::after{content:""; margin-left:4px; border-left:16px solid #fdf1e2; border-top:10px solid transparent; border-bottom:10px solid transparent}
+.rv-play:focus-visible{outline:3px solid var(--region); outline-offset:2px}
+.rv-frame{display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:10px; background:#000}
+.region-video figcaption{font-size:.72rem; line-height:1.4; color:var(--tinta-suave)}
+.region-video figcaption a{color:var(--region); font-weight:600; text-decoration:underline}

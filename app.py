@@ -17,7 +17,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from fotos import COLOR_REGION, FOTOS
+from fotos import COLOR_REGION, FOTOS, VIDEOS
 
 BASE = Path(__file__).parent
 DATOS = json.loads((BASE / "datos.json").read_text(encoding="utf-8"))
@@ -283,6 +283,7 @@ def index():
         destinos=DESTINOS,
         experiencias=EXPERIENCIAS,
         fotos=FOTOS,
+        videos=VIDEOS,
         penas=PENAS,
         itinerarios=ITINERARIOS,
         itinerario=itinerario,

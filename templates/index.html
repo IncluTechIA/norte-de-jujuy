@@ -108,6 +108,16 @@
             </div>
           </div>
           <p class="region-text">{{ r.texto }}</p>
+          {% set video = videos.get(r.id) %}
+          {% if video %}
+          <figure class="region-video">
+            <button class="rv-play" type="button" data-video="{{ video.id }}" data-titulo="{{ video.titulo }}" aria-label="Reproducir el video {{ video.titulo }}">
+              <img src="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
+              <span class="rv-icon" aria-hidden="true"></span>
+            </button>
+            <figcaption>{{ video.titulo }} · {{ video.canal }} · <a href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></figcaption>
+          </figure>
+          {% endif %}
           <ul class="region-facts">
             {% for dato in r.datos %}<li>{{ dato|safe }}</li>{% endfor %}
           </ul>

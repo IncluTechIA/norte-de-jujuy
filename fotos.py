@@ -78,6 +78,32 @@ FOTOS = {
     },
 }
 
+# Un video por región: el ID de YouTube, el título real del video y su canal.
+# Se incrustan con click (miniaturas propias de YouTube) para no cargar el
+# reproductor hasta que alguien lo pide.
+VIDEOS = {
+    "puna": {
+        "id": "jZMWNnEuol0",
+        "titulo": "Las Salinas Grandes en Jujuy: tips y recomendaciones",
+        "canal": "Destinos Argentina",
+    },
+    "quebrada": {
+        "id": "Gz9lNXgJbt8",
+        "titulo": "Humahuaca, el imperdible de Jujuy",
+        "canal": "Gonza & Agus",
+    },
+    "valles": {
+        "id": "QFpm-7PqYs4",
+        "titulo": "Así es San Salvador de Jujuy: qué hacer y dónde comer",
+        "canal": "Gonza & Agus",
+    },
+    "yungas": {
+        "id": "O0tDatEaFhg",
+        "titulo": "Yungas de Jujuy: maravilla oculta",
+        "canal": "TripinTV",
+    },
+}
+
 COLOR_REGION = {
     "Puna": "#d99a2b",
     "Quebrada": "#b23a2f",
