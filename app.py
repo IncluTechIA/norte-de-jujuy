@@ -31,6 +31,7 @@ EXPERIENCIAS = DATOS["EXPERIENCIAS"]
 DESTINOS = DATOS["DESTINOS"]
 REGIONES = DATOS["REGIONES"]
 CHECKLIST = DATOS["CHECKLIST"]
+FERIADOS = DATOS["FERIADOS"]
 
 MESES = [
     "enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -38,6 +39,7 @@ MESES = [
 ]
 MESES_CORTOS = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
                 "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+DIAS_CORTOS = ["lun", "mar", "mié", "jue", "vie", "sáb", "dom"]
 
 # Pueblos de la RN9 de sur a norte, con su kilómetro desde San Salvador.
 RUTA = [
@@ -159,6 +161,72 @@ def eventos_con_fecha() -> list[dict]:
             "fecha_fin_texto": formato_fecha(fin),
         })
     return sorted(salida, key=lambda e: e["inicio"])
+
+
+def feriados_del_anio() -> list[dict]:
+    """Los feriados con su fecha lista para mostrar."""
+    salida = []
+    for f in FERIADOS:
+        d = date.fromisoformat(f["fecha"])
+        salida.append({
+            **f,
+            "dia": d.day,
+            "mes_corto": MESES_CORTOS[d.month - 1],
+            "dia_semana": DIAS_CORTOS[d.weekday()],
+            "fecha": d,
+        })
+    return salida
+
+
+def rango_texto(a: date, b: date) -> str:
+    if a == b:
+        return formato_fecha(a)
+    if a.month == b.month:
+        return f"{a.day} al {b.day} de {MESES[a.month - 1]} de {b.year}"
+    return f"{a.day} de {MESES[a.month - 1]} al {b.day} de {MESES[b.month - 1]} de {b.year}"
+
+
+def fines_de_semana_largos() -> list[dict]:
+    """Bloques de tres días o más que arma cada feriado con el fin de semana.
+
+    Solo cuenta los feriados que ya tienen fecha firme: los trasladables y los
+    días puente se confirman por decreto, así que no se usan para calcular.
+    """
+    festivos = {
+        date.fromisoformat(f["fecha"]): f["nombre"]
+        for f in FERIADOS
+        if f["tipo"] in ("inamovible", "no laborable")
+    }
+    if not festivos:
+        return []
+
+    bloques: list[dict] = []
+    actual: list[date] = []
+
+    def cerrar() -> None:
+        if len(actual) >= 3 and any(d in festivos for d in actual):
+            nombres = []
+            for d in actual:
+                if d in festivos and festivos[d] not in nombres:
+                    nombres.append(festivos[d])
+            bloques.append({
+                "desde": actual[0],
+                "hasta": actual[-1],
+                "dias": len(actual),
+                "rango": rango_texto(actual[0], actual[-1]),
+                "motivo": " · ".join(nombres),
+            })
+
+    dia, ultimo = min(festivos), max(festivos)
+    while dia <= ultimo:
+        if dia in festivos or dia.weekday() >= 5:
+            actual.append(dia)
+        else:
+            cerrar()
+            actual = []
+        dia += timedelta(days=1)
+    cerrar()
+    return bloques
 
 
 def opciones_pueblo(eventos: list[dict]) -> list[str]:
@@ -334,6 +402,8 @@ def index():
         mes=mes,
         solo_destacados=solo_destacados,
         cuando=cuando_texto,
+        feriados=feriados_del_anio(),
+        findes_largos=fines_de_semana_largos(),
         calculo=calcular(origen, destino),
         origen=origen if origen in LUGARES else "jujuy",
         destino=destino if destino in LUGARES else "humahuaca",

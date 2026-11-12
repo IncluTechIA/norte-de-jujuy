@@ -227,6 +227,30 @@
         </aside>
       </div>
 
+      <div class="feriados">
+        <header class="sub-head">
+          <h3>Feriados 2027 y fines de semana largos</h3>
+          <p>Los feriados nacionales del año que viene, para cruzar con las fiestas de arriba. Los trasladables y los días puente se confirman por decreto: los que dependen de eso van marcados.</p>
+        </header>
+        {% if findes_largos %}
+        <ul class="findes">
+          {% for f in findes_largos %}
+          <li><span class="finde-dias">{{ f.dias }} días</span><strong>{{ f.rango }}</strong><span class="finde-motivo">{{ f.motivo }}</span></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <ul class="feriados-lista">
+          {% for f in feriados %}
+          <li class="feriado">
+            <span class="feriado-fecha"><b>{{ f.dia }}</b> {{ f.mes_corto }}</span>
+            <span class="feriado-nombre">{{ f.nombre }}</span>
+            <span class="feriado-dia">{{ f.dia_semana }}</span>
+            {% if f.tipo == 'no laborable' %}<span class="tag">No laborable</span>{% elif f.tipo == 'trasladable' %}<span class="tag fecha-confirmar" title="El feriado trasladable se confirma por decreto">A confirmar</span>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
       <div class="penas">
         <header class="sub-head">
           <h3>Peñas y música en vivo</h3>
