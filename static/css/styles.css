@@ -521,3 +521,8 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
   .rv-mini img{width:80px; height:45px}
   .rv-mini .rv-icon{left:49px; width:28px; height:28px}
 }
+
+.tag.fecha-confirmar{
+  background:transparent; border:1px dashed #b9a48c; color:#8a7768;
+  cursor:help;
+}

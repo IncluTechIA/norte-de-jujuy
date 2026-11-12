@@ -140,7 +140,7 @@
       <header class="section-head">
         <p class="eyebrow">02 · Agenda cultural en vivo</p>
         <h2 id="agenda-title">Qué está pasando hoy</h2>
-        <p class="section-sub">Fiestas patronales, carnavales, encuentros de copleros, festivales y ferias en las cuatro regiones. Filtrá por pueblo y por mes para ver qué cae justo en las fechas de tu viaje.</p>
+        <p class="section-sub">Fiestas patronales, carnavales, encuentros de copleros, festivales y ferias en las cuatro regiones. Filtrá por pueblo y por mes para ver qué cae justo en las fechas de tu viaje. Las que dicen «Fecha a confirmar» son fiestas cuya edición 2027 todavía no tiene fecha anunciada por sus organizadores.</p>
       </header>
 
       <div class="agenda-tools">
@@ -197,6 +197,7 @@
                 <span class="tag tipo">{{ ev.tipo }}</span>
                 {% if ev.destacado %}<span class="tag destacado">Destacada</span>{% endif %}
                 {% if ev.movil %}<span class="tag">Fecha móvil</span>{% endif %}
+                {% if ev.a_confirmar %}<span class="tag fecha-confirmar" title="Los organizadores todavía no anunciaron la fecha de esta edición">Fecha a confirmar</span>{% endif %}
               </div>
               <span class="visually-hidden">Fecha: {{ ev.fecha_texto }}{% if ev.multi %} al {{ ev.fecha_fin_texto }}{% endif %}.</span>
             </div>

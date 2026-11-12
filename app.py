@@ -100,7 +100,7 @@ def tokens_pueblo(texto: str) -> list[str]:
 # para el que se cargó a mano: en 2027 el carnaval cae del 6 al 9 de febrero
 # y en 2028, del 26 al 29.
 PASCUA = {
-    "Carnaval de la Quebrada": (-50, -47),
+    "Carnaval de la Quebrada": (-50, -42),
     "Carnaval de los Valles": (-49, -47),
     "Semana Santa en la Quebrada": (-3, 0),
 }
