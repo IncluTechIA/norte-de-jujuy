@@ -1,0 +1,18 @@
+# Blueprint de Render: https://render.com/docs/blueprint-spec
+# Se sube el repo y Render crea el servicio con estas instrucciones.
+services:
+  - type: web
+    name: norte-de-jujuy
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -c gunicorn.conf.py wsgi:app
+    healthCheckPath: /salud
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 2

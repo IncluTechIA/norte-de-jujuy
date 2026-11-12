@@ -1,0 +1,1338 @@
+{
+  "LUGARES": {
+    "jujuy": {
+      "nombre": "San Salvador de Jujuy",
+      "corto": "S.S. de Jujuy",
+      "alt": 1259
+    },
+    "yala": {
+      "nombre": "Yala",
+      "corto": "Yala",
+      "alt": 1450
+    },
+    "volcan": {
+      "nombre": "Volcán",
+      "corto": "Volcán",
+      "alt": 2084
+    },
+    "purmamarca": {
+      "nombre": "Purmamarca",
+      "corto": "Purmamarca",
+      "alt": 2324
+    },
+    "maimara": {
+      "nombre": "Maimará",
+      "corto": "Maimará",
+      "alt": 2390
+    },
+    "tilcara": {
+      "nombre": "Tilcara",
+      "corto": "Tilcara",
+      "alt": 2461
+    },
+    "huacalera": {
+      "nombre": "Huacalera",
+      "corto": "Huacalera",
+      "alt": 2640
+    },
+    "uquia": {
+      "nombre": "Uquía",
+      "corto": "Uquía",
+      "alt": 2800
+    },
+    "humahuaca": {
+      "nombre": "Humahuaca",
+      "corto": "Humahuaca",
+      "alt": 3012
+    },
+    "hornocal": {
+      "nombre": "Mirador del Hornocal",
+      "corto": "Hornocal",
+      "alt": 4350
+    },
+    "trecruces": {
+      "nombre": "Tres Cruces",
+      "corto": "Tres Cruces",
+      "alt": 3690
+    },
+    "abrapampa": {
+      "nombre": "Abra Pampa",
+      "corto": "Abra Pampa",
+      "alt": 3484
+    },
+    "laquiaca": {
+      "nombre": "La Quiaca",
+      "corto": "La Quiaca",
+      "alt": 3442
+    },
+    "yavi": {
+      "nombre": "Yavi",
+      "corto": "Yavi",
+      "alt": 3400
+    },
+    "salinas": {
+      "nombre": "Salinas Grandes",
+      "corto": "Salinas Grandes",
+      "alt": 3450
+    },
+    "calilegua": {
+      "nombre": "Calilegua",
+      "corto": "Calilegua",
+      "alt": 480
+    },
+    "vallegrande": {
+      "nombre": "Valle Grande",
+      "corto": "Valle Grande",
+      "alt": 2313
+    }
+  },
+  "TRAMOS": [
+    [
+      "jujuy",
+      "yala",
+      13,
+      20
+    ],
+    [
+      "yala",
+      "purmamarca",
+      52,
+      55
+    ],
+    [
+      "jujuy",
+      "volcan",
+      45,
+      40
+    ],
+    [
+      "volcan",
+      "purmamarca",
+      20,
+      22
+    ],
+    [
+      "purmamarca",
+      "maimara",
+      11,
+      12
+    ],
+    [
+      "maimara",
+      "tilcara",
+      8,
+      12
+    ],
+    [
+      "tilcara",
+      "huacalera",
+      16,
+      20
+    ],
+    [
+      "huacalera",
+      "uquia",
+      11,
+      15
+    ],
+    [
+      "uquia",
+      "humahuaca",
+      15,
+      20
+    ],
+    [
+      "humahuaca",
+      "trecruces",
+      26,
+      30
+    ],
+    [
+      "trecruces",
+      "abrapampa",
+      45,
+      55
+    ],
+    [
+      "abrapampa",
+      "laquiaca",
+      93,
+      95
+    ],
+    [
+      "laquiaca",
+      "yavi",
+      13,
+      20
+    ],
+    [
+      "humahuaca",
+      "hornocal",
+      25,
+      60
+    ],
+    [
+      "purmamarca",
+      "salinas",
+      65,
+      90
+    ],
+    [
+      "tilcara",
+      "salinas",
+      76,
+      100
+    ],
+    [
+      "jujuy",
+      "calilegua",
+      106,
+      110
+    ],
+    [
+      "calilegua",
+      "vallegrande",
+      50,
+      90
+    ]
+  ],
+  "EVENTOS": [
+    {
+      "nombre": "Enero Tilcareño",
+      "pueblo": "Tilcara",
+      "tipo": "Música",
+      "mes": 1,
+      "dia": 5,
+      "hasta": 31,
+      "lugar": "Tilcara · anfiteatro y plaza",
+      "desc": "Un mes entero de folklore en el corazón de la Quebrada: peñas, festivales, copleros y bandas de sikuris. Es la época en que Tilcara duplica su población y la música no para hasta la madrugada.",
+      "destacado": true
+    },
+    {
+      "nombre": "Fiesta de la Candelaria",
+      "pueblo": "Humahuaca",
+      "tipo": "Religiosa",
+      "mes": 2,
+      "dia": 2,
+      "lugar": "Humahuaca · iglesia y calles del centro",
+      "desc": "Fiesta patronal con procesión, bandas de sikuris, danzas y misachicos. Los pueblos de la Quebrada y la Puna peregrinan con sus imágenes hasta la iglesia.",
+      "destacado": false
+    },
+    {
+      "nombre": "Carnaval de la Quebrada",
+      "pueblo": "Tilcara · Maimará · Humahuaca",
+      "tipo": "Carnaval",
+      "mes": 2,
+      "dia": 6,
+      "hasta": 9,
+      "movil": true,
+      "lugar": "Toda la Quebrada · desentierro del diablo",
+      "desc": "El carnaval andino: desentierro del diablo (o del mojón) en cada pueblo, comparsas, harina, talco, coplas al son del erkencho y la caja. En Tilcara y Maimará el desentierro arranca el sábado; el entierro, el miércoles de ceniza.",
+      "destacado": true
+    },
+    {
+      "nombre": "Fiesta de la Vendimia de Altura",
+      "pueblo": "Maimará",
+      "tipo": "Festival",
+      "mes": 3,
+      "dia": 14,
+      "lugar": "Maimará · bodegas y plaza",
+      "desc": "Cosecha de los viñedos de altura con degustaciones, música en vivo y la elección de la reina. El vino de la Quebrada se hace entre 2.300 y 2.800 metros.",
+      "destacado": false
+    },
+    {
+      "nombre": "Semana Santa en la Quebrada",
+      "pueblo": "Humahuaca · Uquía",
+      "tipo": "Religiosa",
+      "mes": 3,
+      "dia": 26,
+      "hasta": 28,
+      "movil": true,
+      "lugar": "Humahuaca · Vía Crucis y cerros",
+      "desc": "El Vía Crucis sube por las laderas con cientos de fieles, y las procesiones nocturnas iluminan las calles de piedra. Se llena todo: reservá alojamiento con meses de anticipación.",
+      "destacado": false
+    },
+    {
+      "nombre": "Fiesta de la Cosecha y la Trilla",
+      "pueblo": "Huacalera",
+      "tipo": "Festival",
+      "mes": 4,
+      "dia": 12,
+      "lugar": "Huacalera · chacras y plaza",
+      "desc": "Celebración campesina de la trilla del trigo y el maíz, con comida de olla, coplas y música de caja. Una buena excusa para conocer el costado rural del pueblo del Trópico de Capricornio.",
+      "destacado": false
+    },
+    {
+      "nombre": "Inti Raymi · Año Nuevo Andino",
+      "pueblo": "Tilcara · Humahuaca",
+      "tipo": "Andina",
+      "mes": 6,
+      "dia": 21,
+      "lugar": "Tilcara · Pucará · Humahuaca · Hornocal",
+      "desc": "El solsticio de invierno y el año nuevo de los pueblos andinos. Ceremonias al amanecer con ofrendas a la Pachamama, música de sikuris y fuego. En Tilcara se hace en el Pucará; en Humahuaca, en los miradores al alba.",
+      "destacado": true
+    },
+    {
+      "nombre": "Fiesta de San Juan · Fogatas",
+      "pueblo": "Toda la Quebrada",
+      "tipo": "Tradición",
+      "mes": 6,
+      "dia": 24,
+      "lugar": "Pueblos y parajes de la Quebrada y la Puna",
+      "desc": "Noche de fogatas, brasas y música. Se salta el fuego, se comparte pan y vino, y se agradece la cosecha. En la Puna se suma el ritual del agua y la limpieza de los canales.",
+      "destacado": false
+    },
+    {
+      "nombre": "Fiesta de la Pachamama",
+      "pueblo": "Toda la Quebrada y Puna",
+      "tipo": "Andina",
+      "mes": 8,
+      "dia": 1,
+      "hasta": 31,
+      "lugar": "Purmamarca · Tilcara · Humahuaca · Yavi",
+      "desc": "El mes de la Madre Tierra: se abre la boca de la tierra, se ofrece comida, chicha y hojas de coca. Los 1 de agosto son los actos centrales, pero todo el mes hay ceremonias, ferias y música en los pueblos.",
+      "destacado": true
+    },
+    {
+      "nombre": "Encuentro de Bandas de Sikuris",
+      "pueblo": "Humahuaca",
+      "tipo": "Música",
+      "mes": 9,
+      "dia": 20,
+      "lugar": "Humahuaca · anfiteatro y calles",
+      "desc": "Decenas de bandas de sikuris y aerófonos andinos de toda la Puna se encuentran en la ciudad histórica. Un fin de semana de bombos, zampoñas y desfile por las calles empedradas.",
+      "destacado": false
+    },
+    {
+      "nombre": "Encuentro de Bandoneones",
+      "pueblo": "Purmamarca",
+      "tipo": "Música",
+      "mes": 10,
+      "dia": 10,
+      "lugar": "Purmamarca · salón municipal y plaza",
+      "desc": "Tango, chacarera y folklore con bandoneón, en el pueblo de los Siete Colores. Conciertos gratuitos y milonga al atardecer frente al cerro.",
+      "destacado": false
+    },
+    {
+      "nombre": "Día de Todos los Santos · Cementerio de Altura",
+      "pueblo": "Maimará",
+      "tipo": "Tradición",
+      "mes": 11,
+      "dia": 1,
+      "hasta": 2,
+      "lugar": "Maimará · Cementerio de Altura",
+      "desc": "Las familias velan a sus muertos toda la noche con comida, música y flores. Las ofrendas y las velas en el cementerio sobre la Paleta del Pintor son una de las imágenes más fuertes del año.",
+      "destacado": true
+    },
+    {
+      "nombre": "Feria de Artesanos de la Quebrada",
+      "pueblo": "Tilcara",
+      "tipo": "Feria",
+      "mes": 11,
+      "dia": 8,
+      "hasta": 9,
+      "lugar": "Tilcara · plaza y mercado artesanal",
+      "desc": "Tejidos de llama, cerámica, instrumentos y tallas en piedra de los artesanos de la Quebrada. Se suma a la feria permanente del mercado, abierta todos los días.",
+      "destacado": false
+    },
+    {
+      "nombre": "Peregrinación a la Virgen de Copacabana",
+      "pueblo": "La Quiaca",
+      "tipo": "Religiosa",
+      "mes": 12,
+      "dia": 8,
+      "lugar": "La Quiaca · santuario y frontera",
+      "desc": "La fiesta grande de la Puna y de la frontera con Bolivia: procesión, danzas, bandas y feria. Si viajás al norte profundo en diciembre, es la fecha que hay que ver.",
+      "destacado": false
+    },
+    {
+      "nombre": "Fiesta Nacional de los Estudiantes",
+      "pueblo": "San Salvador de Jujuy",
+      "tipo": "Festival",
+      "mes": 9,
+      "dia": 21,
+      "movil": true,
+      "lugar": "San Salvador · centro, avenidas y Ciudad Cultural",
+      "desc": "La fiesta más grande de los Valles: carrozas, desfiles y tribunas armadas por los colegios durante toda la segunda quincena. Es la semana en que la capital se llena de estudiantes de toda la provincia.",
+      "destacado": true
+    },
+    {
+      "nombre": "Carnaval de los Valles",
+      "pueblo": "San Salvador de Jujuy · El Carmen",
+      "tipo": "Carnaval",
+      "mes": 2,
+      "dia": 7,
+      "hasta": 9,
+      "movil": true,
+      "lugar": "San Salvador y El Carmen · corsos y clubes",
+      "desc": "Corsos, murgas y comparsas barriales, con agua y espuma en las calles. El carnaval de los Valles es urbano y nocturno: se baila hasta la madrugada en los clubes y en la calle.",
+      "destacado": false
+    },
+    {
+      "nombre": "Temporada de senderos en Calilegua",
+      "pueblo": "Calilegua",
+      "tipo": "Naturaleza",
+      "mes": 5,
+      "dia": 1,
+      "hasta": 31,
+      "lugar": "Parque Nacional Calilegua · RP83",
+      "desc": "De mayo a octubre, con menos lluvia, están habilitados los senderos de selva y el camino de cornisa se mantiene firme. Buen momento para el avistaje: las aves salen temprano y la niebla se despeja antes del mediodía.",
+      "destacado": false
+    }
+  ],
+  "PENAS": [
+    {
+      "pueblo": "Tilcara",
+      "zona": "Centro · calles Belgrano, Lavalle y Rivadavia",
+      "titulo": "La capital de la peña",
+      "texto": "La mayor concentración de peñas de la Quebrada: cena de locro o llama, guitarra, bombo y copleros. Los fines de semana hay bandas en vivo y a veces baile hasta las 3 de la mañana.",
+      "meta": [
+        "Desde 21 h",
+        "Show 22:30",
+        "Reservar en temporada alta"
+      ]
+    },
+    {
+      "pueblo": "Purmamarca",
+      "zona": "Plaza y acceso a la RN52",
+      "titulo": "Peñas chicas y tranquilas",
+      "texto": "Menos cantidad, más calma. Restaurantes con música en vivo sobre la plaza y cerca del acceso a las Salinas; se cena temprano y se cierra cerca de la medianoche.",
+      "meta": [
+        "Cierra temprano",
+        "Ideal familias",
+        "Música 21-23 h"
+      ]
+    },
+    {
+      "pueblo": "Humahuaca",
+      "zona": "Calle Buenos Aires y alrededores de la plaza",
+      "titulo": "Copleros y sikuris",
+      "texto": "La ciudad más grande y la más tradicional. Peñas de varios pisos, grupos de sikuris que aparecen después de la procesión y copleros que cantan a la caja en plena calle.",
+      "meta": [
+        "Desde 21 h",
+        "Mucha oferta",
+        "Fuerte en fiestas patronales"
+      ]
+    },
+    {
+      "pueblo": "Maimará",
+      "zona": "Vera de la ruta, frente a la Paleta del Pintor",
+      "titulo": "Peñas de paso",
+      "texto": "Locales pequeños de una sola sala, con público local y viajeros que se quedan. Buena opción si dormís en Maimará y no querés volver de noche desde Tilcara.",
+      "meta": [
+        "Ambiente local",
+        "Reservar",
+        "Música 22 h"
+      ]
+    },
+    {
+      "pueblo": "Uquía y Huacalera",
+      "zona": "Pueblos de la Quebrada central",
+      "titulo": "Música de pueblo",
+      "texto": "No hay circuito de peñas: hay fiestas patronales, cumpleaños y salones comunales. Preguntá en la hostería si hay algo esa noche — cuando lo hay, es de las mejores experiencias del viaje.",
+      "meta": [
+        "Sin horario fijo",
+        "Preguntar en el pueblo"
+      ]
+    },
+    {
+      "pueblo": "La Puna · Abra Pampa y La Quiaca",
+      "zona": "Puna jujeña",
+      "titulo": "Fiesta andina",
+      "texto": "La música en vivo aparece en las fiestas patronales y en las ferias, no en un circuito nocturno. En La Quiaca, los fines de semana se arma baile con bandas locales.",
+      "meta": [
+        "Fin de semana",
+        "Fiestas patronales"
+      ]
+    },
+    {
+      "pueblo": "San Salvador de Jujuy",
+      "zona": "Centro · barrio Güemes y alrededores de la plaza",
+      "titulo": "Peñas urbanas",
+      "texto": "La capital tiene el circuito de peñas más constante de la provincia, sin temporada: cena, guitarra y folklore de martes a sábado. Es también donde se pueden escuchar bandas de la Puna y de las Yungas en un mismo fin de semana.",
+      "meta": [
+        "Desde 21 h",
+        "Martes a sábado",
+        "Reservar el viernes"
+      ]
+    },
+    {
+      "pueblo": "Calilegua y Valle Grande",
+      "zona": "Yungas · fincas y balnearios",
+      "titulo": "Fogones de finca",
+      "texto": "No hay circuito nocturno: la música aparece en las fiestas de las fincas, en los cumpleaños y en los balnearios de verano. Preguntá en el parador o en la hostería si hay fogón esa noche.",
+      "meta": [
+        "Sin horario fijo",
+        "Fiestas de finca",
+        "Más movimiento en verano"
+      ]
+    }
+  ],
+  "ITINERARIOS": [
+    {
+      "id": "corta",
+      "tab": "Escapada rápida",
+      "tabSub": "3 días",
+      "titulo": "Escapada rápida: Purmamarca, Tilcara y Salinas",
+      "resumen": "La dosis mínima de Quebrada, bien armada: un solo cambio de alojamiento, los tres imperdibles y una subida a 3.400 m para probar la altura.",
+      "pills": [
+        "3 días / 2 noches",
+        "≈ 320 km",
+        "Máx. 3.450 m",
+        "Sin 4x4"
+      ],
+      "dias": [
+        {
+          "titulo": "Purmamarca y los Siete Colores",
+          "base": "Purmamarca · 2.324 m",
+          "bloques": [
+            [
+              "08:00",
+              "Salida de San Salvador de Jujuy por RN9 (65 km, ≈ 1 h 15 min)."
+            ],
+            [
+              "09:30",
+              "Cerro de los Siete Colores desde el mirador del acceso y el Paseo de los Colorados: circuito de 1 h, plano y sin exigencia."
+            ],
+            [
+              "12:30",
+              "Almuerzo liviano y tarde de aclimatación. No programes trekking el primer día."
+            ],
+            [
+              "16:00",
+              "Iglesia de Santa Rosa de Lima, feria de artesanos y plaza."
+            ],
+            [
+              "18:30",
+              "Atardecer sobre el cerro y noche en Purmamarca."
+            ]
+          ],
+          "alerta": "Dormir la primera noche a 2.300 m (y no en Humahuaca) es la mejor forma de aclimatarse antes de subir a las Salinas."
+        },
+        {
+          "titulo": "Salinas Grandes y Maimará",
+          "base": "Tilcara · 2.461 m",
+          "bloques": [
+            [
+              "07:30",
+              "Salida temprano hacia las Salinas Grandes por RN52 (65 km, ≈ 1 h 30 min): el camino sube hasta 4.170 m en la Cuesta del Lipán."
+            ],
+            [
+              "09:00",
+              "Salinas Grandes: salar a 3.450 m. Llevá agua, protector solar y abrigo; el viento es fuerte."
+            ],
+            [
+              "12:30",
+              "Regreso y almuerzo en Purmamarca o Maimará."
+            ],
+            [
+              "15:30",
+              "Maimará: Paleta del Pintor y el Cementerio de Altura (11 km desde Purmamarca)."
+            ],
+            [
+              "18:00",
+              "Llegada a Tilcara (19 km desde Purmamarca) y peña con música en vivo."
+            ]
+          ],
+          "alerta": "El mirador de la Cuesta del Lipán es el punto más alto del viaje: no hagas esfuerzo físico ahí. Si venís con niños, controlá el malestar antes de seguir."
+        },
+        {
+          "titulo": "Pucará, Garganta del Diablo y regreso",
+          "base": "Tilcara · 2.461 m",
+          "bloques": [
+            [
+              "09:00",
+              "Pucará de Tilcara: fortaleza prehispánica reconstruida, con vista a toda la Quebrada (2 h de recorrido)."
+            ],
+            [
+              "11:30",
+              "Jardín Botánico de Altura, dentro del mismo predio, y puente sobre el río Grande."
+            ],
+            [
+              "13:00",
+              "Almuerzo y mercado artesanal de la plaza."
+            ],
+            [
+              "15:00",
+              "Garganta del Diablo (1 h 30 min ida y vuelta, caminata corta sobre piedra) o tarde libre."
+            ],
+            [
+              "17:00",
+              "Regreso a San Salvador de Jujuy (84 km, ≈ 1 h 45 min)."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clasico",
+      "tab": "Recorrido clásico",
+      "tabSub": "5 a 7 días",
+      "titulo": "Recorrido clásico: la Quebrada completa hasta el Hornocal",
+      "resumen": "De Purmamarca a Humahuaca pueblo por pueblo, con Salinas Grandes y el Cerro de los 14 Colores. Sumando dos días entrás a la Puna en serio.",
+      "pills": [
+        "5 días (7 con Puna)",
+        "≈ 480 km",
+        "Máx. 4.350 m",
+        "Auto propio recomendado"
+      ],
+      "dias": [
+        {
+          "titulo": "Jujuy → Purmamarca",
+          "base": "Purmamarca · 2.324 m",
+          "bloques": [
+            [
+              "09:00",
+              "Salida por RN9, con parada en Yala o Volcán para el café."
+            ],
+            [
+              "10:30",
+              "Llegada a Purmamarca: mirador del Cerro de los Siete Colores y Paseo de los Colorados."
+            ],
+            [
+              "14:00",
+              "Almuerzo y plaza; tarde de aclimatación."
+            ],
+            [
+              "19:00",
+              "Atardecer: el cerro se ve mejor cuando la luz baja. Noche en Purmamarca."
+            ]
+          ]
+        },
+        {
+          "titulo": "Salinas Grandes y descenso a Tilcara",
+          "base": "Tilcara · 2.461 m",
+          "bloques": [
+            [
+              "07:30",
+              "Salinas Grandes por RN52 (65 km, ≈ 1 h 30 min, Cuesta del Lipán hasta 4.170 m)."
+            ],
+            [
+              "11:00",
+              "Regreso bajando; parada en Maimará: Paleta del Pintor y Cementerio de Altura."
+            ],
+            [
+              "14:00",
+              "Almuerzo en Maimará y traslado a Tilcara (8 km)."
+            ],
+            [
+              "17:00",
+              "Mercado artesanal y plaza; peña de noche."
+            ]
+          ],
+          "alerta": "Si te ofrecen cruzar el salar en vehículo, verificá que sea 4x4 habilitado: hay zonas blandas y no hay señal para pedir auxilio."
+        },
+        {
+          "titulo": "Tilcara a fondo",
+          "base": "Tilcara · 2.461 m",
+          "bloques": [
+            [
+              "09:00",
+              "Pucará de Tilcara: 2 h de recorrido con guía local."
+            ],
+            [
+              "11:30",
+              "Jardín Botánico de Altura (mismo predio)."
+            ],
+            [
+              "13:00",
+              "Almuerzo; siesta breve."
+            ],
+            [
+              "15:00",
+              "Garganta del Diablo: caminata corta entre paredones y norte del río Grande."
+            ],
+            [
+              "20:30",
+              "Peña con folklore en vivo, la especialidad de Tilcara."
+            ]
+          ]
+        },
+        {
+          "titulo": "Tilcara → Huacalera → Uquía → Humahuaca",
+          "base": "Humahuaca · 3.012 m",
+          "bloques": [
+            [
+              "09:00",
+              "Salida: Huacalera, el monolito del Trópico de Capricornio (16 km)."
+            ],
+            [
+              "10:30",
+              "Uquía: iglesia de San Francisco de Paula y sus Ángeles Arcabuceros (11 km)."
+            ],
+            [
+              "12:00",
+              "Quebrada de las Señoritas, caminata corta hacia el norte de Uquía."
+            ],
+            [
+              "14:30",
+              "Humahuaca (15 km): Monumento a los Héroes de la Independencia, calles empedradas y mercado."
+            ],
+            [
+              "19:00",
+              "Atardecer desde el mirador del pueblo."
+            ]
+          ]
+        },
+        {
+          "titulo": "Hornocal y regreso",
+          "base": "Hornocal · 4.350 m",
+          "bloques": [
+            [
+              "08:00",
+              "Salida hacia la Serranía del Hornocal: 25 km de ripio, ≈ 1 h, solo con vehículo alto o excursión 4x4."
+            ],
+            [
+              "09:30",
+              "Mirador del Cerro de los 14 Colores, a 4.350 m. Media hora es suficiente: el aire es escaso."
+            ],
+            [
+              "13:00",
+              "Regreso a Humahuaca y almuerzo."
+            ],
+            [
+              "15:00",
+              "Viaje directo a San Salvador de Jujuy (126 km, ≈ 2 h 15 min)."
+            ]
+          ],
+          "alerta": "El camino al Hornocal es de montaña sin baranda. No subas con lluvia ni con vehículo bajo; consultá el estado del camino en turismo de Humahuaca."
+        }
+      ],
+      "nota": "Con dos días más: sumá el tren solar y la Puna desde Tres Cruces hasta La Quiaca y Yavi (ver itinerario extendido)."
+    },
+    {
+      "id": "extendido",
+      "tab": "Aventura extendida",
+      "tabSub": "8 a 10 días",
+      "titulo": "Aventura extendida: Puna, Yavi y el Tren Solar",
+      "resumen": "La Quebrada como puerta de entrada al altiplano: valles, Puna jujeña, la frontera con Bolivia y los pueblos de la cuesta.",
+      "pills": [
+        "8 a 10 días",
+        "≈ 900 km",
+        "Máx. 4.350 m",
+        "Tanque lleno siempre"
+      ],
+      "dias": [
+        {
+          "titulo": "Tren Solar y Quebrada baja",
+          "base": "Purmamarca · 2.324 m",
+          "bloques": [
+            [
+              "08:30",
+              "Salida de Jujuy hacia Volcán (45 km) para el Tren Solar de la Quebrada."
+            ],
+            [
+              "10:00",
+              "Recorrido en tren por la vieja vía del Ferrocarril Belgrano, con paradas en la Quebrada."
+            ],
+            [
+              "15:00",
+              "Purmamarca: miradores y Paseo de los Colorados. Noche en la Quebrada."
+            ]
+          ],
+          "alerta": "El tren tiene pocas frecuencias y lugares limitados: reservá online antes de armar el resto del itinerario."
+        },
+        {
+          "titulo": "Salinas Grandes y Tilcara",
+          "base": "Tilcara · 2.461 m",
+          "bloques": [
+            [
+              "07:30",
+              "Salinas Grandes por la Cuesta del Lipán."
+            ],
+            [
+              "13:00",
+              "Maimará y Tilcara; tarde de Pucará o mercado."
+            ],
+            [
+              "20:30",
+              "Peña en Tilcara."
+            ]
+          ]
+        },
+        {
+          "titulo": "Quebrada central",
+          "base": "Humahuaca · 3.012 m",
+          "bloques": [
+            [
+              "09:00",
+              "Huacalera, Uquía y Quebrada de las Señoritas."
+            ],
+            [
+              "15:00",
+              "Humahuaca: centro histórico y Monumento a los Héroes."
+            ],
+            [
+              "18:00",
+              "Noche en Humahuaca."
+            ]
+          ]
+        },
+        {
+          "titulo": "Hornocal y la subida a la Puna",
+          "base": "Tres Cruces · 3.690 m",
+          "bloques": [
+            [
+              "08:00",
+              "Hornocal temprano (25 km de ripio)."
+            ],
+            [
+              "12:00",
+              "Regreso a Humahuaca, carga de combustible y almuerzo."
+            ],
+            [
+              "15:00",
+              "Subida por la Cuesta de Tres Cruces: cambio total de paisaje, puna y cardones."
+            ],
+            [
+              "18:00",
+              "Tres Cruces y noche en el altiplano."
+            ]
+          ],
+          "alerta": "Última estación de servicio antes de la Puna: Tilcara o Humahuaca. Cargá nafta aunque el tanque esté por la mitad."
+        },
+        {
+          "titulo": "Abra Pampa y La Quiaca",
+          "base": "La Quiaca · 3.442 m",
+          "bloques": [
+            [
+              "09:00",
+              "Tres Cruces → Abra Pampa (45 km): feria y mercado de la Puna."
+            ],
+            [
+              "13:00",
+              "Almuerzo y viaje a La Quiaca (93 km, ≈ 1 h 35 min)."
+            ],
+            [
+              "16:30",
+              "Frontera con Villazón (Bolivia), feria y centro; si querés, pasada al lado boliviano con documento."
+            ],
+            [
+              "20:00",
+              "Noche en La Quiaca."
+            ]
+          ]
+        },
+        {
+          "titulo": "Yavi y el regreso",
+          "base": "Yavi · 3.400 m",
+          "bloques": [
+            [
+              "09:00",
+              "Yavi (13 km): iglesia de San Francisco, casa del Marqués y el río Yavi Chico."
+            ],
+            [
+              "12:00",
+              "Almuerzo y regreso hacia el sur por la RN9."
+            ],
+            [
+              "19:00",
+              "Llegada a San Salvador de Jujuy (290 km, ≈ 4 h 30 min de viaje total)."
+            ]
+          ],
+          "alerta": "De noche y con viento, manejá con precaución: hay animales sueltos y bancos de niebla en la cuesta."
+        }
+      ]
+    },
+    {
+      "id": "yungas",
+      "tab": "Yungas y Valles",
+      "tabSub": "3 a 4 días",
+      "titulo": "Yungas y Valles: la selva y la capital",
+      "resumen": "El otro Jujuy, el que baja en lugar de subir: selva de montaña, ríos de agua clara y la ciudad donde se arma el viaje. Sin altura y sin soroche.",
+      "pills": [
+        "3 días / 2 noches",
+        "≈ 380 km",
+        "Máx. 2.313 m",
+        "Ripio consolidado"
+      ],
+      "dias": [
+        {
+          "titulo": "San Salvador → Calilegua",
+          "base": "Calilegua · 480 m",
+          "bloques": [
+            [
+              "08:00",
+              "Salida de San Salvador por RN34 hacia el este (106 km, ≈ 2 h), entre cañaverales e ingenios."
+            ],
+            [
+              "10:30",
+              "Centro de Visitantes Aguas Negras: mapa de senderos, horarios y estado de la RP83."
+            ],
+            [
+              "11:30",
+              "Sendero La Lagunita: 1 h 30 min de selva de pedemonte, con guía o guardaparque."
+            ],
+            [
+              "16:00",
+              "Tarde en el río San Lorenzo y noche en Calilegua o Libertador San Martín."
+            ]
+          ],
+          "alerta": "En la selva se camina con manga larga y repelente, incluso con calor: hay mosquitos y garrapatas."
+        },
+        {
+          "titulo": "RP83: de la selva a Valle Grande",
+          "base": "Valle Grande · 2.313 m",
+          "bloques": [
+            [
+              "08:30",
+              "Subida por la RP83, ripio consolidado y curvas: 50 km hasta Valle Grande, ≈ 1 h 30 min."
+            ],
+            [
+              "10:00",
+              "Mesada de las Colmenas (1.200 m): mirador sobre la selva y comienzo de la selva montana."
+            ],
+            [
+              "12:00",
+              "Abra de Cañas (1.800 m), límite del parque: cambia la vegetación y aparece la niebla."
+            ],
+            [
+              "15:00",
+              "Valle Grande: río, balnearios y cabalgatas; noche en el pueblo."
+            ]
+          ],
+          "alerta": "La RP83 es de cornisa y angosta: manejá de día, despacio, y con cuidado con la fauna y los ciclistas."
+        },
+        {
+          "titulo": "Regreso y tarde en los Valles",
+          "base": "San Salvador · 1.259 m",
+          "bloques": [
+            [
+              "09:00",
+              "Regreso por la RP83 hasta Libertador San Martín y RN34 hacia el sur."
+            ],
+            [
+              "12:30",
+              "Almuerzo en San Pedro o en la capital."
+            ],
+            [
+              "15:30",
+              "Termas de Reyes o balneario de Yala, a 20 minutos de la ciudad."
+            ],
+            [
+              "19:00",
+              "Mercado central y peña en San Salvador para cerrar el viaje."
+            ]
+          ],
+          "alerta": "Si volvés de noche por la RN34, sumá tiempo: es ruta de camiones y hay cruces sin semáforo."
+        }
+      ],
+      "nota": "Con un día más, seguí la RP83 hasta San Francisco y Santa Bárbara, o subí a la Quebrada al día siguiente (130 km por RN9)."
+    }
+  ],
+  "EXPERIENCIAS": [
+    {
+      "titulo": "Ruta del Vino de Altura",
+      "donde": "Huacalera · Maimará · Tilcara",
+      "paleta": [
+        "#6b1f2e",
+        "#8e3a4a",
+        "#c77a63",
+        "#e0b48a",
+        "#5d6a45"
+      ],
+      "texto": "Viñedos entre 2.300 y 2.800 metros, con uvas de piel gruesa, noches frías y sol intenso. Bodegas familiares que abren con reserva previa.",
+      "items": [
+        "Degustaciones en bodegas boutique (Tilcara y Maimará)",
+        "Torrontés riojano y malbec de altura",
+        "Fiesta de la Vendimia de Altura en marzo"
+      ]
+    },
+    {
+      "titulo": "Turismo comunitario",
+      "donde": "Comunidades de la Quebrada y la Puna",
+      "paleta": [
+        "#4a5f47",
+        "#7c8a55",
+        "#b79a5e",
+        "#d8c39a",
+        "#7a5c3f"
+      ],
+      "texto": "Propuestas gestionadas por comunidades originarias: caminatas con pastores, telares, apicultura, preparación de comida de olla y estadías en casas de familia.",
+      "items": [
+        "Talleres de telar y tintes naturales",
+        "Pastoreo de llamas y ovejas con familias puneñas",
+        "Ferias de trueque y mercados de la Puna"
+      ]
+    },
+    {
+      "titulo": "Trekking y aventura",
+      "donde": "Tilcara · Uquía · Hornocal · Puna",
+      "paleta": [
+        "#2f4a4e",
+        "#5c7d7a",
+        "#9fb4a8",
+        "#d3c7a4",
+        "#8a6a45"
+      ],
+      "texto": "Caminatas de altura para todos los niveles, siempre aclimatando primero. Nada extenuante los dos primeros días: el cuerpo manda.",
+      "items": [
+        "Garganta del Diablo desde Tilcara (1 h 30 ida y vuelta)",
+        "Quebrada de las Señoritas, en Uquía",
+        "Caravanas de llamas en la Puna",
+        "Ascensión al Hornocal en 4x4"
+      ]
+    },
+    {
+      "titulo": "Selva y aves de las Yungas",
+      "donde": "Calilegua · Valle Grande",
+      "paleta": [
+        "#1f4b3a",
+        "#3f7a5a",
+        "#8fae78",
+        "#e2d8a8",
+        "#6b4a2f"
+      ],
+      "texto": "La selva de montaña cambia de piso con cada curva: pedemonte, selva montana y nublada en menos de 25 km. Se camina de mañana y con guía local, cuando las aves están activas.",
+      "items": [
+        "Senderos de Aguas Negras y La Lagunita",
+        "Avistaje al amanecer en la Mesada de las Colmenas",
+        "Guías de la comunidad y guardaparques del parque"
+      ]
+    },
+    {
+      "titulo": "Termas y ríos cerca de la capital",
+      "donde": "Termas de Reyes · Yala · Los Diques",
+      "paleta": [
+        "#4a6b3a",
+        "#7d9a4e",
+        "#c2c07a",
+        "#eadfae",
+        "#8a6a3f"
+      ],
+      "texto": "A media hora de San Salvador, el valle se cierra en quebradas de agua caliente y ríos de piedra. Plan ideal para el día de llegada o de salida, cuando no hay tiempo de subir a la Quebrada.",
+      "items": [
+        "Termas de Reyes: piletas de agua termal entre cerros",
+        "Balnearios del río Yala y del río Reyes",
+        "Almuerzo de cabrito o empanadas en la ruta"
+      ]
+    }
+  ],
+  "DESTINOS": [
+    {
+      "nombre": "Purmamarca",
+      "region": "Quebrada",
+      "orden": "01",
+      "alt": 2324,
+      "km": "65 km de S.S. de Jujuy",
+      "paleta": [
+        "#a83a2b",
+        "#c9613c",
+        "#dfa24b",
+        "#efd6a2",
+        "#8d9a68"
+      ],
+      "historia": "El pueblo más fotografiado del norte jujeño, encajado en la boca de la Quebrada. Se recorre en una tarde, pero la luz del amanecer y del atardecer son otro viaje.",
+      "imperdibles": [
+        "Cerro de los Siete Colores, desde el mirador del acceso y desde la plaza",
+        "Paseo de los Colorados, circuito corto entre paredones",
+        "Iglesia de Santa Rosa de Lima y feria de artesanos",
+        "Acceso a las Salinas Grandes por la RN52 y la Cuesta del Lipán"
+      ],
+      "tip": "<strong>Cuándo:</strong> el cerro se ve mejor con luz baja. Llegá temprano o quedate al atardecer y evitá el mediodía, cuando el sol aplana los colores."
+    },
+    {
+      "nombre": "Maimará",
+      "region": "Quebrada",
+      "orden": "02",
+      "alt": 2390,
+      "km": "76 km de S.S. de Jujuy",
+      "paleta": [
+        "#8e4b6d",
+        "#c76a8a",
+        "#dfa3a6",
+        "#e9c688",
+        "#6f7f55"
+      ],
+      "historia": "Pueblo pequeño y tranquilo al pie de la Paleta del Pintor, con viñedos y una de las tradiciones funerarias más conmovedoras de la Quebrada.",
+      "imperdibles": [
+        "Paleta del Pintor: faldeo de colores que domina el pueblo",
+        "Cementerio de Altura, con ofrendas y capillitas de las familias",
+        "Bodegas de vino de altura y la Fiesta de la Vendimia",
+        "La vega y la vista del valle desde el mirador del acceso"
+      ],
+      "tip": "<strong>Imperdible:</strong> el 1 y 2 de noviembre, por Todos los Santos, el cementerio se llena de velas, flores y música."
+    },
+    {
+      "nombre": "Tilcara",
+      "region": "Quebrada",
+      "orden": "03",
+      "alt": 2461,
+      "km": "84 km de S.S. de Jujuy",
+      "paleta": [
+        "#4d6b52",
+        "#8a8f4e",
+        "#c99a4b",
+        "#dcc68e",
+        "#7b5a44"
+      ],
+      "historia": "La capital cultural de la Quebrada: centro de investigaciones arqueológicas, peñas todas las noches y uno de los sitios prehispánicos más importantes del noroeste argentino.",
+      "imperdibles": [
+        "Pucará de Tilcara: fortaleza prehispánica reconstruida y museo de sitio",
+        "Jardín Botánico de Altura, dentro del predio del Pucará",
+        "Garganta del Diablo: caminata entre paredones de roca",
+        "Mercado artesanal y peñas sobre la calle Belgrano"
+      ],
+      "tip": "<strong>Logística:</strong> Tilcara tiene la única estación de servicio operativa del tramo central. Cargá nafta acá antes de seguir al norte o de subir a la Puna."
+    },
+    {
+      "nombre": "Huacalera",
+      "region": "Quebrada",
+      "orden": "04",
+      "alt": 2640,
+      "km": "100 km de S.S. de Jujuy",
+      "paleta": [
+        "#6a4a7a",
+        "#a0678f",
+        "#cf9aa3",
+        "#e8c88f",
+        "#5f7a63"
+      ],
+      "historia": "Pueblo de la Quebrada central, con bodegas de altura y tradición rural. Acá cruza el Trópico de Capricornio, señalado por un monolito sobre la ruta.",
+      "imperdibles": [
+        "Monolito del Trópico de Capricornio, sobre la RN9",
+        "Bodegas y viñedos de altura",
+        "Iglesia y plaza colonial del pueblo",
+        "Fiesta de la Cosecha y la Trilla, en abril"
+      ],
+      "tip": "<strong>Paso rápido:</strong> la mayoría lo visita en 40 minutos. Quedate a almorzar si querés ver el pueblo sin el turismo de las horas pico."
+    },
+    {
+      "nombre": "Uquía",
+      "region": "Quebrada",
+      "orden": "05",
+      "alt": 2800,
+      "km": "111 km de S.S. de Jujuy",
+      "paleta": [
+        "#2f5f6b",
+        "#5f8f8a",
+        "#c9a86a",
+        "#e3d6ac",
+        "#8a5a45"
+      ],
+      "historia": "El pueblo más pequeño de la Quebrada y el más famoso por su arte colonial: la iglesia guarda la serie de Ángeles Arcabuceros, pintura mestiza del siglo XVII.",
+      "imperdibles": [
+        "Iglesia de San Francisco de Paula y los Ángeles Arcabuceros",
+        "Quebrada de las Señoritas: caminata corta hacia el norte",
+        "Talleres de artesanos y producción de quesos de cabra",
+        "Plaza y calles de tierra con vista al valle"
+      ],
+      "tip": "<strong>Respeto:</strong> la iglesia es monumento y lugar de culto; se pide silencio y no se usan flashes sobre las pinturas."
+    },
+    {
+      "nombre": "Humahuaca",
+      "region": "Quebrada",
+      "orden": "06",
+      "alt": 3012,
+      "km": "126 km de S.S. de Jujuy",
+      "paleta": [
+        "#b23a2f",
+        "#d97a3f",
+        "#e9b455",
+        "#f0dca8",
+        "#6e7a4f"
+      ],
+      "historia": "Ciudad histórica de calles empedradas, declarada Patrimonio de la Humanidad con toda la Quebrada. Es la puerta del norte profundo y el punto de partida al Hornocal.",
+      "imperdibles": [
+        "Monumento a los Héroes de la Independencia, en el cerro del centro",
+        "Callejones empedrados, iglesia y mercado de la plaza",
+        "Serranía del Hornocal (Cerro de los 14 Colores): 25 km de ripio, en 4x4",
+        "Cabildo, Museo Arqueológico y talleres de artesanos"
+      ],
+      "tip": "<strong>Hornocal:</strong> salí antes de las 9 h, la mejor luz es de mañana. Es ripio de montaña: vehículo alto o excursión contratada, nunca auto bajo."
+    },
+    {
+      "nombre": "Salinas Grandes",
+      "region": "Puna",
+      "orden": "07",
+      "alt": 3450,
+      "km": "65 km de Purmamarca",
+      "paleta": [
+        "#8a6a3f",
+        "#c9a05a",
+        "#eee1c0",
+        "#fbf6e6",
+        "#b23a2f"
+      ],
+      "historia": "Un mar blanco a 3.450 m, compartido con Salta. Los piletones de la cooperativa de salineros dibujan figuras geométricas sobre la costra y el silencio solo lo rompe el viento.",
+      "imperdibles": [
+        "Cuesta del Lipán: la subida a 4.170 m, con miradores sobre la quebrada",
+        "Piletones de sal y artesanías de la cooperativa de salineros",
+        "El borde del salar, donde el horizonte se vuelve una línea blanca",
+        "Atardecer sobre la costra, cuando el sol bajo la tiñe de rosa"
+      ],
+      "tip": "<strong>Ojo:</strong> se entra con vehículo alto o excursión. Después de la lluvia la costra se ablanda y hay sectores donde no se puede circular."
+    },
+    {
+      "nombre": "Calilegua",
+      "region": "Yungas",
+      "orden": "08",
+      "alt": 480,
+      "km": "106 km de S.S. de Jujuy",
+      "paleta": [
+        "#1f4b3a",
+        "#3f7a5a",
+        "#8fae78",
+        "#e2d8a8",
+        "#6b4a2f"
+      ],
+      "historia": "El pueblo y el parque nacional que le da nombre, al pie de la serranía: la puerta de la selva de montaña y el kilómetro cero de la RP83, que trepa hacia la Puna por el este.",
+      "imperdibles": [
+        "Centro de Visitantes Aguas Negras: senderos, camping y guardaparques",
+        "Sendero La Lagunita, entre helechos, lianas y sonido de aves",
+        "Mirador de la Mesada de las Colmenas, a 1.200 m sobre la selva",
+        "Río San Lorenzo y balnearios de agua clara al pie del pueblo"
+      ],
+      "tip": "<strong>Equipo:</strong> mangas largas, repelente y calzado cerrado. Los senderos se hacen de mañana; después de las lluvias de verano pueden cerrarse."
+    },
+    {
+      "nombre": "San Salvador de Jujuy",
+      "region": "Valles",
+      "orden": "09",
+      "alt": 1259,
+      "km": "cabecera de la RN9",
+      "paleta": [
+        "#5c6f4a",
+        "#8fa06a",
+        "#d3c88a",
+        "#f0e6c6",
+        "#b23a2f"
+      ],
+      "historia": "La capital provincial, entre los ríos Grande y Xibi Xibi, con el aeropuerto y la terminal de los que sale casi todo el viaje. Tiene catedral, cabildo y un mercado que vale una mañana entera.",
+      "imperdibles": [
+        "Catedral, Cabildo y plaza Belgrano, en el casco histórico",
+        "Mercado central: quesos de cabra, charqui, dulces y artesanías",
+        "Parque Lineal sobre el río Xibi Xibi, con los cerros de fondo",
+        "Aeropuerto y terminal: la base logística de todo el norte"
+      ],
+      "tip": "<strong>Logística:</strong> acá se alquila auto, se cargan cajeros y se compra lo que falte. Dejala para el día de llegada o de salida, no en medio del viaje."
+    }
+  ],
+  "REGIONES": [
+    {
+      "id": "puna",
+      "nombre": "Puna",
+      "alt": "3.400 a 4.500 m s. n. m.",
+      "color": "#d99a2b",
+      "mapa": "img/region-puna.svg",
+      "texto": "El altiplano ocupa todo el oeste de la provincia: una meseta de salares, vegas y serranías donde el horizonte es más ancho que los pueblos. El aire es tan seco que el cielo se ve más oscuro, y la noche cae bajo cero casi todo el año, incluso en enero.",
+      "datos": [
+        "<strong>Salares y lagunas:</strong> Salinas Grandes y Guayatayoc, con piletones de sal, y la laguna de Pozuelos, refugio de flamencos.",
+        "<strong>Fauna de altura:</strong> vicuñas, llamas y suris, el avestruz andino que corre por las laderas.",
+        "<strong>Pueblos de feria y minería:</strong> Abra Pampa, Rinconada, Mina Pirquitas y el trueque de Susques, con historia de plata y estaño.",
+        "<strong>Frontera triple:</strong> la RN52 cruza a Chile por el paso de Jama y la RN9 llega a Bolivia en La Quiaca."
+      ],
+      "localidades": [
+        "Abra Pampa",
+        "La Quiaca",
+        "Tres Cruces",
+        "Yavi",
+        "Susques",
+        "Rinconada",
+        "Mina Pirquitas",
+        "Salinas Grandes",
+        "Laguna de Pozuelos"
+      ],
+      "transporte": "Micros desde la terminal de San Salvador a Abra Pampa, Tres Cruces y La Quiaca (El Quiaqueño, Panamericano, Jama), y a Susques por la RN52. A las Salinas Grandes y a Pozuelos no llega transporte público: se va en excursión o remís desde Purmamarca, Tilcara o Abra Pampa.",
+      "informes": "Casillas municipales de informes en Abra Pampa, La Quiaca y Yavi. En el resto de la Puna no hay oficina permanente: se consulta en las agencias de la Quebrada antes de subir.",
+      "llegar": "RN9 desde Humahuaca por la cuesta de Tres Cruces, o RN40 desde Salta. Son 197 km de la capital a Abra Pampa.",
+      "cuando": "De abril a noviembre, cielos limpios y frío seco. De enero a marzo, lluvias cortas que complican los caminos de tierra."
+    },
+    {
+      "id": "quebrada",
+      "nombre": "Quebrada",
+      "alt": "2.300 a 3.000 m s. n. m.",
+      "color": "#b23a2f",
+      "mapa": "img/region-quebrada.svg",
+      "texto": "Un cañón de unos 155 km que el río Grande abrió entre paredones de roca, con los pueblos encadenados en el fondo. Es la región más visitada y la que mejor conserva la agricultura de terrazas que la hizo habitable.",
+      "datos": [
+        "<strong>Andenes y acequias:</strong> terrazas de cultivo de origen prehispánico que siguen en uso para maíz, papa y quinoa.",
+        "<strong>El Qhapaq Ñan:</strong> el camino inca atraviesa la quebrada y une los pueblos por senderos de piedra.",
+        "<strong>Iglesias coloniales:</strong> retablos dorados y pintura mestiza de los siglos XVII y XVIII en los pueblos de la ruta.",
+        "<strong>Un río que ordena todo:</strong> el Grande baja de la Puna, riega las terrazas y sigue hacia los Valles."
+      ],
+      "localidades": [
+        "Volcán",
+        "Tumbaya",
+        "Purmamarca",
+        "Maimará",
+        "Tilcara",
+        "Huacalera",
+        "Uquía",
+        "Humahuaca",
+        "Tres Cruces"
+      ],
+      "transporte": "Micros cada 30 a 60 minutos desde la terminal de San Salvador hasta Tilcara y Humahuaca (Balut, Evelia, El Quiaqueño, Panamericano). Purmamarca queda 3 km fuera de la RN9 y solo la atienden los servicios locales, cada 2 horas. Sobre las vías del ex Belgrano corre el Tren Solar: 42 km y seis estaciones (Volcán, Tumbaya, Purmamarca, Posta de Hornillos, Maimará y Tilcara), con boletería en Belgrano 493 de la capital. En cada pueblo hay remises y combis.",
+      "informes": "Purmamarca, sobre la calle Florida a metros de la plaza; Tilcara, con casilla municipal abierta todos los días de 10 a 18; Humahuaca, en la Casa de la Cultura (Buenos Aires 200), de lunes a viernes de 7:30 a 18:30 y fines de semana de 8 a 18; y Volcán, con casilla del programa provincial.",
+      "llegar": "RN9 desde San Salvador de Jujuy: 65 km a Purmamarca y 126 km a Humahuaca. El ferrocarril Belgrano corre paralelo por el fondo del valle.",
+      "cuando": "Todo el año. De abril a noviembre es seco y luminoso; el verano trae lluvias de tarde y el río crece."
+    },
+    {
+      "id": "valles",
+      "nombre": "Valles",
+      "alt": "900 a 1.600 m s. n. m.",
+      "color": "#5c6f4a",
+      "mapa": "img/region-valles.svg",
+      "texto": "La franja baja y húmeda del sureste, con cañaverales, cítricos y tabaco sobre un valle ancho. Acá vive la mayor parte de la población provincial y está San Salvador, la capital, con el aeropuerto por el que entra casi todo el turismo.",
+      "datos": [
+        "<strong>Azúcar:</strong> ingenios centenarios en Ledesma y La Mendieta; la zafra marca el ritmo del año.",
+        "<strong>Cítricos y tabaco:</strong> pomelos y naranjas en El Carmen, tabaco en Perico y Monterrico.",
+        "<strong>Diques y ríos:</strong> La Ciénaga y Las Maderas, con pesca y deportes náuticos a media hora de la capital.",
+        "<strong>Vida de ciudad:</strong> mercado central, peñas urbanas y la Fiesta Nacional de los Estudiantes en septiembre."
+      ],
+      "localidades": [
+        "San Salvador de Jujuy",
+        "Palpalá",
+        "Perico",
+        "Monterrico",
+        "El Carmen",
+        "La Mendieta",
+        "Libertador San Martín",
+        "Termas de Reyes"
+      ],
+      "transporte": "Colectivos urbanos e interurbanos entre San Salvador, Palpalá, Perico y El Carmen, con frecuencias todo el día. El aeropuerto Gobernador Horacio Guzmán está en Perico, a 33 km de la capital. A los diques y a Termas de Reyes se va en excursión de medio día, remís o auto propio.",
+      "informes": "San Salvador concentra las oficinas: en la Terminal de Ómnibus (RN9 y RN66, de 8 a 20), en RN9 esquina Guayaquil (8 a 20), en el Paseo de Artesanos (Av. Urquiza 410) y en el aeropuerto. La Secretaría de Turismo provincial atiende en Belgrano 496.",
+      "llegar": "RN9 hacia el sur y RN34 hacia el este. El acceso a las yungas sale de la capital por la ruta de Yala.",
+      "cuando": "Todo el año. El verano es caluroso y lluvioso; el invierno, seco y templado, es la mejor época para recorrerlo."
+    },
+    {
+      "id": "yungas",
+      "nombre": "Yungas",
+      "alt": "400 a 2.500 m s. n. m.",
+      "color": "#2f6b66",
+      "mapa": "img/region-yungas.svg",
+      "texto": "La selva de montaña que trepa por el este: nubes enganchadas en los cerros, helechos gigantes y una humedad que no se parece a nada del resto de Jujuy. Es el extremo sur de las yungas andinas, un corredor verde que continúa hasta Bolivia.",
+      "datos": [
+        "<strong>Parque Nacional Calilegua:</strong> 76.000 ha de selva pedemontana, montana y nublada, creado en 1979.",
+        "<strong>Fauna:</strong> yaguareté, tapir, pavas de monte y urracas; unas 350 especies de aves.",
+        "<strong>Ríos de agua clara:</strong> la RP83 sube de Calilegua a Valle Grande entre balnearios y senderos.",
+        "<strong>Fincas históricas:</strong> trapiches y cultivos de las colonias del Valle Grande y Santa Bárbara."
+      ],
+      "localidades": [
+        "Calilegua",
+        "Valle Grande",
+        "San Francisco",
+        "Santa Ana",
+        "Valle Colorado",
+        "Yala"
+      ],
+      "transporte": "Micros de la terminal de San Salvador a Calilegua y Libertador San Martín, y un servicio diario que sube a Valle Grande por la RP83 (confirmá horarios: se corta con lluvia). Dentro del parque no hay transporte público: se entra con excursión, 4x4 o guía habilitado.",
+      "informes": "El Centro de Visitantes Aguas Negras, dentro del parque sobre la RP83, atiende todos los días de 8 a 19 y concentra los informes. La Intendencia del Parque Nacional está en el pueblo de Calilegua (Marinero A. López s/n, 03886 578465).",
+      "llegar": "RP83 desde Calilegua, 100 km al este de la capital; también se entra por Yala y la cuesta del Saladillo.",
+      "cuando": "De mayo a octubre, con menos lluvia. En verano los caminos de tierra se cortan y el calor aprieta."
+    }
+  ],
+  "CHECKLIST": [
+    "Efectivo en pesos suficiente para 3 o 4 días",
+    "Agua y protector solar 50+",
+    "Abrigo polar y cortaviento, aunque haga calor",
+    "Hojas de coca o muña-muña para la altura",
+    "Mapa offline descargado",
+    "Tanque lleno antes de dejar Tilcara",
+    "Alojamiento reservado (enero, carnaval y agosto)",
+    "Documento de identidad para la frontera",
+    "Pila de la cámara y celular cargados",
+    "Repelente y manga larga para las Yungas",
+    "Calzado que se pueda mojar en los ríos"
+  ]
+}

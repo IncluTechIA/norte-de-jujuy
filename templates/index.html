@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Norte de Jujuy · Quebrada de Humahuaca y Puna — Guía de viaje</title>
+<meta name="description" content="Las cuatro regiones de Jujuy —Puna, Quebrada, Valles y Yungas—, agenda cultural en vivo, planificador de itinerarios, distancias y alturas, guía por pueblo y kit práctico para viajar al norte jujeño." />
+<meta name="theme-color" content="#2a1d16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/logo-jujuy.svg') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+
+<a class="skip-link" href="#agenda">Saltar a la agenda cultural</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Norte de Jujuy, inicio">
+      <img class="brand-mark" src="{{ url_for('static', filename='img/logo-jujuy.svg') }}" width="38" height="38" alt="Mapa de Jujuy con sus cuatro regiones: Puna, Quebrada, Valles y Yungas" title="Jujuy y sus cuatro regiones: Puna, Quebrada, Valles y Yungas" />
+      <span class="brand-txt">
+        <strong>Norte de Jujuy</strong>
+        <small>Puna · Quebrada · Valles · Yungas</small>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Secciones">
+      <a href="#regiones">Regiones</a>
+      <a href="#agenda">Qué está pasando</a>
+      <a href="#plan">Tu plan de viaje</a>
+      <a href="#destinos">Destinos</a>
+      <a href="#kit">Kit del viajero</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-art" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Guía independiente · actualizada en noviembre 2026</p>
+      <h1 id="hero-title">Todo lo que necesitás para subir<br /><span>la Quebrada y la Puna</span></h1>
+      <p class="lead">Jujuy tiene cuatro regiones —Puna, Quebrada, Valles y Yungas— y casi todo viaje empieza por las dos del norte. Acá está el mapa completo: distancia entre pueblos, altura sobre el nivel del mar, qué fiesta se está armando esta semana y dónde hay música en vivo esta noche, sin sorpresas de altura, combustible ni señal.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#agenda">Ver agenda de hoy</a>
+        <a class="btn btn-ghost" href="#plan">Armar mi itinerario</a>
+      </div>
+
+      <dl class="hero-stats">
+        <div><dt>Altura máxima de la ruta</dt><dd>4.350 <span>m</span></dd><dd class="sub">Mirador del Hornocal</dd></div>
+        <div><dt>Jujuy → Humahuaca</dt><dd>126 <span>km</span></dd><dd class="sub">≈ 2 h 15 min por RN9</dd></div>
+        <div><dt>Pueblos en la Quebrada</dt><dd>6</dd><dd class="sub">de Purmamarca a Humahuaca</dd></div>
+        <div><dt>Estaciones de servicio</dt><dd>1</dd><dd class="sub">en el tramo central: Tilcara</dd></div>
+      </dl>
+    </div>
+
+    <!-- Mapa mental de la ruta -->
+    <div class="wrap">
+      <div class="route-card" aria-labelledby="route-title">
+        <div class="route-head">
+          <h2 id="route-title">El mapa mental de la RN9</h2>
+          <p>De sur a norte: cada punto con su kilómetro desde San Salvador de Jujuy y su altura. Deslizá la línea.</p>
+        </div>
+        <div class="route-scroll" id="route-strip" tabindex="0" aria-label="Ruta nacional 9 de sur a norte, con distancias y alturas">
+          {% for clave, km in ruta %}
+          {% set lugar = lugares[clave] %}
+          <div class="route-stop{% if clave == 'yavi' %} es-hito{% endif %}">
+            <span class="route-dot" aria-hidden="true"></span>
+            <span class="route-name">{{ lugar.corto }}</span>
+            <span class="route-km">{{ km|miles }} km</span>
+            <span class="route-alt">{{ lugar.alt|miles }} m</span>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="fineprint route-branches"><strong>Desvíos:</strong> Salinas Grandes (65 km desde Purmamarca, ≈ 1 h 30 min, sube a 4.170 m en la Cuesta del Lipán) · Hornocal (25 km de ripio desde Humahuaca, ≈ 1 h) · Yavi (13 km desde La Quiaca).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REGIONES ================= -->
+  <section class="section section-alt" id="regiones" aria-labelledby="regiones-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">01 · Las cuatro regiones</p>
+        <h2 id="regiones-title">Jujuy no es una sola postal: son cuatro</h2>
+        <p class="section-sub">Del altiplano a la selva hay casi 4.000 metros de desnivel y cuatro viajes distintos dentro de la misma provincia. Estas son las regiones del mapa —las mismas cuatro del logo—, con sus localidades, los transportes que se pueden tomar y las casillas de informes turísticos de cada una.</p>
+      </header>
+
+      <ul class="region-legend" id="region-legend" aria-label="Las cuatro regiones de Jujuy">
+        {% for r in regiones %}
+        <li><span class="dot" style="--c:{{ r.color }}" aria-hidden="true"></span>{{ r.nombre }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="regiones-grid" id="regiones-grid">
+        {% for r in regiones %}
+        <article class="region-card" style="--region:{{ r.color }}">
+          <div class="region-head">
+            <img class="region-map" src="{{ url_for('static', filename=r.mapa) }}" alt="Mapa de Jujuy con la región {{ r.nombre }} resaltada" width="78" height="78" loading="lazy" />
+            <div>
+              <h3>{{ r.nombre }}</h3>
+              <p class="region-alt">{{ r.alt }}</p>
+            </div>
+          </div>
+          <p class="region-text">{{ r.texto }}</p>
+          <ul class="region-facts">
+            {% for dato in r.datos %}<li>{{ dato|safe }}</li>{% endfor %}
+          </ul>
+          <dl class="region-meta">
+            <div><dt>Localidades</dt><dd><ul class="region-places">{% for p in r.localidades %}<li>{{ p }}</li>{% endfor %}</ul></dd></div>
+            <div><dt>Cómo llegar</dt><dd>{{ r.llegar }}</dd></div>
+            <div><dt>Transporte</dt><dd>{{ r.transporte }}</dd></div>
+            <div><dt>Informes</dt><dd>{{ r.informes }}</dd></div>
+            <div><dt>Cuándo</dt><dd>{{ r.cuando }}</dd></div>
+          </dl>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AGENDA ================= -->
+  <section class="section" id="agenda" aria-labelledby="agenda-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">02 · Agenda cultural en vivo</p>
+        <h2 id="agenda-title">Qué está pasando hoy</h2>
+        <p class="section-sub">Fiestas patronales, carnavales, encuentros de copleros, festivales y ferias en las cuatro regiones. Filtrá por pueblo y por mes para ver qué cae justo en las fechas de tu viaje.</p>
+      </header>
+
+      <div class="agenda-tools">
+        <div class="filter-group" role="group" aria-label="Filtrar por pueblo">
+          <span class="filter-label">Pueblo</span>
+          <div class="chips" id="filtro-pueblo">
+            {% for op in pueblos %}
+            {% set valor = 'todos' if op == 'Todos' else op %}
+            <a class="chip" data-pueblo="{{ valor }}" aria-pressed="{{ 'true' if pueblo == valor or (pueblo == 'todos' and valor == 'todos') else 'false' }}"
+               href="{{ url_for('index', pueblo=valor if valor != 'todos' else none, mes=mes if mes != 'todos' else none, destacados=1 if solo_destacados else none, itin=itinerario.id) }}#agenda">{{ op }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <form class="filter-row" id="agenda-form" method="get" action="{{ url_for('index') }}#agenda">
+          <input type="hidden" name="pueblo" value="{{ pueblo }}" />
+          <input type="hidden" name="itin" value="{{ itinerario.id }}" />
+          <label class="select-field">
+            <span>Mes</span>
+            <select id="filtro-mes" name="mes">
+              <option value="todos"{% if mes == 'todos' %} selected{% endif %}>Cualquier mes</option>
+              <option value="proximos30"{% if mes == 'proximos30' %} selected{% endif %}>Próximos 30 días</option>
+              <option value="proximos7"{% if mes == 'proximos7' %} selected{% endif %}>Próximos 7 días</option>
+              {% for m in meses %}
+              <option value="{{ loop.index }}"{% if mes == loop.index|string %} selected{% endif %}>{{ m|capitalize }}</option>
+              {% endfor %}
+            </select>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="filtro-destacados" name="destacados" value="1"{% if solo_destacados %} checked{% endif %} />
+            <span>Solo festividades destacadas</span>
+          </label>
+          <button class="btn btn-ghost btn-sm" type="submit">Filtrar</button>
+          <p class="agenda-count" id="agenda-count" aria-live="polite">{{ eventos|length }} evento{% if eventos|length != 1 %}s{% endif %}</p>
+        </form>
+      </div>
+
+      <div class="agenda-body">
+        <div class="agenda-list" id="agenda-list">
+          {% if not eventos %}
+          <div class="empty-state"><strong>No hay eventos con ese filtro.</strong><br />Probá con otro pueblo o con «Cualquier mes»: hay fiestas todo el año.</div>
+          {% endif %}
+          {% for ev in eventos %}
+          <article class="event">
+            <div class="event-date" aria-hidden="true">
+              <span class="m">{{ ev.mes_corto }}</span>
+              <span class="d">{% if ev.multi %}{{ ev.inicio.day }}–{{ ev.fin.day }}{% else %}{{ ev.inicio.day }}{% endif %}</span>
+              <span class="y">{{ ev.inicio.year }}</span>
+            </div>
+            <div class="event-main">
+              <h3>{{ ev.nombre }}</h3>
+              <p class="event-where">{{ ev.lugar }}</p>
+              <p>{{ ev.desc }}</p>
+              <div class="event-tags">
+                <span class="tag tipo">{{ ev.tipo }}</span>
+                {% if ev.destacado %}<span class="tag destacado">Destacada</span>{% endif %}
+                {% if ev.movil %}<span class="tag">Fecha móvil</span>{% endif %}
+              </div>
+              <span class="visually-hidden">Fecha: {{ ev.fecha_texto }}{% if ev.multi %} al {{ ev.fecha_fin_texto }}{% endif %}.</span>
+            </div>
+            <div class="event-when{% if ev.dias <= 14 %} pronto{% endif %}">{{ cuando(ev.dias) }}<br /><span style="font-weight:500;color:#8a7768;font-size:.72rem">{{ ev.fecha_texto }}</span></div>
+          </article>
+          {% endfor %}
+        </div>
+
+        <aside class="agenda-side">
+          <div class="side-card">
+            <h3>Fichas destacadas</h3>
+            <p class="side-intro">Los momentos del año que mueven a la provincia entera. Si podés elegir fechas, empezá por acá.</p>
+            <ul class="featured-list" id="featured-list">
+              {% for ev in destacados %}
+              <li class="featured-item">
+                <span class="fi-date">{{ ev.fecha_texto }}</span>
+                <span class="fi-name">{{ ev.nombre }}</span>
+                <span class="fi-where">{{ ev.lugar }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="side-card side-note">
+            <h3>Antes de salir</h3>
+            <p>Las fechas de carnaval, Semana Santa y algunas fiestas patronales son móviles. Confirmá siempre con la oficina de turismo del municipio o la comisión de la fiesta: los horarios de los desfiles y de las bandas de sikuris se arman sobre la marcha.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="penas">
+        <header class="sub-head">
+          <h3>Peñas y música en vivo</h3>
+          <p>Dónde se come y se escucha folklore después de que cae el sol, de la Quebrada a la capital. Cena desde las 21, folklore en vivo desde las 22:30 y show principal cerca de la medianoche.</p>
+        </header>
+        <div class="penas-grid" id="penas-grid">
+          {% for p in penas %}
+          <article class="pena-card">
+            <h4>{{ p.titulo }}</h4>
+            <p class="pena-zona">{{ p.pueblo }}</p>
+            <p>{{ p.texto }}</p>
+            <div class="pena-meta">{% for m in p.meta %}<span>{{ m }}</span>{% endfor %}</div>
+          </article>
+          {% endfor %}
+        </div>
+        <p class="fineprint">Directorio orientativo: los locales, los nombres de las bandas y los días de música en vivo cambian temporada a temporada. Preguntá en la hostería o en la oficina de turismo el mismo día — y reservá en enero, carnaval, Semana Santa y agosto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLAN ================= -->
+  <section class="section section-alt" id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">03 · Planificador</p>
+        <h2 id="plan-title">Tu plan de viaje</h2>
+        <p class="section-sub">Los tres primeros itinerarios suben por la Quebrada y la Puna, a paso de altura; el cuarto baja a las Yungas y los Valles, sin desnivel. Elegí uno según los días que tengas y calculá los tramos antes de salir.</p>
+      </header>
+
+      <div class="planner">
+        <nav class="tabs" aria-label="Itinerarios sugeridos" id="itin-tabs">
+          {% for i in itinerarios %}
+          <a class="tab" data-id="{{ i.id }}" href="{{ url_for('index', itin=i.id, pueblo=pueblo if pueblo != 'todos' else none, mes=mes if mes != 'todos' else none) }}#plan"{% if i.id == itinerario.id %} aria-current="page"{% endif %}>
+            {{ i.tab }}<small>{{ i.tabSub }}</small>
+          </a>
+          {% endfor %}
+        </nav>
+        <div class="itin-meta" id="itin-meta">
+          <h3>{{ itinerario.titulo }}</h3>
+          {% for p in itinerario.pills %}<span class="meta-pill">{{ p }}</span>{% endfor %}
+          <p>{{ itinerario.resumen }}</p>
+        </div>
+        <div class="itin-days" id="itin-days" role="region" aria-label="Días del itinerario {{ itinerario.tab }}" tabindex="0">
+          {% for d in itinerario.dias %}
+          <article class="day">
+            <div class="day-head">
+              <span class="day-num">Día {{ loop.index }}</span>
+              <h4>{{ d.titulo }}</h4>
+              <span class="day-base">{{ d.base }}</span>
+            </div>
+            <ul class="timeline">
+              {% for bloque in d.bloques %}<li><span class="h">{{ bloque[0] }}</span>{{ bloque[1] }}</li>{% endfor %}
+            </ul>
+            {% if d.alerta %}<p class="day-alert"><strong>Ojo:</strong> {{ d.alerta }}</p>{% endif %}
+          </article>
+          {% endfor %}
+          {% if itinerario.nota %}<p class="fineprint">{{ itinerario.nota }}</p>{% endif %}
+        </div>
+      </div>
+
+      <div class="calc" aria-labelledby="calc-title">
+        <div class="calc-head">
+          <div>
+            <h3 id="calc-title">Calculador de tiempos y distancias</h3>
+            <p>Elegí origen y destino sobre la RN9, los ramales a Salinas Grandes, Hornocal y Yavi, o la bajada a Calilegua y Valle Grande.</p>
+          </div>
+          <form class="calc-form" id="calc-form" method="get" action="{{ url_for('index') }}#plan">
+            <input type="hidden" name="itin" value="{{ itinerario.id }}" />
+            <label class="select-field">
+              <span>Desde</span>
+              <select id="calc-origen" name="origen">
+                {% for clave, lugar in lugares_por_altura %}
+                <option value="{{ clave }}"{% if clave == origen %} selected{% endif %}>{{ lugar.nombre }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <label class="select-field">
+              <span>Hasta</span>
+              <select id="calc-destino" name="destino">
+                {% for clave, lugar in lugares_por_altura %}
+                <option value="{{ clave }}"{% if clave == destino %} selected{% endif %}>{{ lugar.nombre }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Calcular</button>
+          </form>
+        </div>
+        <div class="calc-result" id="calc-result" aria-live="polite">
+          {% if calculo.error %}
+          <p class="result-route">{{ calculo.error }}</p>
+          {% else %}
+          <div class="result-main">
+            <div class="result-stat"><div class="rs-label">Distancia</div><div class="rs-value">{{ calculo.km|miles }}<span>km</span></div></div>
+            <div class="result-stat"><div class="rs-label">Tiempo estimado</div><div class="rs-value">{{ calculo.tiempo }}</div></div>
+            <div class="result-stat"><div class="rs-label">Altura destino</div><div class="rs-value">{{ calculo.alt_destino|miles }}<span>m</span></div></div>
+            <div class="result-stat"><div class="rs-label">Desnivel</div><div class="rs-value">{{ calculo.desnivel_texto }}<span>m</span></div></div>
+          </div>
+          <p class="result-route"><b>{{ calculo.o_corto }} → {{ calculo.d_corto }}</b> · {{ calculo.ruta_texto }} · {{ calculo.nombres|join(" → ") }}</p>
+          {% if calculo.notas %}
+          <ul class="result-notes">{% for n in calculo.notas %}<li>{{ n|safe }}</li>{% endfor %}</ul>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="experiencias" aria-labelledby="exp-title">
+        <header class="sub-head">
+          <h3 id="exp-title">Experiencias temáticas</h3>
+          <p>Para quien ya vio los miradores y quiere otro ángulo: vino de altura, turismo comunitario, trekking, selva y termas.</p>
+        </header>
+        <div class="exp-grid" id="exp-grid">
+          {% for e in experiencias %}
+          {% set f = fotos.get(e.titulo) %}
+          <article class="exp-card">
+            <div class="exp-art">
+              {% if f %}<img src="{{ url_for('static', filename='img/fotos/' ~ f.k ~ '.jpg') }}" alt="{{ f.alt }}" width="900" height="411" loading="lazy" decoding="async" title="Foto: {{ f.cred }} · Wikimedia Commons" />{% endif %}
+            </div>
+            <div class="exp-body">
+              <span class="exp-where">{{ e.donde }}</span>
+              <h4>{{ e.titulo }}</h4>
+              <p>{{ e.texto }}</p>
+              <ul>{% for item in e['items'] %}<li>{{ item }}</li>{% endfor %}</ul>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        <p class="foto-credito">Fotografías: Wikimedia Commons, con licencias libres. La autoría y la licencia de cada imagen figuran en su título.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DESTINOS ================= -->
+  <section class="section" id="destinos" aria-labelledby="destinos-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">04 · Pueblos y paisajes</p>
+        <h2 id="destinos-title">Las cuatro regiones, lugar por lugar</h2>
+        <p class="section-sub">La Quebrada pueblo por pueblo, en el orden de la ruta, y un punto de entrada por cada una de las otras tres regiones: el salar de la Puna, la selva de las Yungas y la capital de los Valles.</p>
+      </header>
+
+      <div class="destinos-grid" id="destinos-grid">
+        {% for d in destinos %}
+        {% set f = fotos.get(d.nombre) %}
+        <article class="dest-card">
+          <div class="dest-art">
+            {% if f %}<img src="{{ url_for('static', filename='img/fotos/' ~ f.k ~ '.jpg') }}" alt="{{ f.alt }}" width="900" height="411" loading="lazy" decoding="async" title="Foto: {{ f.cred }} · Wikimedia Commons" />{% endif %}
+            <span class="dest-km">{{ d.km }}</span>
+            <span class="dest-alt">{{ d.alt|miles }} m s. n. m.</span>
+          </div>
+          <div class="dest-body">
+            <p class="dest-region" style="--region:{{ colores_region.get(d.region, '#b23a2f') }}">{{ d.region }}</p>
+            <h3>{{ d.nombre }} <span class="dest-order">{{ d.orden }}</span></h3>
+            <p class="dest-story">{{ d.historia }}</p>
+            <ul class="dest-imperdibles">{% for x in d.imperdibles %}<li>{{ x }}</li>{% endfor %}</ul>
+            <p class="dest-tip">{{ d.tip|safe }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      <p class="foto-credito">Fotografías: Wikimedia Commons, con licencias libres. La autoría y la licencia de cada imagen figuran en su título.</p>
+
+    </div>
+  </section>
+
+  <!-- ================= KIT ================= -->
+  <section class="section section-alt" id="kit" aria-labelledby="kit-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">05 · Kit del viajero</p>
+        <h2 id="kit-title">Información práctica y de supervivencia</h2>
+        <p class="section-sub">Lo que nadie te cuenta en la foto del cerro: la altura, el efectivo, la nafta y el clima.</p>
+      </header>
+
+      <div class="alert-banner" role="note">
+        <span class="alert-icon" aria-hidden="true">⛽</span>
+        <div>
+          <strong>Tilcara es la única estación de servicio operativa en el tramo central de la Quebrada.</strong>
+          <p>Llená el tanque siempre que puedas: hacia el norte profundo (Tres Cruces, Abra Pampa, La Quiaca) y hacia la Puna los pueblos son pocos y las distancias largas. Salí con el tanque lleno para Hornocal, Salinas Grandes y la ruta a Yavi, y no confíes en encontrar combustible después de las 20 h ni los domingos.</p>
+        </div>
+      </div>
+
+      <div class="kit-grid">
+        <article class="kit-card">
+          <h3><span class="kit-num">A</span> Salud y altura</h3>
+          <p>En la Quebrada y la Puna vas a dormir entre 2.300 y 3.400 m. El apunamiento (soroche) aparece por subir rápido, no por estar en forma. En los Valles y el pedemonte de las Yungas, por debajo de 2.000 m, no hay problema de altura.</p>
+          <ul>
+            <li><strong>Primer día liviano:</strong> nada de trekking exigente ni alcohol la primera noche.</li>
+            <li><strong>Agua:</strong> 2 a 3 litros por día; el aire es seco y la sed engaña.</li>
+            <li><strong>Comer liviano</strong> y temprano; las cenas pesadas empeoran el malestar.</li>
+            <li><strong>Hojas de coca y muña-muña:</strong> se compran en cualquier feria; el mate de coca ayuda con el dolor de cabeza.</li>
+            <li><strong>Señales de alarma:</strong> dolor de cabeza que no cede, vómitos, confusión o falta de aire en reposo → bajar de altura y consultar en el hospital de Tilcara o Humahuaca.</li>
+          </ul>
+        </article>
+
+        <article class="kit-card">
+          <h3><span class="kit-num">B</span> Conectividad y dinero</h3>
+          <p>Entre pueblos la señal de celular se corta y muchos lugares no tienen internet ni posnet.</p>
+          <ul>
+            <li><strong>Llevá efectivo en pesos:</strong> artesanos, transportes locales, peñas chicas y almacenes de la Puna cobran solo cash.</li>
+            <li><strong>Cajeros:</strong> hay en Tilcara y Humahuaca (y en la capital); en Purmamarca y pueblos chicos pueden estar vacíos o fuera de servicio.</li>
+            <li><strong>Descargá el mapa offline</strong> y avisá a alguien tu recorrido antes de salir a la Puna.</li>
+            <li><strong>Cargá el celular</strong> en el alojamiento: en las excursiones largas no hay dónde enchufar.</li>
+            <li><strong>Tarjetas:</strong> funcionan en supermercados y hoteles grandes; no cuentes con ellas para nada más.</li>
+          </ul>
+        </article>
+
+        <article class="kit-card">
+          <h3><span class="kit-num">C</span> Clima y ropa</h3>
+          <p>Amplitud térmica brutal: sol fuerte y calor al mediodía, frío intenso apenas baja el sol.</p>
+          <ul>
+            <li><strong>Capas:</strong> remera, abrigo polar y campera cortaviento impermeable. Se usan todas el mismo día.</li>
+            <li><strong>Sombrero, anteojos UV y protector solar 50+:</strong> la radiación en altura es muy alta.</li>
+            <li><strong>Calzado con agarre</strong> para ripio, piedra suelta y barro.</li>
+            <li><strong>Época húmeda (diciembre a marzo):</strong> lluvias de tarde, caminos de tierra complicados y rutas a la Puna que pueden cerrarse. El invierno (mayo a septiembre) es seco, con noches bajo cero.</li>
+            <li><strong>Yungas:</strong> humedad y lluvia todo el año. Manga larga, repelente y una bolsa estanca para el celular; la ropa no seca de un día para otro.</li>
+            <li><strong>Valles:</strong> calor húmedo en verano y templado en invierno. Ropa liviana de secado rápido y nada de abrigo de altura.</li>
+          </ul>
+        </article>
+
+        <article class="kit-card">
+          <h3><span class="kit-num">D</span> Cómo moverse</h3>
+          <ul>
+            <li><strong>Colectivos interurbanos:</strong> salen desde la terminal de San Salvador de Jujuy y paran en cada pueblo; frecuencia buena hasta Humahuaca, mucho menor hacia la Puna.</li>
+            <li><strong>Auto alquilado:</strong> la mejor opción para combinar horarios; manejá de día y con el tanque lleno.</li>
+            <li><strong>Excursiones contratadas:</strong> práctica para Salinas Grandes y Hornocal, donde el acceso es en ripio y con vehículo alto.</li>
+            <li><strong>Tren Solar de la Quebrada:</strong> recorrido turístico sobre la vieja vía del Ferrocarril Belgrano, con paradas en las estaciones de la Quebrada. Se reserva con anticipación y tiene horarios limitados.</li>
+            <li><strong>Remises locales</strong> para tramos cortos entre pueblo y pueblo, sobre todo de noche.</li>
+            <li><strong>Al este, RN34 y RP83:</strong> colectivos diarios de Libertador San Martín a San Francisco y Valle Grande (uno por la mañana, con regreso por la tarde); el resto del camino es ripio de cornisa.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="checklist" aria-labelledby="checklist-title">
+        <h3 id="checklist-title">Antes de salir de Jujuy, chequeá</h3>
+        <ul id="checklist-items">
+          {% for item in checklist %}
+          <li><label><input type="checkbox" data-i="{{ loop.index0 }}" /><span>{{ item }}</span></label></li>
+          {% endfor %}
+        </ul>
+        <p class="fineprint">La información de esta guía es de referencia y puede cambiar: horarios de transporte, apertura de caminos y fechas de fiestas se actualizan temporada a temporada.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <strong>Norte de Jujuy · Guía de viaje</strong>
+      <p>Quebrada de Humahuaca (Patrimonio de la Humanidad, UNESCO 2003) y Puna jujeña. Contenido orientativo para planificar el viaje; verificá horarios y fechas con las oficinas de turismo locales.</p>
+      <p class="credito-foto">Foto de portada: <a href="https://commons.wikimedia.org/wiki/File:Cerro_de_los_siete_colores_-_Purmamarca_2.jpg">Cerro de los Siete Colores</a> por Littletroll, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, vía Wikimedia Commons (redimensionada y con ajuste de color).</p>
+    </div>
+    <nav aria-label="Secciones del sitio">
+      <a href="#regiones">Regiones</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#plan">Planificador</a>
+      <a href="#destinos">Destinos</a>
+      <a href="#kit">Kit del viajero</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/site.js') }}" defer></script>
+</body>
+</html>
