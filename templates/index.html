@@ -348,6 +348,16 @@
               <h4>{{ e.titulo }}</h4>
               <p>{{ e.texto }}</p>
               <ul>{% for item in e['items'] %}<li>{{ item }}</li>{% endfor %}</ul>
+              {% set v = videos_experiencias.get(e.titulo) %}
+              {% if v %}
+              <div class="mini-video">
+                <button class="rv-play rv-mini" type="button" data-video="{{ v.id }}" data-titulo="{{ v.titulo }}" aria-label="Reproducir el video: {{ v.titulo }}">
+                  <img src="https://i.ytimg.com/vi/{{ v.id }}/mqdefault.jpg" alt="" width="320" height="180" loading="lazy" decoding="async" />
+                  <span class="rv-icon" aria-hidden="true"></span>
+                  <span class="rv-label"><strong>{{ v.titulo }}</strong><span>{{ v.canal }}</span></span>
+                </button>
+              </div>
+              {% endif %}
             </div>
           </article>
           {% endfor %}
@@ -381,6 +391,16 @@
             <p class="dest-story">{{ d.historia }}</p>
             <ul class="dest-imperdibles">{% for x in d.imperdibles %}<li>{{ x }}</li>{% endfor %}</ul>
             <p class="dest-tip">{{ d.tip|safe }}</p>
+              {% set v = videos_destinos.get(d.nombre) %}
+              {% if v %}
+              <div class="mini-video">
+                <button class="rv-play rv-mini" type="button" data-video="{{ v.id }}" data-titulo="{{ v.titulo }}" aria-label="Reproducir el video: {{ v.titulo }}">
+                  <img src="https://i.ytimg.com/vi/{{ v.id }}/mqdefault.jpg" alt="" width="320" height="180" loading="lazy" decoding="async" />
+                  <span class="rv-icon" aria-hidden="true"></span>
+                  <span class="rv-label"><strong>{{ v.titulo }}</strong><span>{{ v.canal }}</span></span>
+                </button>
+              </div>
+              {% endif %}
           </div>
         </article>
         {% endfor %}

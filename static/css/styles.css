@@ -501,3 +501,23 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
 .rv-frame{display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:10px; background:#000}
 .region-video figcaption{font-size:.72rem; line-height:1.4; color:var(--tinta-suave)}
 .region-video figcaption a{color:var(--region); font-weight:600; text-decoration:underline}
+
+/* ---------- video compacto en destinos y experiencias ---------- */
+.mini-video{margin-top:.15rem}
+.rv-play.rv-mini{
+  display:grid; grid-template-columns:96px minmax(0,1fr); align-items:center; gap:.7rem;
+  aspect-ratio:auto; background:var(--arena); border:1px solid var(--linea); border-radius:10px;
+  padding:.35rem .6rem .35rem .35rem; text-align:left;
+}
+.rv-mini img{width:96px; height:54px; object-fit:cover; border-radius:7px; opacity:.92}
+.rv-play.rv-mini:hover img{opacity:1; transform:none}
+.rv-mini .rv-icon{left:57px; width:32px; height:32px; border-width:2px}
+.rv-mini .rv-icon::after{margin-left:3px; border-left-width:10px; border-top-width:6px; border-bottom-width:6px}
+.rv-label{display:grid; gap:.15rem; min-width:0; font-size:.78rem; line-height:1.3; color:var(--tinta)}
+.rv-label strong{font-weight:600; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.rv-label span{font-size:.7rem; color:var(--tinta-suave); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@media (max-width:520px){
+  .rv-play.rv-mini{grid-template-columns:80px minmax(0,1fr)}
+  .rv-mini img{width:80px; height:45px}
+  .rv-mini .rv-icon{left:49px; width:28px; height:28px}
+}

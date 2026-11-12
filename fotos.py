@@ -104,6 +104,84 @@ VIDEOS = {
     },
 }
 
+# Un video por destino y por experiencia. Los títulos son los reales de
+# YouTube; en las tarjetas se muestran recortados a dos líneas.
+VIDEOS_DESTINOS = {
+    "Purmamarca": {
+        "id": "NmCo3nVHkIc",
+        "titulo": "Este es el pueblo mas hermoso de Argentina | Purmamarca y Salinas Grandes, Jujuy",
+        "canal": "Pablo Sabarotz",
+    },
+    "Maimará": {
+        "id": "WaM-8JJIKQU",
+        "titulo": "Este PUEBLO es HERMOSO ➜ PAISAJES INCREIBLES: MAIMARÁ JUJUY",
+        "canal": "Conociendo Lugares",
+    },
+    "Tilcara": {
+        "id": "0-6DVBdmV7Y",
+        "titulo": "El pueblo que es Patrimonio de la Humanidad y corazón de la Quebrada de Humahuaca | Tilcara, Jujuy",
+        "canal": "Pablo Sabarotz",
+    },
+    "Huacalera": {
+        "id": "nFsSpfKC0Ro",
+        "titulo": "Huacalera (Jujuy) - Un lugar histórico y un pueblo para visitar",
+        "canal": "Esteban por Argentina y el Mundo",
+    },
+    "Uquía": {
+        "id": "AKgCAft8bgM",
+        "titulo": "UQUIA en Jujuy. Iglesia con ángeles arcabuceros",
+        "canal": "Viajando con Cesar",
+    },
+    "Humahuaca": {
+        "id": "9EFQq-qSDZk",
+        "titulo": "QUEBRADA de HUMAHUACA ➜ Este PUEBLO es HERMOSO: HUMAHUACA - JUJUY",
+        "canal": "Conociendo Lugares",
+    },
+    "Salinas Grandes": {
+        "id": "FEKiFAvly4c",
+        "titulo": "SALINAS GRANDES JUJUY",
+        "canal": "Conociendo Lugares",
+    },
+    "Calilegua": {
+        "id": "Oa4XPPtjmZ0",
+        "titulo": "Parque Nacional CALILEGUA | YUNGAS JUJEÑAS | San Francisco | Jujuy",
+        "canal": "Gino Valentini En Moto por Argentina",
+    },
+    "San Salvador de Jujuy": {
+        "id": "Ogc-uCbLI-g",
+        "titulo": "RECORRIENDO SAN SALVADOR DE JUJUY | MERCADO CENTRAL Y FERIA DE ARTESANOS",
+        "canal": "Matias Juri",
+    },
+}
+
+VIDEOS_EXPERIENCIAS = {
+    "Ruta del Vino de Altura": {
+        "id": "N09zv4rXev0",
+        "titulo": "De altura: vinos orgánicos de Jujuy",
+        "canal": "DW Español",
+    },
+    "Turismo comunitario": {
+        "id": "sWYWirIA7rU",
+        "titulo": "QUÉ HACER en Hornaditas: Turismo Comunitario en Jujuy",
+        "canal": "De Jujuy Turismo",
+    },
+    "Trekking y aventura": {
+        "id": "llJ0a7mvJjs",
+        "titulo": "La travesía más increíble de Jujuy: Tilcara - Calilegua",
+        "canal": "Mons Actividades de Montaña",
+    },
+    "Selva y aves de las Yungas": {
+        "id": "ey1_IECFQMk",
+        "titulo": "Explorando la SELVA ARGENTINA - Animales en las yungas de Jujuy",
+        "canal": "Santiago Arias Fotógrafo",
+    },
+    "Termas y ríos cerca de la capital": {
+        "id": "p21_epdGw_c",
+        "titulo": "Termas de Reyes - Jujuy",
+        "canal": "Magazine Mujer TV",
+    },
+}
+
 COLOR_REGION = {
     "Puna": "#d99a2b",
     "Quebrada": "#b23a2f",
