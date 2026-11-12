@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 import math
 import os
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
@@ -69,7 +69,7 @@ def miles(valor: int) -> str:
 
 
 def formato_fecha(d: date) -> str:
-    return f"{d.day} de {MESES[d.month - 1]}"
+    return f"{d.day} de {MESES[d.month - 1]} de {d.year}"
 
 
 def formatear_tiempo(minutos: float) -> str:
@@ -95,9 +95,45 @@ def tokens_pueblo(texto: str) -> list[str]:
     return [t.strip() for t in texto.split("·") if t.strip()]
 
 
+# Fiestas que se mueven con la Pascua, en días respecto del Domingo de Pascua:
+# (primer día, último día). Así la agenda sirve para cualquier año, no solo
+# para el que se cargó a mano: en 2027 el carnaval cae del 6 al 9 de febrero
+# y en 2028, del 26 al 29.
+PASCUA = {
+    "Carnaval de la Quebrada": (-50, -47),
+    "Carnaval de los Valles": (-49, -47),
+    "Semana Santa en la Quebrada": (-3, 0),
+}
+
+
+def domingo_de_pascua(anio: int) -> date:
+    """Domingo de Pascua del año (algoritmo gregoriano anónimo)."""
+    a = anio % 19
+    b, c = divmod(anio, 100)
+    d, e = divmod(b, 4)
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = divmod(c, 4)
+    l = (32 + 2 * e + 2 * i - h - k) % 7  # noqa: E741
+    m = (a + 11 * h + 22 * l) // 451
+    mes, dia = divmod(h + l - 7 * m + 114, 31)
+    return date(anio, mes, dia + 1)
+
+
 def ocurrencia(ev: dict, referencia: date | None = None) -> tuple[date, date]:
     """Próxima vez que cae el evento a partir de la fecha de referencia."""
     ref = referencia or date.today()
+
+    if ev["nombre"] in PASCUA:
+        desde, hasta = PASCUA[ev["nombre"]]
+        base = domingo_de_pascua(ref.year)
+        inicio, fin = base + timedelta(days=desde), base + timedelta(days=hasta)
+        if fin < ref:
+            base = domingo_de_pascua(ref.year + 1)
+            inicio, fin = base + timedelta(days=desde), base + timedelta(days=hasta)
+        return inicio, fin
+
     inicio = date(ref.year, ev["mes"], ev["dia"])
     fin = date(ref.year, ev["mes"], ev["hasta"]) if ev.get("hasta") else inicio
     if fin < ref:
@@ -117,7 +153,7 @@ def eventos_con_fecha() -> list[dict]:
             "fin": fin,
             "dias": (inicio - ref).days,
             "pueblos": tokens_pueblo(ev["pueblo"]),
-            "multi": bool(ev.get("hasta") and ev["hasta"] != ev["dia"]),
+            "multi": fin != inicio,
             "mes_corto": MESES_CORTOS[inicio.month - 1],
             "fecha_texto": formato_fecha(inicio),
             "fecha_fin_texto": formato_fecha(fin),
