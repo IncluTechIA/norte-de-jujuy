@@ -4,12 +4,21 @@ name: Actualizar estadísticas EOH
 # Ocupación Hotelera. Si la planilla cambió, regenera estadisticas.json y lo
 # commitea a main: Render detecta el push y publica solo. Si no hay datos
 # nuevos, el script deja el archivo igual y el workflow termina sin commit.
+#
+# Si algo falla (formato nuevo, descarga vacía, push rechazado) abre un issue
+# con la etiqueta «estadisticas»; si ya había uno abierto, lo comenta. Cuando
+# una corrida vuelve a salir bien, lo cierra.
 
 on:
   schedule:
     # Día 10 de cada mes a las 12:00 UTC (09:00 en Argentina).
     - cron: "0 12 10 * *"
   workflow_dispatch:
+    inputs:
+      probar_falla:
+        description: "Provocar un fallo a propósito para probar el aviso"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -17,6 +26,9 @@ permissions:
 concurrency:
   group: estadisticas-eoh
   cancel-in-progress: false
+
+env:
+  GH_REPO: ${{ github.repository }}
 
 jobs:
   actualizar:
@@ -73,6 +85,12 @@ jobs:
                      -m "Datos de la EOH de DIPEC regenerados por scripts/actualizar_estadisticas.py."
           git push origin HEAD:main
 
+      - name: Simular falla (prueba del aviso)
+        if: github.event_name == 'workflow_dispatch' && inputs.probar_falla
+        run: |
+          echo "::error::Fallo simulado a pedido para probar el aviso automático."
+          exit 1
+
       - name: Resumen
         run: |
           {
@@ -84,3 +102,73 @@ jobs:
               echo "Sin datos nuevos: no hubo commit."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+  avisar:
+    needs: actualizar
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+      actions: read
+    steps:
+      - name: Abrir o comentar el issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EVENTO: ${{ github.event_name }}
+        run: |
+          set -uo pipefail
+          etiqueta="estadisticas"
+          titulo="[Estadísticas] Falló la actualización automática de la EOH"
+
+          gh label create "$etiqueta" --color "b23a2f" \
+            --description "Actualización automática de la EOH" >/dev/null 2>&1 || true
+
+          pasos=$(gh api "repos/$GH_REPO/actions/runs/${{ github.run_id }}/jobs" \
+            --jq '[.jobs[] | select(.conclusion == "failure") | .steps[] | select(.conclusion == "failure") | .name] | unique | join(", ")' 2>/dev/null || true)
+          [ -z "$pasos" ] && pasos="(no se pudo leer el detalle)"
+
+          cuerpo="La corrida (evento: **$EVENTO**) del $(date -u '+%Y-%m-%d %H:%M UTC') falló.
+
+          - **Paso que falló:** $pasos
+          - **Run:** $RUN_URL
+
+          Qué revisar según el paso:
+
+          1. **Regenerar estadisticas.json** — puede que DIPEC haya cambiado la planilla o que la descarga venga vacía. Probá en local: \`python3 scripts/actualizar_estadisticas.py --seco\`.
+          2. **Commitear y pushear** o **Comprobar permiso de escritura** — revisá *Settings → Actions → General → Workflow permissions*.
+          3. Cualquier otro paso — mirá el log del run en el enlace de arriba.
+
+          Mientras tanto, la sección «Turismo en números» sigue mostrando el último JSON bueno: no se publican datos incompletos."
+
+          existente=$(gh issue list --label "$etiqueta" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existente" ]; then
+            gh issue comment "$existente" --body "$cuerpo"
+            echo "Comentado el issue #$existente"
+          else
+            gh issue create --title "$titulo" --label "$etiqueta" --body "$cuerpo"
+          fi
+
+  cerrar:
+    needs: actualizar
+    if: success()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Cerrar el aviso si estaba abierto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          existente=$(gh issue list --label "estadisticas" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existente" ]; then
+            gh issue comment "$existente" --body "La corrida del $(date -u '+%Y-%m-%d') volvió a salir bien: $RUN_URL. Cierro el aviso."
+            gh issue close "$existente"
+            echo "Cerrado el issue #$existente"
+          else
+            echo "No hay avisos abiertos."
+          fi
