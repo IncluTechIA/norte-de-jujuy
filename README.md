@@ -26,6 +26,7 @@ Con recarga en caliente, como en desarrollo:
 | `datos.json` | Contenido: pueblos y alturas, tramos, agenda, peñas, itinerarios, destinos, regiones y checklist. |
 | `estadisticas.json` | Indicadores de la EOH de DIPEC que muestra la sección «Turismo en números». Se regenera con el script de `scripts/`. |
 | `scripts/actualizar_estadisticas.py` | Baja la planilla de la EOH de DIPEC y reescribe `estadisticas.json`. |
+| `scripts/controlar_antiguedad.py` | Falla si el período de `estadisticas.json` tiene más de dos meses de atraso. |
 | `fotos.py` | Metadatos de las fotos de las tarjetas (autoría y licencia) y color de cada región. |
 | `templates/index.html` | Plantilla Jinja: todo el marcado, con bucles sobre los datos. |
 | `static/css/styles.css` | Diseño. |
@@ -148,7 +149,7 @@ Para comprobarlo sin esperar al mes, al dispararlo a mano desde **Actions** el
 workflow hace un `git push --dry-run`: si el token no puede escribir, falla ahí
 mismo con un mensaje que dice qué revisar.
 
-### Avisos de falla
+### Avisos de falla y de datos viejos
 
 Si la corrida falla (DIPEC cambió el formato, la descarga viene vacía, el push
 se rechaza), el workflow abre un issue con la etiqueta `estadisticas` y el
@@ -156,9 +157,21 @@ enlace al run. Si ya había uno abierto, suma un comentario en vez de abrir otro
 para no llenar el repo de avisos repetidos. Cuando una corrida vuelve a salir
 bien, comenta el issue y lo cierra solo.
 
+El workflow también corre `scripts/controlar_antiguedad.py`, que mira la
+antigüedad del período de `estadisticas.json`: si el último mes publicado quedó
+más de **dos meses** atrás, la corrida falla a propósito y el aviso llega al
+mismo issue. Sin ese control, un mes sin datos nuevos se ve igual que un mes sin
+publicación de DIPEC y la sección quedaría vieja en silencio.
+
+```bash
+python3 scripts/controlar_antiguedad.py                    # usa estadisticas.json
+python3 scripts/controlar_antiguedad.py --max-meses 3      # tolera más atraso
+python3 scripts/controlar_antiguedad.py --hoy 2027-03-15   # simula otra fecha
+```
+
 El issue incluye el nombre del paso que falló y qué mirar según el caso. Para
-probar el aviso sin esperar un problema real, se dispara el workflow a mano con
-la opción **«Provocar un fallo a propósito para probar el aviso»**.
+probar el aviso de falla sin esperar un problema real, se dispara el workflow a
+mano con la opción **«Provocar un fallo a propósito para probar el aviso»**.
 
 Notas:
 
