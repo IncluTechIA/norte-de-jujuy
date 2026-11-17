@@ -74,6 +74,11 @@ def miles(valor: int) -> str:
     return f"{valor:,}".replace(",", ".")
 
 
+def coma(valor: float) -> str:
+    """1.75 -> '1,75' (coma decimal, como en el resto del sitio)."""
+    return str(valor).replace(".", ",")
+
+
 def formato_fecha(d: date) -> str:
     return f"{d.day} de {MESES[d.month - 1]} de {d.year}"
 
@@ -372,6 +377,7 @@ def calcular(origen: str, destino: str) -> dict:
 
 
 app.jinja_env.filters["miles"] = miles
+app.jinja_env.filters["coma"] = coma
 
 
 @app.get("/salud")

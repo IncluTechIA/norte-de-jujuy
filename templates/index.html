@@ -157,7 +157,7 @@
           <span class="kpi-note">llegadas registradas</span>
         </div>
         <div class="kpi">
-          <span class="kpi-num">{{ est.total.estadia }} noches</span>
+          <span class="kpi-num">{{ est.total.estadia|coma }} noches</span>
           <span class="kpi-label">Estadía promedio</span>
           <span class="kpi-note">por viajero y por visita</span>
         </div>
@@ -176,7 +176,7 @@
             <li style="--p:{{ r.parte }}%; --c:{{ r.color }}">
               <span class="barra-nombre">{{ r.nombre }}</span>
               <span class="barra"><span class="barra-fill"></span></span>
-              <span class="barra-valor">{{ r.pernoctaciones|miles }} <small>{{ r.parte }} %</small></span>
+              <span class="barra-valor">{{ r.pernoctaciones|miles }} <small>{{ r.parte|coma }} %</small></span>
             </li>
             {% endfor %}
           </ul>
@@ -207,8 +207,8 @@
               <th scope="row">{{ r.nombre }}</th>
               <td>{{ r.viajeros|miles }}</td>
               <td>{{ r.pernoctaciones|miles }}</td>
-              <td>{{ r.estadia }} noches</td>
-              <td>{{ r.ocupacion }} %</td>
+              <td>{{ r.estadia|coma }} noches</td>
+              <td>{{ r.ocupacion|coma }} %</td>
               <td>{{ r.plazas|miles }}</td>
               <td>{{ r.establecimientos }}</td>
             </tr>
@@ -219,7 +219,7 @@
               <th scope="row">Total</th>
               <td>{{ est.total.viajeros|miles }}</td>
               <td>{{ est.total.pernoctaciones|miles }}</td>
-              <td>{{ est.total.estadia }} noches</td>
+              <td>{{ est.total.estadia|coma }} noches</td>
               <td>—</td>
               <td>{{ est.total.plazas|miles }}</td>
               <td>{{ est.total.establecimientos }}</td>
