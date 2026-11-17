@@ -5,9 +5,12 @@ name: Actualizar estadísticas EOH
 # commitea a main: Render detecta el push y publica solo. Si no hay datos
 # nuevos, el script deja el archivo igual y el workflow termina sin commit.
 #
-# Si algo falla (formato nuevo, descarga vacía, push rechazado) abre un issue
-# con la etiqueta «estadisticas»; si ya había uno abierto, lo comenta. Cuando
-# una corrida vuelve a salir bien, lo cierra.
+# Además controla que el período no se quede viejo: si el último mes publicado
+# tiene más de dos meses de atraso, falla a propósito.
+#
+# Si algo falla (formato nuevo, descarga vacía, push rechazado, datos viejos)
+# abre un issue con la etiqueta «estadisticas»; si ya había uno abierto, lo
+# comenta. Cuando una corrida vuelve a salir bien, lo cierra.
 
 on:
   schedule:
@@ -62,6 +65,13 @@ jobs:
 
       - name: Regenerar estadisticas.json
         run: python scripts/actualizar_estadisticas.py
+
+      - name: Controlar la antigüedad del período
+        run: |
+          if ! python scripts/controlar_antiguedad.py --max-meses 2; then
+            echo "::error::El período de las estadísticas tiene más de dos meses de atraso."
+            exit 1
+          fi
 
       - name: Ver si cambió el archivo
         id: cambios
@@ -136,9 +146,10 @@ jobs:
 
           Qué revisar según el paso:
 
-          1. **Regenerar estadisticas.json** — puede que DIPEC haya cambiado la planilla o que la descarga venga vacía. Probá en local: \`python3 scripts/actualizar_estadisticas.py --seco\`.
-          2. **Commitear y pushear** o **Comprobar permiso de escritura** — revisá *Settings → Actions → General → Workflow permissions*.
-          3. Cualquier otro paso — mirá el log del run en el enlace de arriba.
+          1. **Controlar la antigüedad del período** — el último mes de \`estadisticas.json\` tiene más de dos meses de atraso: DIPEC no publicó meses nuevos o el script no los está tomando. Mirá https://dipec.jujuy.gob.ar/indicadores-economicos/turismo/eoh/ y probá \`python3 scripts/actualizar_estadisticas.py --seco\`.
+          2. **Regenerar estadisticas.json** — puede que DIPEC haya cambiado la planilla o que la descarga venga vacía.
+          3. **Commitear y pushear** o **Comprobar permiso de escritura** — revisá *Settings → Actions → General → Workflow permissions*.
+          4. Cualquier otro paso — mirá el log del run en el enlace de arriba.
 
           Mientras tanto, la sección «Turismo en números» sigue mostrando el último JSON bueno: no se publican datos incompletos."
 
