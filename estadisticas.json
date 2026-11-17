@@ -1,7 +1,8 @@
 {
   "fuente": "DIPEC Jujuy e INDEC · Encuesta de Ocupación Hotelera (EOH)",
   "url": "https://dipec.jujuy.gob.ar/indicadores-economicos/turismo/eoh/",
-  "periodo": "Enero a Mayo de 2026",
+  "periodo": "enero a mayo de 2026",
+  "anio": 2026,
   "meses": [
     "Enero",
     "Febrero",
@@ -42,8 +43,8 @@
         29433,
         27631
       ],
-      "parte": 57.7,
-      "color": "#b23a2f"
+      "color": "#b23a2f",
+      "parte": 57.7
     },
     {
       "nombre": "Ciudad de Jujuy",
@@ -62,8 +63,8 @@
         14217,
         14043
       ],
-      "parte": 28.8,
-      "color": "#8a6a45"
+      "color": "#8a6a45",
+      "parte": 28.8
     },
     {
       "nombre": "Valles Jujeños",
@@ -82,8 +83,8 @@
         2854,
         2319
       ],
-      "parte": 7.6,
-      "color": "#5c6f4a"
+      "color": "#5c6f4a",
+      "parte": 7.6
     },
     {
       "nombre": "Yungas Jujeñas",
@@ -102,8 +103,8 @@
         3228,
         3405
       ],
-      "parte": 6.0,
-      "color": "#2f6b66"
+      "color": "#2f6b66",
+      "parte": 6.0
     }
   ]
 }

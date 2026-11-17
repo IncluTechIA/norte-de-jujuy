@@ -24,6 +24,8 @@ Con recarga en caliente, como en desarrollo:
 | `app.py` | Rutas, fechas de la agenda, filtros, Dijkstra de distancias y armado de cada sección. |
 | `wsgi.py` | Punto de entrada para producción (`wsgi:app`). |
 | `datos.json` | Contenido: pueblos y alturas, tramos, agenda, peñas, itinerarios, destinos, regiones y checklist. |
+| `estadisticas.json` | Indicadores de la EOH de DIPEC que muestra la sección «Turismo en números». Se regenera con el script de `scripts/`. |
+| `scripts/actualizar_estadisticas.py` | Baja la planilla de la EOH de DIPEC y reescribe `estadisticas.json`. |
 | `fotos.py` | Metadatos de las fotos de las tarjetas (autoría y licencia) y color de cada región. |
 | `templates/index.html` | Plantilla Jinja: todo el marcado, con bucles sobre los datos. |
 | `static/css/styles.css` | Diseño. |
@@ -102,6 +104,40 @@ Cargá `SECRET_KEY` en el panel de variables y listo.
 - Si vas a usar dominio propio, agregalo en el panel del hosting; el `ProxyFix`
   de `app.py` ya está puesto para que las URLs y el HTTPS salgan bien detrás del
   proxy.
+
+## Actualizar las estadísticas
+
+La sección «Turismo en números» se alimenta de la **Encuesta de Ocupación
+Hotelera** que publica DIPEC Jujuy. Cuando salen datos nuevos alcanza con un
+comando:
+
+```bash
+pip install -r requirements-scripts.txt   # una sola vez: xlrd y openpyxl
+python3 scripts/actualizar_estadisticas.py
+```
+
+El script lee la página de la EOH, encuentra la planilla del último año
+publicado, la descarga, extrae las cuatro regiones y reescribe
+`estadisticas.json`. Después, `git diff` muestra qué cambió y con un push se
+publica.
+
+Opciones útiles:
+
+```bash
+python3 scripts/actualizar_estadisticas.py --seco           # ver sin escribir
+python3 scripts/actualizar_estadisticas.py --anio 2025      # un año concreto
+python3 scripts/actualizar_estadisticas.py --archivo eoh.xls --anio 2026   # sin red
+```
+
+Notas:
+
+- El script no corre en el servidor: se ejecuta a mano (o con un cron) y el
+  resultado se versiona, así el sitio sigue funcionando aunque DIPEC no esté
+  disponible.
+- Si DIPEC cambia el nombre de las hojas o el formato del archivo, el script
+  corta con un mensaje claro en vez de escribir números raros.
+- Los meses que la planilla marca como provisorios se reflejan solos en la nota
+  al pie de la sección.
 
 ## Fotos
 
