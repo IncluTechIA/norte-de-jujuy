@@ -148,6 +148,18 @@ Para comprobarlo sin esperar al mes, al dispararlo a mano desde **Actions** el
 workflow hace un `git push --dry-run`: si el token no puede escribir, falla ahí
 mismo con un mensaje que dice qué revisar.
 
+### Avisos de falla
+
+Si la corrida falla (DIPEC cambió el formato, la descarga viene vacía, el push
+se rechaza), el workflow abre un issue con la etiqueta `estadisticas` y el
+enlace al run. Si ya había uno abierto, suma un comentario en vez de abrir otro,
+para no llenar el repo de avisos repetidos. Cuando una corrida vuelve a salir
+bien, comenta el issue y lo cierra solo.
+
+El issue incluye el nombre del paso que falló y qué mirar según el caso. Para
+probar el aviso sin esperar un problema real, se dispara el workflow a mano con
+la opción **«Provocar un fallo a propósito para probar el aviso»**.
+
 Notas:
 
 - El script no corre en el servidor: lo ejecuta el workflow (o vos a mano) y el
