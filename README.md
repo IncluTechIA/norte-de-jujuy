@@ -129,9 +129,24 @@ python3 scripts/actualizar_estadisticas.py --anio 2025      # un año concreto
 python3 scripts/actualizar_estadisticas.py --archivo eoh.xls --anio 2026   # sin red
 ```
 
+### Actualización automática
+
+El workflow `.github/workflows/estadisticas.yml` hace esto solo: corre el script
+el día 10 de cada mes (y cuando se lo dispara a mano desde **Actions →
+Actualizar estadísticas EOH → Run workflow**). Si `estadisticas.json` cambió, lo
+commitea a `main` con el período en el mensaje y Render publica el deploy; si no
+hay datos nuevos, el script deja el archivo igual y el workflow termina sin
+commit.
+
+Para que el push funcione, el repo tiene que permitir escritura al token de
+Actions: el workflow declara `permissions: contents: write`, y en **Settings →
+Actions → General** la opción *Workflow permissions* debe estar en «Read and
+write» (o en «Read repository contents and packages permissions» con el bloque
+`permissions` del workflow, que es lo habitual).
+
 Notas:
 
-- El script no corre en el servidor: se ejecuta a mano (o con un cron) y el
+- El script no corre en el servidor: lo ejecuta el workflow (o vos a mano) y el
   resultado se versiona, así el sitio sigue funcionando aunque DIPEC no esté
   disponible.
 - Si DIPEC cambia el nombre de las hojas o el formato del archivo, el script
