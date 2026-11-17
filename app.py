@@ -22,6 +22,10 @@ from fotos import COLOR_REGION, FOTOS, VIDEOS, VIDEOS_DESTINOS, VIDEOS_EXPERIENC
 BASE = Path(__file__).parent
 DATOS = json.loads((BASE / "datos.json").read_text(encoding="utf-8"))
 
+# Indicadores de la Encuesta de Ocupación Hotelera (DIPEC Jujuy / INDEC).
+# El archivo se arma a partir de la planilla oficial del año en curso.
+ESTADISTICAS = json.loads((BASE / "estadisticas.json").read_text(encoding="utf-8"))
+
 LUGARES = DATOS["LUGARES"]
 TRAMOS = DATOS["TRAMOS"]
 EVENTOS = DATOS["EVENTOS"]
@@ -161,6 +165,16 @@ def eventos_con_fecha() -> list[dict]:
             "fecha_fin_texto": formato_fecha(fin),
         })
     return sorted(salida, key=lambda e: e["inicio"])
+
+
+def serie_mensual() -> list[dict]:
+    """Pernoctaciones por mes, con la altura de la barra ya resuelta."""
+    valores = ESTADISTICAS["serie"]
+    tope = max(valores) or 1
+    return [
+        {"mes": m, "noches": v, "alto": round(v / tope * 100, 1)}
+        for m, v in zip(ESTADISTICAS["meses"], valores)
+    ]
 
 
 def feriados_del_anio() -> list[dict]:
@@ -402,6 +416,8 @@ def index():
         mes=mes,
         solo_destacados=solo_destacados,
         cuando=cuando_texto,
+        estadisticas=ESTADISTICAS,
+        serie_mensual=serie_mensual(),
         feriados=feriados_del_anio(),
         findes_largos=fines_de_semana_largos(),
         calculo=calcular(origen, destino),

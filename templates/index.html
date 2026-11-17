@@ -27,6 +27,7 @@
     </a>
     <nav class="site-nav" aria-label="Secciones">
       <a href="#regiones">Regiones</a>
+      <a href="#numeros">Estadísticas</a>
       <a href="#agenda">Qué está pasando</a>
       <a href="#plan">Tu plan de viaje</a>
       <a href="#destinos">Destinos</a>
@@ -134,11 +135,107 @@
     </div>
   </section>
 
+  <!-- ================= ESTADÍSTICAS ================= -->
+  <section class="section" id="numeros" aria-labelledby="numeros-title">
+    <div class="wrap">
+      {% set est = estadisticas %}
+      <header class="section-head">
+        <p class="eyebrow">02 · Turismo en números</p>
+        <h2 id="numeros-title">Cuánto se mueve el turismo en Jujuy</h2>
+        <p class="section-sub">Los datos oficiales de la Encuesta de Ocupación Hotelera de DIPEC e INDEC para {{ est.periodo }}, en las mismas cuatro regiones que recorre esta guía. Sirven para dimensionar cada lugar antes de elegir dónde dormir.</p>
+      </header>
+
+      <div class="kpis">
+        <div class="kpi">
+          <span class="kpi-num">{{ est.total.pernoctaciones|miles }}</span>
+          <span class="kpi-label">Pernoctaciones</span>
+          <span class="kpi-note">noches de hotel en el período</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">{{ est.total.viajeros|miles }}</span>
+          <span class="kpi-label">Viajeros</span>
+          <span class="kpi-note">llegadas registradas</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">{{ est.total.estadia }} noches</span>
+          <span class="kpi-label">Estadía promedio</span>
+          <span class="kpi-note">por viajero y por visita</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">{{ est.total.plazas|miles }}</span>
+          <span class="kpi-label">Plazas</span>
+          <span class="kpi-note">promedio diario, en {{ est.total.establecimientos }} establecimientos</span>
+        </div>
+      </div>
+
+      <div class="numeros-grid">
+        <div class="numeros-card">
+          <h3>Pernoctaciones por región</h3>
+          <ul class="barras">
+            {% for r in est.regiones %}
+            <li style="--p:{{ r.parte }}%; --c:{{ r.color }}">
+              <span class="barra-nombre">{{ r.nombre }}</span>
+              <span class="barra"><span class="barra-fill"></span></span>
+              <span class="barra-valor">{{ r.pernoctaciones|miles }} <small>{{ r.parte }} %</small></span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="numeros-card">
+          <h3>Noches por mes</h3>
+          <ul class="barras-mes">
+            {% for m in serie_mensual %}
+            <li>
+              <span class="mes-alto" style="--h:{{ m.alto }}%"><span></span></span>
+              <span class="mes-nombre">{{ m.mes[:3] }}</span>
+              <span class="mes-valor">{{ m.noches|miles }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="tabla-scroll">
+        <table class="tabla-numeros">
+          <caption class="visually-hidden">Indicadores hoteleros por región, {{ est.periodo }}</caption>
+          <thead>
+            <tr><th scope="col">Región</th><th scope="col">Viajeros</th><th scope="col">Pernoctaciones</th><th scope="col">Estadía</th><th scope="col">Ocupación</th><th scope="col">Plazas (prom.)</th><th scope="col">Establecimientos</th></tr>
+          </thead>
+          <tbody>
+            {% for r in est.regiones %}
+            <tr>
+              <th scope="row">{{ r.nombre }}</th>
+              <td>{{ r.viajeros|miles }}</td>
+              <td>{{ r.pernoctaciones|miles }}</td>
+              <td>{{ r.estadia }} noches</td>
+              <td>{{ r.ocupacion }} %</td>
+              <td>{{ r.plazas|miles }}</td>
+              <td>{{ r.establecimientos }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total</th>
+              <td>{{ est.total.viajeros|miles }}</td>
+              <td>{{ est.total.pernoctaciones|miles }}</td>
+              <td>{{ est.total.estadia }} noches</td>
+              <td>—</td>
+              <td>{{ est.total.plazas|miles }}</td>
+              <td>{{ est.total.establecimientos }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p class="fuente">Fuente: <strong>{{ est.fuente }}</strong>, {{ est.periodo }}. <a href="{{ est.url }}" target="_blank" rel="noopener noreferrer">Ver la EOH en DIPEC</a>. {{ est.nota }}</p>
+    </div>
+  </section>
+
   <!-- ================= AGENDA ================= -->
-  <section class="section" id="agenda" aria-labelledby="agenda-title">
+  <section class="section section-alt" id="agenda" aria-labelledby="agenda-title">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">02 · Agenda cultural en vivo</p>
+        <p class="eyebrow">03 · Agenda cultural en vivo</p>
         <h2 id="agenda-title">Qué está pasando hoy</h2>
         <p class="section-sub">Fiestas patronales, carnavales, encuentros de copleros, festivales y ferias en las cuatro regiones. Filtrá por pueblo y por mes para ver qué cae justo en las fechas de tu viaje. Las que dicen «Fecha a confirmar» son fiestas cuya edición 2027 todavía no tiene fecha anunciada por sus organizadores.</p>
       </header>
@@ -272,10 +369,10 @@
   </section>
 
   <!-- ================= PLAN ================= -->
-  <section class="section section-alt" id="plan" aria-labelledby="plan-title">
+  <section class="section" id="plan" aria-labelledby="plan-title">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">03 · Planificador</p>
+        <p class="eyebrow">04 · Planificador</p>
         <h2 id="plan-title">Tu plan de viaje</h2>
         <p class="section-sub">Los tres primeros itinerarios suben por la Quebrada y la Puna, a paso de altura; el cuarto baja a las Yungas y los Valles, sin desnivel. Elegí uno según los días que tengas y calculá los tramos antes de salir.</p>
       </header>
@@ -393,10 +490,10 @@
   </section>
 
   <!-- ================= DESTINOS ================= -->
-  <section class="section" id="destinos" aria-labelledby="destinos-title">
+  <section class="section section-alt" id="destinos" aria-labelledby="destinos-title">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">04 · Pueblos y paisajes</p>
+        <p class="eyebrow">05 · Pueblos y paisajes</p>
         <h2 id="destinos-title">Las cuatro regiones, lugar por lugar</h2>
         <p class="section-sub">La Quebrada pueblo por pueblo, en el orden de la ruta, y un punto de entrada por cada una de las otras tres regiones: el salar de la Puna, la selva de las Yungas y la capital de los Valles.</p>
       </header>
@@ -436,10 +533,10 @@
   </section>
 
   <!-- ================= KIT ================= -->
-  <section class="section section-alt" id="kit" aria-labelledby="kit-title">
+  <section class="section" id="kit" aria-labelledby="kit-title">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">05 · Kit del viajero</p>
+        <p class="eyebrow">06 · Kit del viajero</p>
         <h2 id="kit-title">Información práctica y de supervivencia</h2>
         <p class="section-sub">Lo que nadie te cuenta en la foto del cerro: la altura, el efectivo, la nafta y el clima.</p>
       </header>
@@ -527,6 +624,7 @@
     </div>
     <nav aria-label="Secciones del sitio">
       <a href="#regiones">Regiones</a>
+      <a href="#numeros">Estadísticas</a>
       <a href="#agenda">Agenda</a>
       <a href="#plan">Planificador</a>
       <a href="#destinos">Destinos</a>

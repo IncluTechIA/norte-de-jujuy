@@ -1,0 +1,109 @@
+{
+  "fuente": "DIPEC Jujuy e INDEC · Encuesta de Ocupación Hotelera (EOH)",
+  "url": "https://dipec.jujuy.gob.ar/indicadores-economicos/turismo/eoh/",
+  "periodo": "Enero a Mayo de 2026",
+  "meses": [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo"
+  ],
+  "nota": "Abril y mayo son datos provisorios. La EOH releva establecimientos de más de 12 plazas en las cuatro regiones y se actualiza todos los meses.",
+  "total": {
+    "pernoctaciones": 256843,
+    "viajeros": 146556,
+    "estadia": 1.75,
+    "plazas": 10183,
+    "establecimientos": 308
+  },
+  "serie": [
+    51848,
+    61457,
+    46408,
+    49732,
+    47398
+  ],
+  "regiones": [
+    {
+      "nombre": "Quebrada de Humahuaca",
+      "id": "quebrada",
+      "pernoctaciones": 148100,
+      "viajeros": 77458,
+      "estadia": 1.91,
+      "ocupacion": 27.4,
+      "plazas": 5514,
+      "establecimientos": 208,
+      "residentes_pct": 77.9,
+      "por_mes": [
+        28210,
+        35319,
+        27507,
+        29433,
+        27631
+      ],
+      "parte": 57.7,
+      "color": "#b23a2f"
+    },
+    {
+      "nombre": "Ciudad de Jujuy",
+      "id": "jujuy",
+      "pernoctaciones": 73845,
+      "viajeros": 49531,
+      "estadia": 1.49,
+      "ocupacion": 29.6,
+      "plazas": 2335,
+      "establecimientos": 35,
+      "residentes_pct": 86.0,
+      "por_mes": [
+        15041,
+        17239,
+        13305,
+        14217,
+        14043
+      ],
+      "parte": 28.8,
+      "color": "#8a6a45"
+    },
+    {
+      "nombre": "Valles Jujeños",
+      "id": "valles",
+      "pernoctaciones": 19556,
+      "viajeros": 11570,
+      "estadia": 1.69,
+      "ocupacion": 17.1,
+      "plazas": 1197,
+      "establecimientos": 32,
+      "residentes_pct": 91.0,
+      "por_mes": [
+        5891,
+        6044,
+        2448,
+        2854,
+        2319
+      ],
+      "parte": 7.6,
+      "color": "#5c6f4a"
+    },
+    {
+      "nombre": "Yungas Jujeñas",
+      "id": "yungas",
+      "pernoctaciones": 15342,
+      "viajeros": 7997,
+      "estadia": 1.92,
+      "ocupacion": 14.1,
+      "plazas": 1137,
+      "establecimientos": 33,
+      "residentes_pct": 94.4,
+      "por_mes": [
+        2706,
+        2855,
+        3148,
+        3228,
+        3405
+      ],
+      "parte": 6.0,
+      "color": "#2f6b66"
+    }
+  ]
+}
