@@ -28,6 +28,16 @@ jobs:
         with:
           ref: main
 
+      - name: Comprobar permiso de escritura
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if git push --dry-run origin HEAD:main; then
+            echo "El token puede pushear a main."
+          else
+            echo "::error::El token de Actions no puede escribir en main. Revisá Settings → Actions → General → Workflow permissions."
+            exit 1
+          fi
+
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
