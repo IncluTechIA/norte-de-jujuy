@@ -138,11 +138,15 @@ commitea a `main` con el período en el mensaje y Render publica el deploy; si n
 hay datos nuevos, el script deja el archivo igual y el workflow termina sin
 commit.
 
-Para que el push funcione, el repo tiene que permitir escritura al token de
-Actions: el workflow declara `permissions: contents: write`, y en **Settings →
-Actions → General** la opción *Workflow permissions* debe estar en «Read and
-write» (o en «Read repository contents and packages permissions» con el bloque
-`permissions` del workflow, que es lo habitual).
+El workflow declara `permissions: contents: write`, que es lo que habilita el
+push: GitHub permite ajustar los permisos del token por workflow, aunque el
+repo tenga el valor por defecto en solo lectura. La única excepción es una
+política de la organización que lo impida; en ese caso hay que poner *Workflow
+permissions* en «Read and write» desde **Settings → Actions → General**.
+
+Para comprobarlo sin esperar al mes, al dispararlo a mano desde **Actions** el
+workflow hace un `git push --dry-run`: si el token no puede escribir, falla ahí
+mismo con un mensaje que dice qué revisar.
 
 Notas:
 
