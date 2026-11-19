@@ -89,7 +89,7 @@ li + li{margin-top:.45em}
 .lang-code{letter-spacing:.09em}
 .lang-caret{font-size:.68rem; line-height:1}
 .lang-menu{
-  position:absolute; top:calc(100% + .45rem); right:0; z-index:60;
+  position:absolute; top:calc(100% + .45rem); left:0; z-index:60;
   margin:0; padding:.3rem; list-style:none; min-width:9.5rem;
   background:var(--blanco); border:1px solid var(--linea);
   border-radius:var(--radio-s); box-shadow:var(--sombra);
@@ -490,6 +490,7 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
   .hero{background-image:url("../img/cerro-siete-colores-mobile.jpg"); background-position:center 52%}
   .header-inner{flex-direction:column; align-items:flex-start; gap:.2rem; padding-block:.7rem}
   .header-brandrow{width:100%; justify-content:space-between}
+  .lang-menu{left:auto; right:0}
   .site-nav{padding-bottom:.2rem; width:100%}
   html{scroll-padding-top:120px}
   .hero-inner{padding-block:2.4rem 1.2rem}
