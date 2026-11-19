@@ -89,7 +89,7 @@ li + li{margin-top:.45em}
 .lang-code{letter-spacing:.09em}
 .lang-caret{font-size:.68rem; line-height:1}
 .lang-menu{
-  position:absolute; top:calc(100% + .45rem); left:0; z-index:60;
+  position:absolute; top:calc(100% + .45rem); right:0; z-index:60;
   margin:0; padding:.3rem; list-style:none; min-width:9.5rem;
   background:var(--blanco); border:1px solid var(--linea);
   border-radius:var(--radio-s); box-shadow:var(--sombra);
