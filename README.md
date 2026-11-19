@@ -31,6 +31,8 @@ Con recarga en caliente, como en desarrollo:
 | `templates/index.html` | Plantilla Jinja: todo el marcado, con bucles sobre los datos. |
 | `static/css/styles.css` | Diseño. |
 | `static/js/site.js` | Solo dos cosas: enviar el formulario de filtros y recordar el checklist. |
+| `static/js/idioma.js` | Selector de idioma: traduce la página en el navegador y guarda la elección. |
+| `static/i18n/` | Un diccionario por idioma (`en.json`, `pt.json`, `fr.json`), con las frases en español como clave. |
 | `static/img/` | Logo, mapas de las regiones y las fotos de las tarjetas. |
 | `gunicorn.conf.py` | Configuración del servidor de producción. |
 | `Procfile` | Orden de arranque para Railway, Heroku y similares. |
@@ -182,6 +184,38 @@ Notas:
   corta con un mensaje claro en vez de escribir números raros.
 - Los meses que la planilla marca como provisorios se reflejan solos en la nota
   al pie de la sección.
+
+## Idiomas
+
+La guía se puede leer en **español** (el original), **inglés**, **portugués** y
+**francés** desde el botón rojo de la cabecera, a la altura del logo. La
+elección queda guardada en una cookie (`idioma`) y en `localStorage`: se
+mantiene al recargar y al volver otro día, y Flask la lee para poner el `lang`
+correcto en `<html>` desde la primera respuesta.
+
+Cómo funciona: el HTML sigue saliendo en español y `static/js/idioma.js` lo
+traduce en el navegador con el diccionario del idioma elegido. Las fechas, los
+números, la cuenta regresiva de la agenda, la cantidad de eventos y el período
+de la EOH se resuelven por patrón, así que siguen saliendo bien cuando cambian
+los datos. Lo que no esté en el diccionario se queda en español: se pueden ir
+agregando frases sin tocar la plantilla.
+
+Las traducciones se generaron automáticamente y se revisaron a mano en la
+interfaz (navegación, títulos, etiquetas, tablas y botones). Para corregir o
+mejorar un texto, alcanza con editar su valor en `static/i18n/<idioma>.json`:
+
+```json
+{
+  "textos": {
+    "Cómo llegar": "Getting there",
+    "Imperdible:": "Must-see:"
+  }
+}
+```
+
+Los nombres propios (pueblos, regiones, fiestas) se dejan como están, y si una
+frase nueva se agrega a la plantilla o a `datos.json` aparece en español hasta
+que se sume al diccionario.
 
 ## Fotos
 

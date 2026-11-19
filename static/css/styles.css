@@ -72,6 +72,41 @@ li + li{margin-top:.45em}
 .site-nav a:hover{background:var(--arena-2); color:var(--tinta)}
 .site-nav a:focus-visible{outline:2px solid var(--rojo); outline-offset:2px}
 
+/* ---------- selector de idioma ---------- */
+.header-brandrow{display:flex; align-items:center; gap:1.1rem; min-width:0}
+.lang-switch{position:relative; flex:none}
+.lang-btn{
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:var(--rojo); color:#fff; border:0; border-radius:99px;
+  padding:.36rem .72rem; font-family:inherit; font-size:.76rem; font-weight:600;
+  letter-spacing:.07em; line-height:1; cursor:pointer;
+  box-shadow:0 1px 2px rgba(42,29,22,.28);
+  transition:background .2s;
+}
+.lang-btn:hover{background:var(--rojo-osc)}
+.lang-btn:focus-visible{outline:2px solid var(--tinta); outline-offset:2px}
+.lang-icon{display:block; width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round}
+.lang-code{letter-spacing:.09em}
+.lang-caret{font-size:.68rem; line-height:1}
+.lang-menu{
+  position:absolute; top:calc(100% + .45rem); left:0; z-index:60;
+  margin:0; padding:.3rem; list-style:none; min-width:9.5rem;
+  background:var(--blanco); border:1px solid var(--linea);
+  border-radius:var(--radio-s); box-shadow:var(--sombra);
+}
+.lang-menu[hidden]{display:none}
+.lang-menu li + li{margin-top:0}
+.lang-menu button{
+  display:block; width:100%; text-align:left; background:none; border:0;
+  border-radius:6px; padding:.42rem .55rem; font:inherit; font-size:.85rem;
+  color:var(--tinta); cursor:pointer;
+}
+.lang-menu button:hover{background:var(--arena-2)}
+.lang-menu button:focus-visible{outline:2px solid var(--rojo); outline-offset:-2px}
+.lang-menu button[aria-pressed="true"]{color:var(--rojo-osc); font-weight:600}
+.lang-menu button[aria-pressed="true"]::after{content:" ✓"}
+.nota-idioma{margin-top:.7rem; font-size:.74rem; line-height:1.5; color:#a9927c; max-width:56ch}
+
 /* ---------- hero ---------- */
 .hero{
   position:relative; color:#fdf1e2; overflow:hidden; padding-bottom:0; background-color:#241a15;
@@ -454,6 +489,7 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
   body{font-size:16px}
   .hero{background-image:url("../img/cerro-siete-colores-mobile.jpg"); background-position:center 52%}
   .header-inner{flex-direction:column; align-items:flex-start; gap:.2rem; padding-block:.7rem}
+  .header-brandrow{width:100%; justify-content:space-between}
   .site-nav{padding-bottom:.2rem; width:100%}
   html{scroll-padding-top:120px}
   .hero-inner{padding-block:2.4rem 1.2rem}

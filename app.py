@@ -45,6 +45,10 @@ MESES_CORTOS = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
                 "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
 DIAS_CORTOS = ["lun", "mar", "mié", "jue", "vie", "sáb", "dom"]
 
+# Idiomas del selector de la cabecera: el español es el original y el resto
+# se traduce en el navegador con `static/i18n/<código>.json`.
+IDIOMAS_HTML = {"es": "es-AR", "en": "en", "pt": "pt-BR", "fr": "fr"}
+
 # Pueblos de la RN9 de sur a norte, con su kilómetro desde San Salvador.
 RUTA = [
     ("jujuy", 0), ("yala", 13), ("purmamarca", 65), ("maimara", 76),
@@ -397,6 +401,9 @@ def index():
     destino = request.args.get("destino", "humahuaca")
 
     itinerario = next((i for i in ITINERARIOS if i["id"] == itin_id), ITINERARIOS[0])
+    idioma = request.cookies.get("idioma", "es")
+    if idioma not in IDIOMAS_HTML:
+        idioma = "es"
 
     return render_template(
         "index.html",
@@ -422,6 +429,8 @@ def index():
         mes=mes,
         solo_destacados=solo_destacados,
         cuando=cuando_texto,
+        idioma=idioma,
+        idioma_html=IDIOMAS_HTML[idioma],
         estadisticas=ESTADISTICAS,
         serie_mensual=serie_mensual(),
         feriados=feriados_del_anio(),
