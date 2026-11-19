@@ -20,7 +20,8 @@
     { codigo: "pt", nombre: "Português", corto: "PT", html: "pt-BR" },
     { codigo: "fr", nombre: "Français", corto: "FR", html: "fr" }
   ];
-  const CLAVE = "jujuy-idioma";
+  const CLAVE = "jujuy-idioma";   // localStorage
+  const COOKIE = "idioma";        // la misma cookie que lee Flask en app.py
   const UN_ANIO = 60 * 60 * 24 * 365;
 
   const boton = document.querySelector(".lang-btn");
@@ -32,7 +33,7 @@
   const originales = new WeakMap();   // nodo de texto -> texto original
   const atributos = new WeakMap();    // elemento -> { atributo: valor original }
   let datos = null;                   // diccionario del idioma activo
-  let idioma = document.documentElement.dataset.idioma || "es";
+  let idioma = leerGuardado() || document.documentElement.dataset.idioma || "es";
   let tituloOriginal = document.title;
   let descripcionOriginal = null;
 
@@ -291,11 +292,29 @@
 
   /* ---------- estado del idioma ---------- */
 
+  function esIdioma(codigo) {
+    return IDIOMAS.some(function (i) { return i.codigo === codigo; });
+  }
+
+  // Idioma elegido en una visita anterior (localStorage o cookie), o null.
+  function leerGuardado() {
+    try {
+      const guardado = localStorage.getItem(CLAVE);
+      if (guardado && esIdioma(guardado)) return guardado;
+    } catch (error) { /* modo privado */ }
+    const partes = document.cookie.split(";");
+    for (let i = 0; i < partes.length; i++) {
+      const par = partes[i].trim().split("=");
+      if (par[0] === COOKIE && esIdioma(par[1])) return par[1];
+    }
+    return null;
+  }
+
   function guardar(codigo) {
     try {
       localStorage.setItem(CLAVE, codigo);
     } catch (error) { /* modo privado */ }
-    document.cookie = CLAVE + "=" + codigo + ";path=/;max-age=" + UN_ANIO + ";SameSite=Lax";
+    document.cookie = COOKIE + "=" + codigo + ";path=/;max-age=" + UN_ANIO + ";SameSite=Lax";
   }
 
   function pintarBoton(codigo) {
