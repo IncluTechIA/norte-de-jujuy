@@ -588,3 +588,8 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
   .barra-valor{grid-column:2; text-align:left}
   .kpi-num{font-size:1.4rem}
 }
+
+.numeros-grid--parejo{grid-template-columns:1fr 1fr}
+.nota-card{font-size:.74rem; line-height:1.55; color:var(--tinta-suave); margin:.9rem 0 0}
+.tabla-tipos{margin-top:1rem}
+@media (max-width:900px){ .numeros-grid--parejo{grid-template-columns:1fr} }

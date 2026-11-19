@@ -142,7 +142,7 @@
       <header class="section-head">
         <p class="eyebrow">02 · Turismo en números</p>
         <h2 id="numeros-title">Cuánto se mueve el turismo en Jujuy</h2>
-        <p class="section-sub">Los datos oficiales de la Encuesta de Ocupación Hotelera de DIPEC e INDEC para {{ est.periodo }}, en las mismas cuatro regiones que recorre esta guía. Sirven para dimensionar cada lugar antes de elegir dónde dormir.</p>
+        <p class="section-sub">Los datos oficiales de la Encuesta de Ocupación Hotelera de DIPEC e INDEC para {{ est.periodo }}, en las mismas cuatro regiones que recorre esta guía. Sirven para dimensionar cada lugar antes de elegir dónde dormir. Además de las noches y los viajeros, la tabla desglosa quién se aloja —residentes y no residentes— y en qué tipo de establecimiento: hoteleros o para-hoteleros.</p>
       </header>
 
       <div class="kpis">
@@ -195,11 +195,40 @@
         </div>
       </div>
 
+      <div class="numeros-grid numeros-grid--parejo">
+        <div class="numeros-card">
+          <h3>Quién se aloja: residentes y no residentes</h3>
+          <ul class="barras">
+            {% for r in est.regiones %}
+            <li style="--p:{{ r.no_residentes_pct }}%; --c:{{ r.color }}">
+              <span class="barra-nombre">{{ r.nombre }}</span>
+              <span class="barra"><span class="barra-fill"></span></span>
+              <span class="barra-valor">{{ r.no_residentes|miles }} <small>{{ r.no_residentes_pct|coma }} %</small></span>
+            </li>
+            {% endfor %}
+          </ul>
+          <p class="nota-card">Porcentaje de las pernoctaciones que hicieron personas que no residen en Jujuy. En toda la provincia son {{ est.total.no_residentes|miles }} noches sobre {{ est.total.pernoctaciones|miles }} ({{ est.total.no_residentes_pct|coma }} %).</p>
+        </div>
+        <div class="numeros-card">
+          <h3>Ocupación de plazas</h3>
+          <ul class="barras">
+            {% for r in est.regiones %}
+            <li style="--p:{{ r.ocupacion_plazas }}%; --c:{{ r.color }}">
+              <span class="barra-nombre">{{ r.nombre }}</span>
+              <span class="barra"><span class="barra-fill"></span></span>
+              <span class="barra-valor">{{ r.ocupacion_plazas|coma }} %</span>
+            </li>
+            {% endfor %}
+          </ul>
+          <p class="nota-card">Plazas ocupadas sobre plazas disponibles en el período, que es el otro termómetro de la ocupación además de las habitaciones. Total provincial: {{ est.total.ocupacion_plazas|coma }} %.</p>
+        </div>
+      </div>
+
       <div class="tabla-scroll">
         <table class="tabla-numeros">
           <caption class="visually-hidden">Indicadores hoteleros por región, {{ est.periodo }}</caption>
           <thead>
-            <tr><th scope="col">Región</th><th scope="col">Viajeros</th><th scope="col">Pernoctaciones</th><th scope="col">Estadía</th><th scope="col">Ocupación</th><th scope="col">Plazas (prom.)</th><th scope="col">Establecimientos</th></tr>
+            <tr><th scope="col">Región</th><th scope="col">Viajeros</th><th scope="col">Pernoctaciones</th><th scope="col">Estadía</th><th scope="col">No residentes</th><th scope="col">Ocupación</th><th scope="col">Ocup. plazas</th><th scope="col">Plazas (prom.)</th><th scope="col">Establecimientos</th></tr>
           </thead>
           <tbody>
             {% for r in est.regiones %}
@@ -208,7 +237,9 @@
               <td>{{ r.viajeros|miles }}</td>
               <td>{{ r.pernoctaciones|miles }}</td>
               <td>{{ r.estadia|coma }} noches</td>
+              <td>{{ r.no_residentes_pct|coma }} %</td>
               <td>{{ r.ocupacion|coma }} %</td>
+              <td>{{ r.ocupacion_plazas|coma }} %</td>
               <td>{{ r.plazas|miles }}</td>
               <td>{{ r.establecimientos }}</td>
             </tr>
@@ -220,13 +251,56 @@
               <td>{{ est.total.viajeros|miles }}</td>
               <td>{{ est.total.pernoctaciones|miles }}</td>
               <td>{{ est.total.estadia|coma }} noches</td>
+              <td>{{ est.total.no_residentes_pct|coma }} %</td>
               <td>—</td>
+              <td>{{ est.total.ocupacion_plazas|coma }} %</td>
               <td>{{ est.total.plazas|miles }}</td>
               <td>{{ est.total.establecimientos }}</td>
             </tr>
           </tfoot>
         </table>
       </div>
+      <div class="tabla-scroll tabla-tipos">
+        <table class="tabla-numeros">
+          <caption class="visually-hidden">Oferta hotelera y para-hotelera por región, {{ est.periodo }}</caption>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">Región</th>
+              <th scope="col" colspan="3">Hoteleros</th>
+              <th scope="col" colspan="3">Para-hoteleros</th>
+            </tr>
+            <tr>
+              <th scope="col">Establ.</th><th scope="col">Plazas</th><th scope="col">Ocup.</th>
+              <th scope="col">Establ.</th><th scope="col">Plazas</th><th scope="col">Ocup.</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in est.regiones %}
+            <tr>
+              <th scope="row">{{ r.nombre }}</th>
+              <td>{{ r.hoteleros.establecimientos }}</td>
+              <td>{{ r.hoteleros.plazas|miles }}</td>
+              <td>{{ r.hoteleros.ocupacion|coma }} %</td>
+              <td>{{ r.parahoteleros.establecimientos }}</td>
+              <td>{{ r.parahoteleros.plazas|miles }}</td>
+              <td>{{ r.parahoteleros.ocupacion|coma }} %</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total</th>
+              <td>{{ est.total.hoteleros.establecimientos }}</td>
+              <td>{{ est.total.hoteleros.plazas|miles }}</td>
+              <td>{{ est.total.hoteleros.ocupacion|coma }} %</td>
+              <td>{{ est.total.parahoteleros.establecimientos }}</td>
+              <td>{{ est.total.parahoteleros.plazas|miles }}</td>
+              <td>{{ est.total.parahoteleros.ocupacion|coma }} %</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
       <p class="fuente">Fuente: <strong>{{ est.fuente }}</strong>, {{ est.periodo }}. <a href="{{ est.url }}" target="_blank" rel="noopener noreferrer">Ver la EOH en DIPEC</a>. {{ est.nota }}</p>
     </div>
   </section>

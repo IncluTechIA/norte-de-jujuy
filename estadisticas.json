@@ -16,7 +16,21 @@
     "viajeros": 146556,
     "estadia": 1.75,
     "plazas": 10183,
-    "establecimientos": 308
+    "establecimientos": 308,
+    "ocupacion_plazas": 16.7,
+    "no_residentes": 45268,
+    "no_residentes_pct": 18.1,
+    "viajeros_no_residentes": 27800,
+    "hoteleros": {
+      "establecimientos": 84,
+      "plazas": 4352,
+      "ocupacion": 20.0
+    },
+    "parahoteleros": {
+      "establecimientos": 224,
+      "plazas": 5828,
+      "ocupacion": 14.3
+    }
   },
   "serie": [
     51848,
@@ -33,9 +47,23 @@
       "viajeros": 77458,
       "estadia": 1.91,
       "ocupacion": 27.4,
+      "ocupacion_plazas": 17.8,
       "plazas": 5514,
       "establecimientos": 208,
       "residentes_pct": 77.9,
+      "no_residentes": 32673,
+      "no_residentes_pct": 22.1,
+      "viajeros_no_residentes": 19616,
+      "hoteleros": {
+        "establecimientos": 39,
+        "plazas": 1372,
+        "ocupacion": 26.0
+      },
+      "parahoteleros": {
+        "establecimientos": 169,
+        "plazas": 4141,
+        "ocupacion": 15.1
+      },
       "por_mes": [
         28210,
         35319,
@@ -53,9 +81,23 @@
       "viajeros": 49531,
       "estadia": 1.49,
       "ocupacion": 29.6,
+      "ocupacion_plazas": 20.9,
       "plazas": 2335,
       "establecimientos": 35,
       "residentes_pct": 86.0,
+      "no_residentes": 10340,
+      "no_residentes_pct": 14.0,
+      "viajeros_no_residentes": 6950,
+      "hoteleros": {
+        "establecimientos": 22,
+        "plazas": 1847,
+        "ocupacion": 22.3
+      },
+      "parahoteleros": {
+        "establecimientos": 13,
+        "plazas": 488,
+        "ocupacion": 15.8
+      },
       "por_mes": [
         15041,
         17239,
@@ -73,9 +115,23 @@
       "viajeros": 11570,
       "estadia": 1.69,
       "ocupacion": 17.1,
+      "ocupacion_plazas": 10.8,
       "plazas": 1197,
       "establecimientos": 32,
       "residentes_pct": 91.0,
+      "no_residentes": 1762,
+      "no_residentes_pct": 9.0,
+      "viajeros_no_residentes": 888,
+      "hoteleros": {
+        "establecimientos": 11,
+        "plazas": 523,
+        "ocupacion": 7.7
+      },
+      "parahoteleros": {
+        "establecimientos": 21,
+        "plazas": 673,
+        "ocupacion": 13.3
+      },
       "por_mes": [
         5891,
         6044,
@@ -93,9 +149,23 @@
       "viajeros": 7997,
       "estadia": 1.92,
       "ocupacion": 14.1,
+      "ocupacion_plazas": 8.9,
       "plazas": 1137,
       "establecimientos": 33,
       "residentes_pct": 94.4,
+      "no_residentes": 493,
+      "no_residentes_pct": 5.5,
+      "viajeros_no_residentes": 346,
+      "hoteleros": {
+        "establecimientos": 12,
+        "plazas": 610,
+        "ocupacion": 10.1
+      },
+      "parahoteleros": {
+        "establecimientos": 21,
+        "plazas": 526,
+        "ocupacion": 7.6
+      },
       "por_mes": [
         2706,
         2855,

@@ -79,6 +79,23 @@ def normalizar(valor: Any) -> str:
     return re.sub(r"\s+", " ", texto).strip().lower()
 
 
+# Marcas que usa DIPEC cuando no publica un dato (muestra chica o variación alta).
+MARCADORES = {"///", "//", "-", ".", "..", "s/d", "sd", "n/d"}
+
+
+def redondear(valor: float) -> float:
+    return round(valor, 1)
+
+
+def numero_opcional(valor: Any) -> float | None:
+    """Como `numero`, pero devuelve None cuando la planilla no trae el dato."""
+    if valor in ("", None):
+        return None
+    if isinstance(valor, str) and valor.strip().lower() in MARCADORES:
+        return None
+    return numero(valor)
+
+
 def numero(valor: Any) -> float:
     if valor in ("", None):
         return 0.0
@@ -192,6 +209,9 @@ def leer(ruta: Path, anio: int) -> dict[str, Any]:
     ]
 
     regiones = []
+    # Totales crudos por región: sirven para ponderar los totales provinciales.
+    crudo: list[dict[str, float]] = []
+
     for nombre, rid, hoja_oferta, hoja_demanda, color in REGIONES:
         oferta = buscar_hoja(hojas, hoja_oferta)
         demanda = buscar_hoja(hojas, hoja_demanda)
@@ -200,19 +220,50 @@ def leer(ruta: Path, anio: int) -> dict[str, Any]:
             fila = fila_con_etiqueta(hoja, etiqueta, saltar)
             return [numero(hoja.valor(fila, col)) for col, _ in meses]
 
+        # Demanda: cada bloque trae Total, Residentes y No residentes.
         pernoctaciones = serie(demanda, "Pernoctaciones")
-        residentes = serie(demanda, "Residentes")
+        residentes = serie(demanda, "Pernoctaciones", saltar=1)
         viajeros = serie(demanda, "Viajeros")
+
+        # No residentes: DIPEC no publica el dato de algunos meses (queda «///»).
+        fila_no_res = fila_con_etiqueta(demanda, "Pernoctaciones", 2)
+        no_res_mes = [numero_opcional(demanda.valor(fila_no_res, col)) for col, _ in meses]
+        fila_viajeros_no_res = fila_con_etiqueta(demanda, "Viajeros", 2)
+        viajeros_no_res = [
+            numero_opcional(demanda.valor(fila_viajeros_no_res, col)) for col, _ in meses
+        ]
+
+        # Oferta: cada bloque trae Total, Hoteleros y Para-hoteleros.
+        establecimientos = serie(oferta, ETIQUETAS_OFERTA["establecimientos"], saltar=1)
+        estab_hotel = serie(oferta, ETIQUETAS_OFERTA["establecimientos"], saltar=2)
+        estab_parahotel = serie(oferta, ETIQUETAS_OFERTA["establecimientos"], saltar=3)
 
         hab_disponibles = serie(oferta, ETIQUETAS_OFERTA["habitaciones disponibles"], saltar=1)
         hab_ocupadas = serie(oferta, ETIQUETAS_OFERTA["habitaciones ocupadas"], saltar=1)
+
         plazas = serie(oferta, ETIQUETAS_OFERTA["plazas disponibles"], saltar=1)
-        establecimientos = serie(oferta, ETIQUETAS_OFERTA["establecimientos"], saltar=1)
+        plazas_ocu = serie(oferta, "Plazas ocupadas", saltar=1)
+        plazas_hotel = serie(oferta, ETIQUETAS_OFERTA["plazas disponibles"], saltar=2)
+        plazas_parahotel = serie(oferta, ETIQUETAS_OFERTA["plazas disponibles"], saltar=3)
+        plazas_ocu_hotel = serie(oferta, "Plazas ocupadas", saltar=2)
+        plazas_ocu_parahotel = serie(oferta, "Plazas ocupadas", saltar=3)
 
         if not any(pernoctaciones) or not any(viajeros):
             raise ErrorPlanilla(f"la hoja «{hoja_demanda}» vino sin datos de demanda")
 
-        plazas_dia = [p / d for p, d in zip(plazas, dias) if d]
+        def promedio_diario(valores: list[float]) -> float:
+            por_dia = [p / d for p, d in zip(valores, dias) if d]
+            return sum(por_dia) / len(por_dia) if por_dia else 0.0
+
+        def ocupacion(ocupadas: list[float], disponibles: list[float]) -> float:
+            total = sum(disponibles)
+            return round(sum(ocupadas) / total * 100, 1) if total else 0.0
+
+        # Pares (no residentes, pernoctaciones) solo de los meses con dato.
+        pares_no_res = [(n, p) for n, p in zip(no_res_mes, pernoctaciones) if n is not None]
+        no_res_total = sum(n for n, _ in pares_no_res)
+        no_res_base = sum(p for _, p in pares_no_res)
+
         regiones.append({
             "nombre": nombre,
             "id": rid,
@@ -220,11 +271,34 @@ def leer(ruta: Path, anio: int) -> dict[str, Any]:
             "viajeros": int(sum(viajeros)),
             "estadia": round(sum(pernoctaciones) / sum(viajeros), 2),
             "ocupacion": round(sum(hab_ocupadas) / sum(hab_disponibles) * 100, 1),
-            "plazas": int(sum(plazas_dia) / len(plazas_dia)) if plazas_dia else 0,
+            "ocupacion_plazas": ocupacion(plazas_ocu, plazas),
+            "plazas": int(promedio_diario(plazas)),
             "establecimientos": int(establecimientos[-1]),
             "residentes_pct": round(sum(residentes) / sum(pernoctaciones) * 100, 1),
+            "no_residentes": int(no_res_total),
+            "no_residentes_pct": round(no_res_total / no_res_base * 100, 1) if no_res_base else 0.0,
+            "viajeros_no_residentes": int(sum(v for v in viajeros_no_res if v is not None)),
+            "hoteleros": {
+                "establecimientos": int(estab_hotel[-1]),
+                "plazas": int(promedio_diario(plazas_hotel)),
+                "ocupacion": ocupacion(plazas_ocu_hotel, plazas_hotel),
+            },
+            "parahoteleros": {
+                "establecimientos": int(estab_parahotel[-1]),
+                "plazas": int(promedio_diario(plazas_parahotel)),
+                "ocupacion": ocupacion(plazas_ocu_parahotel, plazas_parahotel),
+            },
             "por_mes": [int(v) for v in pernoctaciones],
             "color": color,
+        })
+        crudo.append({
+            "no_res_base": no_res_base,
+            "plazas": sum(plazas),
+            "plazas_ocu": sum(plazas_ocu),
+            "plazas_hotel": sum(plazas_hotel),
+            "plazas_ocu_hotel": sum(plazas_ocu_hotel),
+            "plazas_parahotel": sum(plazas_parahotel),
+            "plazas_ocu_parahotel": sum(plazas_ocu_parahotel),
         })
 
     total_pernoctaciones = sum(r["pernoctaciones"] for r in regiones)
@@ -256,6 +330,32 @@ def leer(ruta: Path, anio: int) -> dict[str, Any]:
             "estadia": round(total_pernoctaciones / total_viajeros, 2),
             "plazas": sum(r["plazas"] for r in regiones),
             "establecimientos": sum(r["establecimientos"] for r in regiones),
+            "ocupacion_plazas": redondear(
+                sum(c["plazas_ocu"] for c in crudo)
+                / (sum(c["plazas"] for c in crudo) or 1) * 100
+            ),
+            "no_residentes": sum(r["no_residentes"] for r in regiones),
+            "no_residentes_pct": redondear(
+                sum(r["no_residentes"] for r in regiones)
+                / (sum(c["no_res_base"] for c in crudo) or 1) * 100
+            ),
+            "viajeros_no_residentes": sum(r["viajeros_no_residentes"] for r in regiones),
+            "hoteleros": {
+                "establecimientos": sum(r["hoteleros"]["establecimientos"] for r in regiones),
+                "plazas": sum(r["hoteleros"]["plazas"] for r in regiones),
+                "ocupacion": redondear(
+                    sum(c["plazas_ocu_hotel"] for c in crudo)
+                    / (sum(c["plazas_hotel"] for c in crudo) or 1) * 100
+                ),
+            },
+            "parahoteleros": {
+                "establecimientos": sum(r["parahoteleros"]["establecimientos"] for r in regiones),
+                "plazas": sum(r["parahoteleros"]["plazas"] for r in regiones),
+                "ocupacion": redondear(
+                    sum(c["plazas_ocu_parahotel"] for c in crudo)
+                    / (sum(c["plazas_parahotel"] for c in crudo) or 1) * 100
+                ),
+            },
         },
         "serie": [sum(r["por_mes"][i] for r in regiones) for i in range(len(meses))],
         "regiones": regiones,
