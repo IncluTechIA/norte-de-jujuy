@@ -1231,19 +1231,70 @@
       ],
       "localidades": [
         "Abra Pampa",
+        "Casabindo",
+        "Cochinoca",
         "La Quiaca",
-        "Tres Cruces",
         "Yavi",
         "Susques",
+        "Coranzulí",
         "Rinconada",
         "Mina Pirquitas",
+        "Santa Catalina",
+        "Cusi Cusi",
         "Salinas Grandes",
-        "Laguna de Pozuelos"
+        "Laguna de los Pozuelos"
       ],
       "transporte": "Micros desde la terminal de San Salvador a Abra Pampa, Tres Cruces y La Quiaca (El Quiaqueño, Panamericano, Jama), y a Susques por la RN52. A las Salinas Grandes y a Pozuelos no llega transporte público: se va en excursión o remís desde Purmamarca, Tilcara o Abra Pampa.",
       "informes": "Casillas municipales de informes en Abra Pampa, La Quiaca y Yavi. En el resto de la Puna no hay oficina permanente: se consulta en las agencias de la Quebrada antes de subir.",
-      "llegar": "RN9 desde Humahuaca por la cuesta de Tres Cruces, o RN40 desde Salta. Son 197 km de la capital a Abra Pampa.",
-      "cuando": "De abril a noviembre, cielos limpios y frío seco. De enero a marzo, lluvias cortas que complican los caminos de tierra."
+      "llegar": "RN9 desde Humahuaca por la cuesta de Tres Cruces, o RN40 desde Salta. Son 197 km de la capital a Abra Pampa y 290 km a La Quiaca. La Puna tiene cinco departamentos: Cochinoca, Yavi, Susques, Rinconada y Santa Catalina.",
+      "cuando": "De abril a noviembre, cielos limpios y frío seco. De enero a marzo, lluvias cortas que complican los caminos de tierra.",
+      "departamentos": [
+        {
+          "nombre": "Cochinoca",
+          "capital": "Abra Pampa",
+          "localidades": [
+            "Abra Pampa",
+            "Casabindo",
+            "Cochinoca"
+          ]
+        },
+        {
+          "nombre": "Yavi",
+          "capital": "La Quiaca",
+          "localidades": [
+            "La Quiaca",
+            "Yavi",
+            "El Cóndor"
+          ]
+        },
+        {
+          "nombre": "Susques",
+          "capital": "Susques",
+          "localidades": [
+            "Susques",
+            "Coranzulí",
+            "Huáncar",
+            "El Toro"
+          ]
+        },
+        {
+          "nombre": "Rinconada",
+          "capital": "Rinconada",
+          "localidades": [
+            "Rinconada",
+            "Mina Pirquitas"
+          ]
+        },
+        {
+          "nombre": "Santa Catalina",
+          "capital": "Santa Catalina",
+          "localidades": [
+            "Santa Catalina",
+            "Cusi Cusi",
+            "Casira"
+          ]
+        }
+      ]
     },
     {
       "id": "quebrada",
@@ -1262,17 +1313,52 @@
         "Volcán",
         "Tumbaya",
         "Purmamarca",
+        "Huachichocana",
         "Maimará",
         "Tilcara",
         "Huacalera",
         "Uquía",
         "Humahuaca",
+        "El Aguilar",
         "Tres Cruces"
       ],
       "transporte": "Micros cada 30 a 60 minutos desde la terminal de San Salvador hasta Tilcara y Humahuaca (Balut, Evelia, El Quiaqueño, Panamericano). Purmamarca queda 3 km fuera de la RN9 y solo la atienden los servicios locales, cada 2 horas. Sobre las vías del ex Belgrano corre el Tren Solar: 42 km y seis estaciones (Volcán, Tumbaya, Purmamarca, Posta de Hornillos, Maimará y Tilcara), con boletería en Belgrano 493 de la capital. En cada pueblo hay remises y combis.",
       "informes": "Purmamarca, sobre la calle Florida a metros de la plaza; Tilcara, con casilla municipal abierta todos los días de 10 a 18; Humahuaca, en la Casa de la Cultura (Buenos Aires 200), de lunes a viernes de 7:30 a 18:30 y fines de semana de 8 a 18; y Volcán, con casilla del programa provincial.",
-      "llegar": "RN9 desde San Salvador de Jujuy: 65 km a Purmamarca y 126 km a Humahuaca. El ferrocarril Belgrano corre paralelo por el fondo del valle.",
-      "cuando": "Todo el año. De abril a noviembre es seco y luminoso; el verano trae lluvias de tarde y el río crece."
+      "llegar": "RN9 desde San Salvador de Jujuy: 65 km a Purmamarca y 126 km a Humahuaca. El ferrocarril Belgrano corre paralelo por el fondo del valle. La Quebrada abarca los departamentos de Tumbaya, Tilcara y Humahuaca: Tres Cruces, en el borde de la Puna, también es de Humahuaca.",
+      "cuando": "Todo el año. De abril a noviembre es seco y luminoso; el verano trae lluvias de tarde y el río crece.",
+      "departamentos": [
+        {
+          "nombre": "Tumbaya",
+          "capital": "Tumbaya",
+          "localidades": [
+            "Tumbaya",
+            "Volcán",
+            "Purmamarca",
+            "Huachichocana",
+            "El Moreno"
+          ]
+        },
+        {
+          "nombre": "Tilcara",
+          "capital": "Tilcara",
+          "localidades": [
+            "Tilcara",
+            "Maimará",
+            "Huacalera"
+          ]
+        },
+        {
+          "nombre": "Humahuaca",
+          "capital": "Humahuaca",
+          "localidades": [
+            "Humahuaca",
+            "Uquía",
+            "Tres Cruces",
+            "El Aguilar",
+            "Palca de Aparzo"
+          ]
+        }
+      ]
     },
     {
       "id": "valles",
@@ -1289,18 +1375,60 @@
       ],
       "localidades": [
         "San Salvador de Jujuy",
+        "Yala",
+        "Termas de Reyes",
         "Palpalá",
         "Perico",
         "Monterrico",
         "El Carmen",
+        "Pampa Blanca",
+        "Aguas Calientes",
+        "San Pedro de Jujuy",
         "La Mendieta",
-        "Libertador San Martín",
-        "Termas de Reyes"
+        "La Esperanza"
       ],
       "transporte": "Colectivos urbanos e interurbanos entre San Salvador, Palpalá, Perico y El Carmen, con frecuencias todo el día. El aeropuerto Gobernador Horacio Guzmán está en Perico, a 33 km de la capital. A los diques y a Termas de Reyes se va en excursión de medio día, remís o auto propio.",
       "informes": "San Salvador concentra las oficinas: en la Terminal de Ómnibus (RN9 y RN66, de 8 a 20), en RN9 esquina Guayaquil (8 a 20), en el Paseo de Artesanos (Av. Urquiza 410) y en el aeropuerto. La Secretaría de Turismo provincial atiende en Belgrano 496.",
-      "llegar": "RN9 hacia el sur y RN34 hacia el este. El acceso a las yungas sale de la capital por la ruta de Yala.",
-      "cuando": "Todo el año. El verano es caluroso y lluvioso; el invierno, seco y templado, es la mejor época para recorrerlo."
+      "llegar": "RN9 hacia el sur y RN34 hacia el este. El acceso a las yungas sale de la capital por la ruta de Yala. Los Valles reúnen los departamentos de Doctor Manuel Belgrano (donde está la capital), Palpalá, El Carmen y San Pedro.",
+      "cuando": "Todo el año. El verano es caluroso y lluvioso; el invierno, seco y templado, es la mejor época para recorrerlo.",
+      "departamentos": [
+        {
+          "nombre": "Doctor Manuel Belgrano",
+          "capital": "San Salvador de Jujuy",
+          "localidades": [
+            "San Salvador de Jujuy",
+            "Yala",
+            "Termas de Reyes"
+          ]
+        },
+        {
+          "nombre": "Palpalá",
+          "capital": "Palpalá",
+          "localidades": [
+            "Palpalá"
+          ]
+        },
+        {
+          "nombre": "El Carmen",
+          "capital": "El Carmen",
+          "localidades": [
+            "El Carmen",
+            "Perico",
+            "Monterrico",
+            "Pampa Blanca",
+            "Aguas Calientes"
+          ]
+        },
+        {
+          "nombre": "San Pedro",
+          "capital": "San Pedro de Jujuy",
+          "localidades": [
+            "San Pedro de Jujuy",
+            "La Mendieta",
+            "La Esperanza"
+          ]
+        }
+      ]
     },
     {
       "id": "yungas",
@@ -1308,25 +1436,65 @@
       "alt": "400 a 2.500 m s. n. m.",
       "color": "#2f6b66",
       "mapa": "img/region-yungas.svg",
-      "texto": "La selva de montaña que trepa por el este: nubes enganchadas en los cerros, helechos gigantes y una humedad que no se parece a nada del resto de Jujuy. Es el extremo sur de las yungas andinas, un corredor verde que continúa hasta Bolivia.",
+      "texto": "La selva de montaña que trepa por el este: nubes enganchadas en los cerros, helechos gigantes y una humedad que no se parece a nada del resto de Jujuy. Es el extremo sur de las yungas andinas, un corredor verde que continúa hasta Bolivia. Tiene dos puertas: la RP83 desde Calilegua y la RP6 desde el departamento de Santa Bárbara, que entra por la selva desde el sur hasta El Fuerte y Palma Sola.",
       "datos": [
         "<strong>Parque Nacional Calilegua:</strong> 76.000 ha de selva pedemontana, montana y nublada, creado en 1979.",
         "<strong>Fauna:</strong> yaguareté, tapir, pavas de monte y urracas; unas 350 especies de aves.",
         "<strong>Ríos de agua clara:</strong> la RP83 sube de Calilegua a Valle Grande entre balnearios y senderos.",
+        "<strong>Departamento Santa Bárbara:</strong> Santa Clara, Palma Sola, El Talar, El Fuerte, El Piquete y Vinalito, con la Reserva Provincial Las Lancitas y el camino de cornisa de la RP6 entre la selva y el chaco serrano.",
         "<strong>Fincas históricas:</strong> trapiches y cultivos de las colonias del Valle Grande y Santa Bárbara."
       ],
       "localidades": [
         "Calilegua",
+        "Libertador General San Martín",
         "Valle Grande",
         "San Francisco",
         "Santa Ana",
         "Valle Colorado",
-        "Yala"
+        "Santa Clara",
+        "Palma Sola",
+        "El Talar",
+        "El Fuerte",
+        "El Piquete",
+        "Vinalito"
       ],
-      "transporte": "Micros de la terminal de San Salvador a Calilegua y Libertador San Martín, y un servicio diario que sube a Valle Grande por la RP83 (confirmá horarios: se corta con lluvia). Dentro del parque no hay transporte público: se entra con excursión, 4x4 o guía habilitado.",
+      "transporte": "Micros de la terminal de San Salvador a Calilegua y Libertador San Martín, y un servicio diario que sube a Valle Grande por la RP83 (confirmá horarios: se corta con lluvia). Al departamento de Santa Bárbara se llega desde San Pedro de Jujuy y Libertador San Martín por la RN34 hasta Santa Clara y Palma Sola; de ahí sube la RP6 de cornisa hasta El Fuerte y Valle Grande. Dentro del parque no hay transporte público: se entra con excursión, 4x4 o guía habilitado.",
       "informes": "El Centro de Visitantes Aguas Negras, dentro del parque sobre la RP83, atiende todos los días de 8 a 19 y concentra los informes. La Intendencia del Parque Nacional está en el pueblo de Calilegua (Marinero A. López s/n, 03886 578465).",
-      "llegar": "RP83 desde Calilegua, 100 km al este de la capital; también se entra por Yala y la cuesta del Saladillo.",
-      "cuando": "De mayo a octubre, con menos lluvia. En verano los caminos de tierra se cortan y el calor aprieta."
+      "llegar": "RP83 desde Calilegua, 100 km al este de la capital; también se entra por Yala y la cuesta del Saladillo. La otra puerta es la RP6 desde Santa Clara (cabecera de Santa Bárbara), 40 km de cornisa hasta El Fuerte, y desde Palma Sola por el norte, con vista al arroyo Colorado.",
+      "cuando": "De mayo a octubre, con menos lluvia. En verano los caminos de tierra se cortan y el calor aprieta.",
+      "departamentos": [
+        {
+          "nombre": "Ledesma",
+          "capital": "Libertador General San Martín",
+          "localidades": [
+            "Libertador General San Martín",
+            "Calilegua"
+          ]
+        },
+        {
+          "nombre": "Valle Grande",
+          "capital": "Valle Grande",
+          "localidades": [
+            "Valle Grande",
+            "San Francisco",
+            "Santa Ana",
+            "Valle Colorado"
+          ]
+        },
+        {
+          "nombre": "Santa Bárbara",
+          "capital": "Santa Clara",
+          "localidades": [
+            "Santa Clara",
+            "Palma Sola",
+            "El Talar",
+            "El Fuerte",
+            "El Piquete",
+            "Vinalito",
+            "Puente Lavayén"
+          ]
+        }
+      ]
     }
   ],
   "CHECKLIST": [
@@ -1427,6 +1595,686 @@
       "fecha": "2027-12-25",
       "nombre": "Navidad",
       "tipo": "inamovible"
+    }
+  ],
+  "MAPA": [
+    {
+      "n": "Abra Pampa",
+      "r": "puna",
+      "lat": -22.7228,
+      "lon": -65.697,
+      "d": "Cochinoca",
+      "t": "pueblo"
+    },
+    {
+      "n": "Casabindo",
+      "r": "puna",
+      "lat": -22.9846,
+      "lon": -66.0334,
+      "d": "Cochinoca",
+      "t": "pueblo"
+    },
+    {
+      "n": "Cochinoca",
+      "r": "puna",
+      "lat": -22.7449,
+      "lon": -65.896,
+      "d": "Cochinoca",
+      "t": "pueblo"
+    },
+    {
+      "n": "La Quiaca",
+      "r": "puna",
+      "lat": -22.1045,
+      "lon": -65.5967,
+      "d": "Yavi",
+      "t": "pueblo"
+    },
+    {
+      "n": "Yavi",
+      "r": "puna",
+      "lat": -22.1307,
+      "lon": -65.4625,
+      "d": "Yavi",
+      "t": "pueblo"
+    },
+    {
+      "n": "Susques",
+      "r": "puna",
+      "lat": -23.3992,
+      "lon": -66.3676,
+      "d": "Susques",
+      "t": "pueblo"
+    },
+    {
+      "n": "Coranzulí",
+      "r": "puna",
+      "lat": -23.0137,
+      "lon": -66.3667,
+      "d": "Susques",
+      "t": "pueblo"
+    },
+    {
+      "n": "Rinconada",
+      "r": "puna",
+      "lat": -22.4405,
+      "lon": -66.1664,
+      "d": "Rinconada",
+      "t": "pueblo"
+    },
+    {
+      "n": "Mina Pirquitas",
+      "r": "puna",
+      "lat": -22.6937,
+      "lon": -66.4841,
+      "d": "Rinconada",
+      "t": "pueblo"
+    },
+    {
+      "n": "Santa Catalina",
+      "r": "puna",
+      "lat": -21.947,
+      "lon": -66.0518,
+      "d": "Santa Catalina",
+      "t": "pueblo"
+    },
+    {
+      "n": "Cusi Cusi",
+      "r": "puna",
+      "lat": -22.3403,
+      "lon": -66.4936,
+      "d": "Santa Catalina",
+      "t": "pueblo"
+    },
+    {
+      "n": "Laguna de los Pozuelos",
+      "r": "puna",
+      "lat": -22.35,
+      "lon": -66.0,
+      "d": "Cochinoca",
+      "t": "atractivo"
+    },
+    {
+      "n": "Salinas Grandes",
+      "r": "puna",
+      "lat": -23.5964,
+      "lon": -65.8823,
+      "d": "Tumbaya",
+      "t": "atractivo"
+    },
+    {
+      "n": "Tumbaya",
+      "r": "quebrada",
+      "lat": -23.8575,
+      "lon": -65.467,
+      "d": "Tumbaya",
+      "t": "pueblo"
+    },
+    {
+      "n": "Volcán",
+      "r": "quebrada",
+      "lat": -23.918,
+      "lon": -65.4653,
+      "d": "Tumbaya",
+      "t": "pueblo"
+    },
+    {
+      "n": "Purmamarca",
+      "r": "quebrada",
+      "lat": -23.7465,
+      "lon": -65.4992,
+      "d": "Tumbaya",
+      "t": "pueblo"
+    },
+    {
+      "n": "Huachichocana",
+      "r": "quebrada",
+      "lat": -23.7267,
+      "lon": -65.6019,
+      "d": "Tumbaya",
+      "t": "pueblo"
+    },
+    {
+      "n": "Maimará",
+      "r": "quebrada",
+      "lat": -23.6245,
+      "lon": -65.4086,
+      "d": "Tilcara",
+      "t": "pueblo"
+    },
+    {
+      "n": "Tilcara",
+      "r": "quebrada",
+      "lat": -23.5769,
+      "lon": -65.3934,
+      "d": "Tilcara",
+      "t": "pueblo"
+    },
+    {
+      "n": "Huacalera",
+      "r": "quebrada",
+      "lat": -23.4335,
+      "lon": -65.351,
+      "d": "Tilcara",
+      "t": "pueblo"
+    },
+    {
+      "n": "Uquía",
+      "r": "quebrada",
+      "lat": -23.3036,
+      "lon": -65.3561,
+      "d": "Humahuaca",
+      "t": "pueblo"
+    },
+    {
+      "n": "Humahuaca",
+      "r": "quebrada",
+      "lat": -23.204,
+      "lon": -65.3488,
+      "d": "Humahuaca",
+      "t": "pueblo"
+    },
+    {
+      "n": "El Aguilar",
+      "r": "quebrada",
+      "lat": -23.2156,
+      "lon": -65.6789,
+      "d": "Humahuaca",
+      "t": "pueblo"
+    },
+    {
+      "n": "Tres Cruces",
+      "r": "quebrada",
+      "lat": -22.9192,
+      "lon": -65.5887,
+      "d": "Humahuaca",
+      "t": "pueblo"
+    },
+    {
+      "n": "Serranía del Hornocal",
+      "r": "quebrada",
+      "lat": -23.2617,
+      "lon": -65.1226,
+      "d": "Humahuaca",
+      "t": "atractivo"
+    },
+    {
+      "n": "San Salvador de Jujuy",
+      "r": "valles",
+      "lat": -24.1853,
+      "lon": -65.2995,
+      "d": "Doctor Manuel Belgrano",
+      "t": "pueblo"
+    },
+    {
+      "n": "Yala",
+      "r": "valles",
+      "lat": -24.1213,
+      "lon": -65.4018,
+      "d": "Doctor Manuel Belgrano",
+      "t": "pueblo"
+    },
+    {
+      "n": "Termas de Reyes",
+      "r": "valles",
+      "lat": -24.1711,
+      "lon": -65.4861,
+      "d": "Doctor Manuel Belgrano",
+      "t": "atractivo"
+    },
+    {
+      "n": "Palpalá",
+      "r": "valles",
+      "lat": -24.2555,
+      "lon": -65.2094,
+      "d": "Palpalá",
+      "t": "pueblo"
+    },
+    {
+      "n": "Perico",
+      "r": "valles",
+      "lat": -24.3762,
+      "lon": -65.1182,
+      "d": "El Carmen",
+      "t": "pueblo"
+    },
+    {
+      "n": "Monterrico",
+      "r": "valles",
+      "lat": -24.4416,
+      "lon": -65.1646,
+      "d": "El Carmen",
+      "t": "pueblo"
+    },
+    {
+      "n": "El Carmen",
+      "r": "valles",
+      "lat": -24.3888,
+      "lon": -65.2616,
+      "d": "El Carmen",
+      "t": "pueblo"
+    },
+    {
+      "n": "Pampa Blanca",
+      "r": "valles",
+      "lat": -24.5351,
+      "lon": -65.0725,
+      "d": "El Carmen",
+      "t": "pueblo"
+    },
+    {
+      "n": "Aguas Calientes",
+      "r": "valles",
+      "lat": -24.5843,
+      "lon": -64.9232,
+      "d": "El Carmen",
+      "t": "pueblo"
+    },
+    {
+      "n": "San Pedro de Jujuy",
+      "r": "valles",
+      "lat": -24.2316,
+      "lon": -64.8679,
+      "d": "San Pedro",
+      "t": "pueblo"
+    },
+    {
+      "n": "La Mendieta",
+      "r": "valles",
+      "lat": -24.3146,
+      "lon": -64.9652,
+      "d": "San Pedro",
+      "t": "pueblo"
+    },
+    {
+      "n": "La Esperanza",
+      "r": "valles",
+      "lat": -24.2227,
+      "lon": -64.839,
+      "d": "San Pedro",
+      "t": "pueblo"
+    },
+    {
+      "n": "Calilegua",
+      "r": "yungas",
+      "lat": -23.7742,
+      "lon": -64.7702,
+      "d": "Ledesma",
+      "t": "pueblo"
+    },
+    {
+      "n": "Libertador General San Martín",
+      "r": "yungas",
+      "lat": -23.8093,
+      "lon": -64.7922,
+      "d": "Ledesma",
+      "t": "pueblo"
+    },
+    {
+      "n": "Valle Grande",
+      "r": "yungas",
+      "lat": -23.4768,
+      "lon": -64.946,
+      "d": "Valle Grande",
+      "t": "pueblo"
+    },
+    {
+      "n": "San Francisco",
+      "r": "yungas",
+      "lat": -23.6224,
+      "lon": -64.9494,
+      "d": "Valle Grande",
+      "t": "pueblo"
+    },
+    {
+      "n": "Santa Ana",
+      "r": "yungas",
+      "lat": -23.356,
+      "lon": -64.9891,
+      "d": "Valle Grande",
+      "t": "pueblo"
+    },
+    {
+      "n": "Valle Colorado",
+      "r": "yungas",
+      "lat": -23.4137,
+      "lon": -64.9334,
+      "d": "Valle Grande",
+      "t": "pueblo"
+    },
+    {
+      "n": "Santa Clara",
+      "r": "yungas",
+      "lat": -24.3101,
+      "lon": -64.662,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    },
+    {
+      "n": "Palma Sola",
+      "r": "yungas",
+      "lat": -23.978,
+      "lon": -64.3035,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    },
+    {
+      "n": "El Fuerte",
+      "r": "yungas",
+      "lat": -24.2613,
+      "lon": -64.4157,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    },
+    {
+      "n": "El Talar",
+      "r": "yungas",
+      "lat": -23.5576,
+      "lon": -64.3615,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    },
+    {
+      "n": "El Piquete",
+      "r": "yungas",
+      "lat": -24.1784,
+      "lon": -64.6777,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    },
+    {
+      "n": "Vinalito",
+      "r": "yungas",
+      "lat": -23.6679,
+      "lon": -64.4138,
+      "d": "Santa Bárbara",
+      "t": "pueblo"
+    }
+  ],
+  "MOVILIDAD": [
+    {
+      "id": "a-pie",
+      "nombre": "A pie",
+      "icono": "🥾",
+      "alcance": "8 a 15 km por día",
+      "dias": "2 a 3 días",
+      "itin": "corta",
+      "resumen": "En la Quebrada se camina de pueblo a pueblo por la banquina de la RN9 y por tramos del Qhapaq Ñan. Las distancias son cortas, pero a 2.400 m el ritmo baja a la mitad y el sol del mediodía obliga a parar. Con una sola base y dos noches alcanza para Purmamarca, Maimará y Tilcara.",
+      "bloques": [
+        [
+          "08:30",
+          "Salida temprano: a esta altura conviene caminar con fresco y llegar antes del mediodía."
+        ],
+        [
+          "09:00",
+          "Purmamarca → Maimará por la banquina de la RN9: 11 km, ≈ 2 h 30 min, con la Paleta del Pintor de frente."
+        ],
+        [
+          "12:00",
+          "Almuerzo y siesta en Maimará: entre las 13 y las 15 h no hay sombra en el camino."
+        ],
+        [
+          "15:00",
+          "Maimará → Tilcara: 8 km, ≈ 1 h 45 min, con el río Grande a la izquierda."
+        ],
+        [
+          "18:00",
+          "Tilcara: plaza, mercado artesanal y peña temprano."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Purmamarca",
+          "que": "Hosterías y casas de familia a menos de cuatro cuadras de la plaza",
+          "nota": "Es la base más tranquila para la primera noche y deja la caminata del día siguiente a mano."
+        },
+        {
+          "donde": "Tilcara",
+          "que": "Hostels y hosterías sobre Belgrano y Lavalle",
+          "nota": "Tilcara es la única base con estación de servicio, cajero y farmacia del tramo central: si caminás, dormí acá."
+        }
+      ],
+      "limites": [
+        "El regreso es en colectivo (cada 30 a 60 minutos hasta Tilcara y Humahuaca) o durmiendo en el pueblo donde termina el día.",
+        "Salinas Grandes (65 km) y Hornocal (25 km de ripio) no se hacen a pie: son excursión o vehículo.",
+        "Mochila liviana: cada kilo de más se siente el doble a 2.500 m."
+      ]
+    },
+    {
+      "id": "auto",
+      "nombre": "Auto",
+      "icono": "🚗",
+      "alcance": "150 a 250 km por día",
+      "dias": "4 a 5 días",
+      "itin": "clasico",
+      "resumen": "La opción más flexible: permite dormir en un pueblo distinto cada noche y hacer los desvíos cortos sin depender de horarios. Con auto bajo quedan afuera el ripio del Hornocal y los caminos de tierra de la Puna; el resto del circuito se hace sin problema.",
+      "bloques": [
+        [
+          "08:00",
+          "Salida de San Salvador por RN9: 65 km a Purmamarca, ≈ 1 h 15 min."
+        ],
+        [
+          "09:30",
+          "Mirador del Cerro de los Siete Colores y Paseo de los Colorados."
+        ],
+        [
+          "12:00",
+          "Almuerzo en Maimará y visita al Cementerio de Altura."
+        ],
+        [
+          "15:30",
+          "Tilcara: Pucará (2 h de recorrido) y mercado."
+        ],
+        [
+          "20:30",
+          "Peña en Tilcara y noche en el pueblo."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Purmamarca o Tilcara",
+          "que": "Hoteles y hosterías con cochera o estacionamiento propio",
+          "nota": "En enero, carnaval y agosto se llena: reservá y confirmá que haya dónde dejar el auto."
+        },
+        {
+          "donde": "Humahuaca",
+          "que": "Hosterías del casco histórico, cerca de la plaza",
+          "nota": "Buena base para subir al Hornocal temprano y seguir a la Puna al día siguiente."
+        }
+      ],
+      "limites": [
+        "Estacionamiento limitado en Purmamarca y Tilcara: llegá antes de las 10 h en temporada alta.",
+        "Nafta: cargá en Tilcara o Humahuaca antes de subir a la Puna; no cuentes con estaciones en los pueblos chicos ni los domingos.",
+        "Con auto bajo, el ripio del Hornocal y la RP83 después de la lluvia quedan fuera del plan."
+      ]
+    },
+    {
+      "id": "camioneta",
+      "nombre": "Camioneta 4x4",
+      "icono": "🛻",
+      "alcance": "200 a 300 km por día, con ripio",
+      "dias": "6 a 8 días",
+      "itin": "extendido",
+      "resumen": "La única forma de hacer el circuito completo sin contratar excursiones: Hornocal, Salinas por el camino de tierra, la Puna profunda y la RP83 hasta las Yungas. Gana altura y kilómetros, pero no velocidad: en ripio el promedio real es de 30 km/h.",
+      "bloques": [
+        [
+          "07:00",
+          "Humahuaca → Hornocal: 25 km de ripio, ≈ 1 h; el mirador a 4.350 m se ve mejor con la luz de la mañana."
+        ],
+        [
+          "10:30",
+          "Bajada a Humahuaca, carga de combustible y almuerzo."
+        ],
+        [
+          "14:00",
+          "Cuesta de Tres Cruces: el paisaje cambia a Puna en 20 km."
+        ],
+        [
+          "17:00",
+          "Abra Pampa: feria, mercado y noche en el altiplano."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Abra Pampa o Tres Cruces",
+          "que": "Hosterías simples y alojamientos de pueblo",
+          "nota": "Son las bases reales de la Puna: no hay hoteles grandes y conviene reservar por teléfono."
+        },
+        {
+          "donde": "La Quiaca",
+          "que": "Hoteles de frontera con cochera",
+          "nota": "La ciudad más grande del norte: banco, cajero y talleres, si algo se rompe."
+        }
+      ],
+      "limites": [
+        "Altura y ripio: 4.350 m en el Hornocal y 4.170 m en la Cuesta del Lipán. No subas con lluvia ni de noche.",
+        "Sin señal ni auxilio mecánico entre Abra Pampa y Susques: llevá agua, rueda de auxilio en condiciones y combustible de reserva.",
+        "De diciembre a marzo hay barro y crecidas: consultá el estado de los caminos en Turismo de Jujuy antes de salir."
+      ]
+    },
+    {
+      "id": "colectivo",
+      "nombre": "Colectivo",
+      "icono": "🚌",
+      "alcance": "40 a 80 km por día, según horarios",
+      "dias": "3 a 4 días",
+      "itin": "corta",
+      "resumen": "La Quebrada entera se hace en colectivo, pero el día lo manda la frecuencia: los micros de la terminal de San Salvador paran en cada pueblo hasta Humahuaca. Salinas Grandes y Hornocal quedan solo con excursión contratada, porque no hay servicio público.",
+      "bloques": [
+        [
+          "07:30",
+          "Micro de la terminal de San Salvador a Purmamarca, ≈ 1 h 30 min (Purmamarca queda 3 km fuera de la RN9)."
+        ],
+        [
+          "09:00",
+          "Purmamarca a pie: cerro, Paseo de los Colorados y plaza."
+        ],
+        [
+          "13:30",
+          "Micro a Tilcara (20 min) o a Maimará, según la frecuencia del día."
+        ],
+        [
+          "16:00",
+          "Tilcara: Pucará o mercado artesanal."
+        ],
+        [
+          "19:00",
+          "Peña y noche en el pueblo donde te dejó el último micro."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Tilcara",
+          "que": "Hostels y hosterías cerca de la terminal de micros",
+          "nota": "Tilcara concentra las frecuencias: desde ahí salen los micros a Humahuaca y a la Puna."
+        },
+        {
+          "donde": "Humahuaca",
+          "que": "Hosterías y residenciales sobre la calle Buenos Aires",
+          "nota": "Última parada segura antes de la Puna: después de las 20 h ya no hay servicios."
+        }
+      ],
+      "limites": [
+        "Los micros a la Puna salen de madrugada y vuelven temprano: calculá dormir en Abra Pampa o La Quiaca.",
+        "Purmamarca solo la atienden los servicios locales, cada 2 horas: mirá el horario de vuelta antes de bajarte.",
+        "Para Salinas Grandes y Hornocal hay que contratar excursión en Tilcara, Purmamarca o Humahuaca."
+      ]
+    },
+    {
+      "id": "bici",
+      "nombre": "Bicicleta",
+      "icono": "🚲",
+      "alcance": "35 a 60 km por día",
+      "dias": "2 a 3 días",
+      "itin": "corta",
+      "resumen": "La Quebrada en bici es un clásico, pero la RN9 tiene tráfico y el desnivel de Jujuy a Purmamarca (65 km y unos 1.100 m de subida) es duro. Lo razonable es arrancar en Volcán o Purmamarca y dormir en Tilcara, con etapas de 20 a 40 km.",
+      "bloques": [
+        [
+          "07:00",
+          "Salida temprano desde Volcán o Purmamarca: ruta con luz, sin viento y con poco tránsito."
+        ],
+        [
+          "08:30",
+          "Purmamarca: mirador del cerro y bajada a Maimará (11 km)."
+        ],
+        [
+          "12:00",
+          "Almuerzo largo: la altura y el sol obligan a parar al mediodía."
+        ],
+        [
+          "15:00",
+          "Maimará → Tilcara por la banquina de la RN9: 8 km."
+        ],
+        [
+          "18:00",
+          "Tilcara: taller de bicis, mercado y noche."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Tilcara",
+          "que": "Hostels con patio o depósito para guardar la bici",
+          "nota": "Pedí que la bici duerma adentro: no hay bicicleteros en la calle ni en la terminal."
+        },
+        {
+          "donde": "Maimará",
+          "que": "Hosterías chicas sobre la ruta",
+          "nota": "Alternativa si el día te deja corto: está a 8 km de Tilcara y suele ser más barato."
+        }
+      ],
+      "limites": [
+        "Casco, luces y ropa visible: la RN9 no tiene banquina ancha en todo el tramo y hay camiones.",
+        "No hay agua potable en la ruta: llevá dos caramañolas por persona y algo de comida.",
+        "El ripio del Hornocal y las Salinas no son para bici de ruta: solo con bicicleta de montaña y experiencia en altura."
+      ]
+    },
+    {
+      "id": "moto",
+      "nombre": "Motocicleta",
+      "icono": "🏍️",
+      "alcance": "120 a 200 km por día",
+      "dias": "4 a 6 días",
+      "itin": "clasico",
+      "resumen": "La moto resuelve el estacionamiento y llega a los caminos de ripio con cuidado. El límite es el combustible: entre Purmamarca y La Quiaca la única estación segura es Tilcara, y después de las 20 h no queda nada abierto.",
+      "bloques": [
+        [
+          "08:00",
+          "Salida de San Salvador; carga completa en Tilcara antes de seguir al norte."
+        ],
+        [
+          "10:00",
+          "Purmamarca y Maimará."
+        ],
+        [
+          "13:00",
+          "Tilcara: Pucará y almuerzo."
+        ],
+        [
+          "16:00",
+          "Huacalera y Uquía."
+        ],
+        [
+          "18:30",
+          "Humahuaca: llegada con luz y noche en el pueblo."
+        ]
+      ],
+      "dormir": [
+        {
+          "donde": "Tilcara",
+          "que": "Hostels y hosterías con cochera cerrada o patio",
+          "nota": "Es la base con mejor oferta mecánica de la Quebrada, por si hay que ajustar algo."
+        },
+        {
+          "donde": "Humahuaca",
+          "que": "Alojamientos con cochera sobre la ruta",
+          "nota": "Salida temprana al Hornocal y a la Puna con el tanque lleno."
+        }
+      ],
+      "limites": [
+        "Ripio del Hornocal y RP83: con moto de calle solo con buen tiempo y sin equipaje pesado.",
+        "Viento lateral en la Puna y animales sueltos al atardecer: no manejes de noche.",
+        "Autonomía: cargá en Tilcara, Humahuaca y Abra Pampa; no hay estaciones entre esos puntos."
+      ]
     }
   ]
 }

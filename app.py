@@ -36,6 +36,10 @@ DESTINOS = DATOS["DESTINOS"]
 REGIONES = DATOS["REGIONES"]
 CHECKLIST = DATOS["CHECKLIST"]
 FERIADOS = DATOS["FERIADOS"]
+# Lugares del mapa interactivo (con latitud y longitud) y los planes según el
+# modo de moverse, que se eligen con ?mov=<id>.
+MAPA = DATOS["MAPA"]
+MOVILIDAD = DATOS["MOVILIDAD"]
 
 MESES = [
     "enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -92,6 +96,20 @@ def formatear_tiempo(minutos: float) -> str:
     if not horas:
         return f"{resto} min"
     return f"{horas} h {resto} min" if resto else f"{horas} h"
+
+
+def video_region(region_id: str, idioma: str) -> dict | None:
+    """Video de la región en el idioma de la página.
+
+    Si la región no tiene video en ese idioma se usa el de español y la ficha
+    del video lo avisa (`idioma` queda con el idioma real del video).
+    """
+    variantes = VIDEOS.get(region_id) or {}
+    if not variantes:
+        return None
+    clave = idioma if idioma in variantes else "es"
+    nombres = {"es": "español", "en": "inglés", "pt": "portugués", "fr": "francés"}
+    return {**variantes[clave], "idioma": clave, "idioma_texto": nombres[clave]}
 
 
 def cuando_texto(dias: int) -> str:
@@ -397,10 +415,12 @@ def index():
     mes = request.args.get("mes", "todos")
     solo_destacados = request.args.get("destacados") == "1"
     itin_id = request.args.get("itin", ITINERARIOS[0]["id"])
+    mov_id = request.args.get("mov", MOVILIDAD[0]["id"])
     origen = request.args.get("origen", "jujuy")
     destino = request.args.get("destino", "humahuaca")
 
     itinerario = next((i for i in ITINERARIOS if i["id"] == itin_id), ITINERARIOS[0])
+    movilidad_actual = next((m for m in MOVILIDAD if m["id"] == mov_id), MOVILIDAD[0])
     idioma = request.cookies.get("idioma", "es")
     if idioma not in IDIOMAS_HTML:
         idioma = "es"
@@ -414,12 +434,15 @@ def index():
         destinos=DESTINOS,
         experiencias=EXPERIENCIAS,
         fotos=FOTOS,
-        videos=VIDEOS,
+        videos={rid: video_region(rid, idioma) for rid in VIDEOS},
         videos_destinos=VIDEOS_DESTINOS,
         videos_experiencias=VIDEOS_EXPERIENCIAS,
         penas=PENAS,
         itinerarios=ITINERARIOS,
         itinerario=itinerario,
+        movilidad=MOVILIDAD,
+        mov=movilidad_actual,
+        mapa=[{**lugar, "c": COLOR_REGION.get(lugar["r"].capitalize(), "#b23a2f")} for lugar in MAPA],
         checklist=CHECKLIST,
         meses=MESES,
         eventos=filtrar_eventos(eventos, pueblo, mes, solo_destacados),

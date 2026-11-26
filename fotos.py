@@ -78,29 +78,88 @@ FOTOS = {
     },
 }
 
-# Un video por región: el ID de YouTube, el título real del video y su canal.
-# Se incrustan con click (miniaturas propias de YouTube) para no cargar el
-# reproductor hasta que alguien lo pide.
+# Un video por región y por idioma: el ID de YouTube, el título real del video y
+# su canal. Si no hay video en el idioma pedido se usa el de español y la ficha
+# lo aclara. Se incrustan con click (miniaturas propias de YouTube) para no
+# cargar el reproductor hasta que alguien lo pide.
 VIDEOS = {
     "puna": {
-        "id": "jZMWNnEuol0",
-        "titulo": "Las Salinas Grandes en Jujuy: tips y recomendaciones",
-        "canal": "Destinos Argentina",
+        "es": {
+            "id": "jZMWNnEuol0",
+            "titulo": "Las Salinas Grandes en Jujuy: tips y recomendaciones",
+            "canal": "Destinos Argentina",
+        },
+        "en": {
+            "id": "u7m87h1Pt5k",
+            "titulo": "Salinas Grandes, Jujuy | High-Altitude Salt Flats and Andean Landscapes in Argentina",
+            "canal": "Demi on the Road",
+        },
+        "pt": {
+            "id": "GOBmrjO_13g",
+            "titulo": "PREJUÍZO nas SALINAS GRANDES. Jujuy, Argentina",
+            "canal": "Vida de Mochila",
+        },
+        "fr": {
+            "id": "TuvY2LfBAUc",
+            "titulo": "Salinas Grandes, Argentine – Une plaine majestueuse d’Amérique du Sud",
+            "canal": "Explore Edge en Français",
+        },
     },
     "quebrada": {
-        "id": "Gz9lNXgJbt8",
-        "titulo": "Humahuaca, el imperdible de Jujuy",
-        "canal": "Gonza & Agus",
+        "es": {
+            "id": "Gz9lNXgJbt8",
+            "titulo": "Humahuaca, el imperdible de Jujuy",
+            "canal": "Gonza & Agus",
+        },
+        "en": {
+            "id": "TdXhmImpmPo",
+            "titulo": "Quebrada de Humahuaca Argentina Travel Guide: Top 15 Attractions",
+            "canal": "Tripocity Destinations",
+        },
+        "pt": {
+            "id": "G7xH1Dh-0zU",
+            "titulo": "Roteiro Completo no NORTE DA ARGENTINA e conheça a Quebrada de Humahuaca - Jujuy",
+            "canal": "UMASULAMERICANA",
+        },
+        "fr": {
+            "id": "yuVV9IMsSFo",
+            "titulo": "UNE MONTAGNE AUX 14 COULEURS • Découverte de la Quebrada de Humahuaca (Argentine)",
+            "canal": "Théo Lathuile",
+        },
     },
     "valles": {
-        "id": "QFpm-7PqYs4",
-        "titulo": "Así es San Salvador de Jujuy: qué hacer y dónde comer",
-        "canal": "Gonza & Agus",
+        "es": {
+            "id": "QFpm-7PqYs4",
+            "titulo": "Así es San Salvador de Jujuy: qué hacer y dónde comer",
+            "canal": "Gonza & Agus",
+        },
+        "en": {
+            "id": "6IcCtQKlj6g",
+            "titulo": "San Salvador de Jujuy, Argentina | Historic Center & Local Culture",
+            "canal": "Sweet Sour Travel",
+        },
+        "pt": {
+            "id": "_mOvuwS7cW8",
+            "titulo": "JUJUY ARGENTINA: Onde se hospedar e o que fazer em Jujuy, noroeste do país",
+            "canal": "Larga Tudo e Vai",
+        },
+        "fr": {
+            "id": "UToGfThBnMk",
+            "titulo": "Argentine #3 - Les paysages incroyables de Salta et Jujuy",
+            "canal": "Demi Voyages",
+        },
     },
     "yungas": {
-        "id": "O0tDatEaFhg",
-        "titulo": "Yungas de Jujuy: maravilla oculta",
-        "canal": "TripinTV",
+        "es": {
+            "id": "O0tDatEaFhg",
+            "titulo": "Yungas de Jujuy: maravilla oculta",
+            "canal": "TripinTV",
+        },
+        "en": {
+            "id": "GUVifCPdYpw",
+            "titulo": "Northern Argentina's Unexpected Rainforest",
+            "canal": "Lonely Planet",
+        },
     },
 }
 

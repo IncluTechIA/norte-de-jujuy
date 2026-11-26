@@ -630,3 +630,86 @@ select:focus-visible{outline:2px solid var(--rojo); outline-offset:1px}
 .nota-card{font-size:.74rem; line-height:1.55; color:var(--tinta-suave); margin:.9rem 0 0}
 .tabla-tipos{margin-top:1rem}
 @media (max-width:900px){ .numeros-grid--parejo{grid-template-columns:1fr} }
+
+/* ---------- títulos y notas de las tablas de la EOH ---------- */
+.tabla-title{font-size:1.02rem; margin:1.4rem 0 .35rem; color:var(--tinta)}
+.tabla-title:first-of-type{margin-top:0}
+.tabla-nota{font-size:.78rem; line-height:1.55; color:var(--tinta-suave); margin:0 0 .6rem; max-width:80ch}
+.tabla-nota strong{color:var(--tinta)}
+
+/* ---------- mapa interactivo de regiones ---------- */
+.mapa-card{
+  background:var(--blanco); border:1px solid var(--linea); border-radius:var(--radio);
+  padding:1.2rem 1.3rem 1.1rem; box-shadow:var(--sombra); margin-bottom:1.6rem;
+}
+.mapa-head{margin-bottom:.9rem}
+.mapa-head h3{font-size:1.12rem; margin-bottom:.4rem}
+.mapa-head p{font-size:.88rem; color:var(--tinta-suave); margin:0; max-width:82ch}
+.mapa-canvas{
+  position:relative; z-index:0; height:470px; width:100%;
+  border-radius:12px; border:1px solid var(--linea); background:var(--arena-2);
+}
+.mapa-canvas .leaflet-container{font-family:var(--sans); font-size:.8rem; border-radius:12px}
+.mapa-canvas .leaflet-popup-content{margin:.7rem .85rem; line-height:1.45}
+.mapa-leyenda{list-style:none; display:flex; flex-wrap:wrap; gap:.4rem .55rem; padding:0; margin:.9rem 0 .5rem}
+.mapa-leyenda li{margin:0}
+.mapa-leyenda button{
+  display:inline-flex; align-items:center; gap:.45rem; cursor:pointer;
+  font:inherit; font-size:.78rem; font-weight:600; color:var(--tinta);
+  background:var(--arena); border:1px solid var(--linea); border-radius:99px; padding:.3rem .72rem;
+  transition:opacity .2s, background .2s;
+}
+.mapa-leyenda button:hover{background:var(--arena-2)}
+.mapa-leyenda button:focus-visible{outline:2px solid var(--rojo); outline-offset:2px}
+.mapa-leyenda button[aria-pressed="false"]{opacity:.42; text-decoration:line-through}
+.mapa-leyenda .dot{width:10px; height:10px; border-radius:50%; background:var(--c); flex:none}
+.mapa-card .fineprint{font-size:.72rem; line-height:1.45; color:var(--tinta-suave); margin:0}
+
+/* ---------- departamentos por región ---------- */
+.region-deptos{list-style:none; padding:0; margin:0; display:grid; gap:.45rem}
+.region-deptos li{display:grid; gap:.1rem; font-size:.82rem; line-height:1.4; margin:0}
+.region-deptos strong{font-weight:600}
+.depto-cap{color:var(--tinta-suave); font-size:.75rem}
+.depto-places{color:var(--tinta-suave); font-size:.75rem}
+
+/* ---------- planes según cómo te movés ---------- */
+.movilidad{margin-top:2rem}
+.movilidad .sub-head{margin-bottom:.9rem}
+.tabs-mov{border-radius:var(--radio) var(--radio) 0 0}
+.mov-icon{margin-right:.35rem}
+.mov-panel{
+  background:var(--blanco); border:1px solid var(--linea); border-top:0;
+  border-radius:0 0 var(--radio) var(--radio); box-shadow:var(--sombra);
+  padding:1.2rem 1.4rem 1.4rem;
+}
+.mov-head h4{font-size:1.18rem; margin-bottom:.5rem}
+.mov-head p{font-size:.9rem; color:var(--tinta-suave); margin:0 0 .55rem; max-width:78ch}
+.mov-itin{font-size:.85rem !important; color:var(--tinta) !important}
+.mov-itin a{font-weight:600}
+.mov-grid{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:1.4rem;
+  margin-top:1.1rem; padding-top:1.1rem; border-top:1px dashed var(--linea);
+}
+.mov-grid h5, .mov-limites h5{
+  font-family:var(--sans); font-size:.68rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--tinta-suave); margin:0 0 .65rem;
+}
+.dormir-list{list-style:none; padding:0; margin:0; display:grid; gap:.65rem}
+.dormir-list li{
+  display:grid; gap:.15rem; background:var(--arena); border-left:3px solid var(--verde);
+  border-radius:0 10px 10px 0; padding:.6rem .75rem; font-size:.84rem; margin:0;
+}
+.dormir-list strong{font-size:.9rem}
+.dormir-list span{color:var(--tinta-suave)}
+.dormir-list em{font-style:normal; font-size:.78rem; color:#7a6754}
+.mov-limites{margin-top:1.1rem; padding-top:1rem; border-top:1px dashed var(--linea)}
+.mov-limites ul{font-size:.85rem; color:var(--tinta-suave); margin:0; padding-left:1.15em}
+.video-idioma{color:var(--tinta-suave)}
+
+@media (max-width:760px){
+  .mov-grid{grid-template-columns:1fr}
+  .mov-panel{padding:1.1rem 1rem 1.2rem}
+  .mapa-card{padding:1rem .95rem}
+  .mapa-canvas{height:360px}
+  .region-deptos li{font-size:.8rem}
+}
